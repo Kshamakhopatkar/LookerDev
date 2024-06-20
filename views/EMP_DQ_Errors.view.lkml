@@ -75,4 +75,8 @@ view: emp_dq_errors {
     measure: count {
       type: count
     }
+    measure: percentage {
+      sql: count(*) / (select count(*) from `premi0436563-gitenter.hr_dq.sfec_employee_dq_error_details`) * 100 ;;
+      value_format: "0.00\%"
+    }
   }
