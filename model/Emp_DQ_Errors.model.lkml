@@ -37,3 +37,27 @@ explore: immidart_employee_dq_error_details {
 explore: gfs_employee_dq_error_details {
   label: "gfs_employee_dq_error_details"
 }
+
+explore: corp_employee_dq_error_details {
+  label: "corp_employee_dq_error_details"
+}
+
+explore: gdh_employee_global_dq_error_details {
+  label: "gdh_employee_global_dq_error_details"
+}
+
+explore: gdh_newjoiner_dq_error_details {
+  label: "gdh_newjoiner_dq_error_details"
+}
+
+explore: isgdb_employee_exception_details {
+  label: "isgdb_employee_exception_details"
+}
+
+explore: servicecentral_newjoiner_dq_error_details {
+  label: "servicecentral_newjoiner_dq_error_details"
+}
+
+explore: psa_employee_dq_error_details {
+  label: "psa_employee_dq_error_details"
+}

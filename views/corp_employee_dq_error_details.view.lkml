@@ -1,5 +1,5 @@
-view: immidart_employee_dq_error_details {
-  sql_table_name: `premi0436563-gitenter.datacloud_adm_dq.immidart_employee_dq_error_details` ;;
+view: corp_employee_dq_error_details {
+  sql_table_name: `premi0436563-gitenter.datacloud_adm_dq.corp_employee_dq_error_details` ;;
 
   dimension: adm_lineage_id {
     type: string
@@ -22,44 +22,31 @@ view: immidart_employee_dq_error_details {
   }
   dimension: error_description {
     type: string
-    description: "Description of the Exception "
+    description: "Description of the Exception"
     sql: ${TABLE}.error_description ;;
   }
-  dimension: error_value {
+  dimension: globalgroupid {
     type: string
-    sql: ${TABLE}.error_value ;;
+    description: "Employee GGID on which the exception is reported"
+    sql: ${TABLE}.globalgroupid ;;
   }
   dimension: interface_name {
     type: string
     sql: ${TABLE}.interface_name ;;
   }
-  dimension_group: modified_timestamp {
-    type: time
-    timeframes: [raw, time, date, week, month, quarter, year]
-    sql: ${TABLE}.modified_timestamp ;;
+  dimension: interface_type {
+    type: string
+    sql: ${TABLE}.interface_type ;;
   }
   dimension: ou_code {
-    type: string
-    description: "The Organization unit to which this Employee Record belongs"
+    type: number
+    description: "The Organization unit to which this Employee Record Belongs"
     sql: ${TABLE}.ou_code ;;
-  }
-  dimension: pernr_id {
-    type: string
-    description: "Employee PERNR on which this exception is reported"
-    sql: ${TABLE}.pernr_id ;;
   }
   dimension: rule_column {
     type: string
     description: "Column on which the Exception is reported"
     sql: ${TABLE}.rule_column ;;
-  }
-  dimension: rule_type {
-    type: string
-    sql: ${TABLE}.rule_type ;;
-  }
-  dimension: scan_tbl_row_hash {
-    type: string
-    sql: ${TABLE}.scan_tbl_row_hash ;;
   }
   dimension: severity {
     type: string

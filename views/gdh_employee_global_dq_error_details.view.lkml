@@ -1,5 +1,5 @@
-view: immidart_employee_dq_error_details {
-  sql_table_name: `premi0436563-gitenter.datacloud_adm_dq.immidart_employee_dq_error_details` ;;
+view: gdh_employee_global_dq_error_details {
+  sql_table_name: `premi0436563-gitenter.datacloud_adm_dq.gdh_employee_global_dq_error_details` ;;
 
   dimension: adm_lineage_id {
     type: string
@@ -22,31 +22,35 @@ view: immidart_employee_dq_error_details {
   }
   dimension: error_description {
     type: string
-    description: "Description of the Exception "
+    description: "Description of the Exception"
     sql: ${TABLE}.error_description ;;
   }
   dimension: error_value {
     type: string
     sql: ${TABLE}.error_value ;;
   }
+  dimension: global_group_id {
+    type: number
+    description: "Employee GGID on which the exception is reported"
+    sql: ${TABLE}.global_group_id ;;
+  }
   dimension: interface_name {
     type: string
     sql: ${TABLE}.interface_name ;;
   }
-  dimension_group: modified_timestamp {
-    type: time
-    timeframes: [raw, time, date, week, month, quarter, year]
-    sql: ${TABLE}.modified_timestamp ;;
-  }
   dimension: ou_code {
-    type: string
-    description: "The Organization unit to which this Employee Record belongs"
+    type: number
+    description: "The Organization unit to which this Employee Record Belongs"
     sql: ${TABLE}.ou_code ;;
   }
   dimension: pernr_id {
-    type: string
+    type: number
     description: "Employee PERNR on which this exception is reported"
     sql: ${TABLE}.pernr_id ;;
+  }
+  dimension: rowhash {
+    type: string
+    sql: ${TABLE}.rowhash ;;
   }
   dimension: rule_column {
     type: string
@@ -57,14 +61,15 @@ view: immidart_employee_dq_error_details {
     type: string
     sql: ${TABLE}.rule_type ;;
   }
-  dimension: scan_tbl_row_hash {
-    type: string
-    sql: ${TABLE}.scan_tbl_row_hash ;;
-  }
   dimension: severity {
     type: string
     description: "If Record reported as Error, it will not be processed further, If record reported as Warning , will be processed further"
     sql: ${TABLE}.severity ;;
+  }
+  dimension_group: updated_timestamp {
+    type: time
+    timeframes: [raw, time, date, week, month, quarter, year]
+    sql: ${TABLE}.updated_timestamp ;;
   }
   measure: count {
     type: count

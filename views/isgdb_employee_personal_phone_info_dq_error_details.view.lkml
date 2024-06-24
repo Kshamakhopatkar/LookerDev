@@ -1,5 +1,5 @@
-view: gfs_employee_dq_error_details {
-  sql_table_name: `premi0436563-gitenter.datacloud_adm_dq.gfs_employee_dq_error_details` ;;
+view: isgdb_employee_personal_phone_info_dq_error_details {
+  sql_table_name: `premi0436563-gitenter.datacloud_adm_dq.isgdb_employee_personal_phone_info_dq_error_details` ;;
 
   dimension: adm_lineage_id {
     type: string
@@ -11,42 +11,48 @@ view: gfs_employee_dq_error_details {
   }
   dimension: country_of_company {
     type: string
-    description: "Country of the Company code"
     sql: ${TABLE}.country_of_company ;;
   }
   dimension_group: created_timestamp {
     type: time
-    description: "Timestamp for Batch Run"
     timeframes: [raw, time, date, week, month, quarter, year]
     sql: ${TABLE}.created_timestamp ;;
   }
   dimension: error_description {
     type: string
-    description: "Description of the Exception "
     sql: ${TABLE}.error_description ;;
   }
-  dimension: global_group_id {
-    type: string
-    description: "Employee GGID on which the exception is reported"
-    sql: ${TABLE}.global_group_id ;;
+  dimension: ggid {
+    type: number
+    value_format_name: id
+    sql: ${TABLE}.ggid ;;
   }
   dimension: interface_name {
     type: string
     sql: ${TABLE}.interface_name ;;
   }
-  dimension: ou_code {
+  dimension: interface_type {
     type: string
-    description: "The Organization unit to which this Employee Record Belongs"
+    sql: ${TABLE}.interface_type ;;
+  }
+  dimension: ou_code {
+    type: number
     sql: ${TABLE}.ou_code ;;
+  }
+  dimension: pernr {
+    type: number
+    sql: ${TABLE}.pernr ;;
+  }
+  dimension: phone_type {
+    type: number
+    sql: ${TABLE}.phone_type ;;
   }
   dimension: rule_column {
     type: string
-    description: "Column on which the Exception is reported"
     sql: ${TABLE}.rule_column ;;
   }
   dimension: severity {
     type: string
-    description: "If Record reported as Error, it will not be processed further, If record reported as Warning , will be processed further"
     sql: ${TABLE}.severity ;;
   }
   measure: count {

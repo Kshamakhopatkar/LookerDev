@@ -3,6 +3,7 @@ view: s4_org_structure_dq_error_details {
 
   dimension: country_of_company {
     type: string
+    description: "Country of the Company code"
     sql: ${TABLE}.Country_of_Company ;;
   }
   dimension: data_quality_job_id {
@@ -15,15 +16,18 @@ view: s4_org_structure_dq_error_details {
   }
   dimension_group: dc_created_timestamp {
     type: time
+    description: "Timestamp for Batch Run"
     timeframes: [raw, time, date, week, month, quarter, year]
     sql: ${TABLE}.dc_created_timestamp ;;
   }
   dimension: dc_file_id {
     type: string
+    description: "Only required for Data Cloud Traceability"
     sql: ${TABLE}.dc_file_id ;;
   }
   dimension: dc_lineage_id {
     type: string
+    description: "Only required for Data Cloud Traceability"
     sql: ${TABLE}.dc_lineage_id ;;
   }
   dimension: dc_rowhash {
@@ -32,6 +36,7 @@ view: s4_org_structure_dq_error_details {
   }
   dimension: dc_source_id {
     type: string
+    description: "Only required for Data Cloud Traceability"
     sql: ${TABLE}.dc_source_id ;;
   }
   dimension_group: dc_updated_timestamp {
@@ -41,6 +46,7 @@ view: s4_org_structure_dq_error_details {
   }
   dimension: error_description {
     type: string
+    description: "Description of the Exception "
     sql: ${TABLE}.error_description ;;
   }
   dimension: error_value {
@@ -101,6 +107,7 @@ view: s4_org_structure_dq_error_details {
   }
   dimension: rule_column {
     type: string
+    description: "Column on which the Exception is reported"
     sql: ${TABLE}.rule_column ;;
   }
   dimension: rule_type {
@@ -109,6 +116,7 @@ view: s4_org_structure_dq_error_details {
   }
   dimension: severity {
     type: string
+    description: "If Record reported as Error, it will not be processed further, If record reported as Warning , will be processed further"
     sql: ${TABLE}.severity ;;
   }
   measure: count {

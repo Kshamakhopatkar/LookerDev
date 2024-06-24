@@ -1,13 +1,9 @@
-view: gfs_employee_dq_error_details {
-  sql_table_name: `premi0436563-gitenter.datacloud_adm_dq.gfs_employee_dq_error_details` ;;
+view: servicecentral_newjoiner_dq_error_details {
+  sql_table_name: `premi0436563-gitenter.datacloud_adm_dq.servicecentral_newjoiner_dq_error_details` ;;
 
   dimension: adm_lineage_id {
     type: string
     sql: ${TABLE}.adm_lineage_id ;;
-  }
-  dimension: adm_table_name {
-    type: string
-    sql: ${TABLE}.adm_table_name ;;
   }
   dimension: country_of_company {
     type: string
@@ -22,27 +18,26 @@ view: gfs_employee_dq_error_details {
   }
   dimension: error_description {
     type: string
-    description: "Description of the Exception "
+    description: "Description of the Exception"
     sql: ${TABLE}.error_description ;;
+  }
+  dimension: error_value {
+    type: number
+    sql: ${TABLE}.error_value ;;
   }
   dimension: global_group_id {
     type: string
     description: "Employee GGID on which the exception is reported"
     sql: ${TABLE}.global_group_id ;;
   }
-  dimension: interface_name {
-    type: string
-    sql: ${TABLE}.interface_name ;;
-  }
   dimension: ou_code {
-    type: string
+    type: number
     description: "The Organization unit to which this Employee Record Belongs"
     sql: ${TABLE}.ou_code ;;
   }
-  dimension: rule_column {
+  dimension: rule_type {
     type: string
-    description: "Column on which the Exception is reported"
-    sql: ${TABLE}.rule_column ;;
+    sql: ${TABLE}.rule_type ;;
   }
   dimension: severity {
     type: string
@@ -51,6 +46,5 @@ view: gfs_employee_dq_error_details {
   }
   measure: count {
     type: count
-    drill_fields: [interface_name, adm_table_name]
   }
 }
