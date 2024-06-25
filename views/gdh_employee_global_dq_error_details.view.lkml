@@ -30,7 +30,7 @@ view: gdh_employee_global_dq_error_details {
     sql: ${TABLE}.error_value ;;
   }
   dimension: global_group_id {
-    type: number
+    type: string
     description: "Employee GGID on which the exception is reported"
     sql: ${TABLE}.global_group_id ;;
   }
@@ -39,12 +39,12 @@ view: gdh_employee_global_dq_error_details {
     sql: ${TABLE}.interface_name ;;
   }
   dimension: ou_code {
-    type: number
+    type: string
     description: "The Organization unit to which this Employee Record Belongs"
     sql: ${TABLE}.ou_code ;;
   }
   dimension: pernr_id {
-    type: number
+    type: string
     description: "Employee PERNR on which this exception is reported"
     sql: ${TABLE}.pernr_id ;;
   }

@@ -39,7 +39,7 @@ view: gdh_newjoiner_dq_error_details {
     sql: ${TABLE}.interface_name ;;
   }
   dimension: ou_code {
-    type: number
+    type: string
     description: "The Organization unit to which this Employee Record Belongs"
     sql: ${TABLE}.ou_code ;;
   }

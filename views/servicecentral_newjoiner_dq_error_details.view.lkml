@@ -31,7 +31,7 @@ view: servicecentral_newjoiner_dq_error_details {
     sql: ${TABLE}.global_group_id ;;
   }
   dimension: ou_code {
-    type: number
+    type: string
     description: "The Organization unit to which this Employee Record Belongs"
     sql: ${TABLE}.ou_code ;;
   }
