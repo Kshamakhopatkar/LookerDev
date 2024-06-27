@@ -1,5 +1,5 @@
 view: emp_dq_errors {
-  sql_table_name: `premi0436563-gitenter.hr_dq.sfec_employee_dq_error_details` ;;
+  sql_table_name: `hr_dq.sfec_employee_dq_error_details` ;;
   label: "Emp Errors Inbound"
 
     dimension: country_of_company {

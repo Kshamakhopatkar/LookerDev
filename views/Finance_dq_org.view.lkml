@@ -47,9 +47,9 @@ view: finance_dq_org_errors {
     dimension: error_description {
       type: string
       description: "Description of the Exception"
-      sql: ${TABLE}.error_description ;;
-
+      sql: ${TABLE}.error_description;;
     }
+
     dimension: error_value {
       type: string
       sql: ${TABLE}.error_value ;;
@@ -131,4 +131,5 @@ view: finance_dq_org_errors {
     measure: count {
       type: count
     }
+
   }

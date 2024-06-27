@@ -4,9 +4,9 @@ include: "/views/*.view.lkml"                # include all views in the views/ f
 
 explore: emp_dq_errors {
   label: "sfec_employee_dq_error_details"
-
   }
 explore: finance_dq_org_errors {
+  sql_always_where: error_description NOT LIKE '%IGNORE:NO ACTION REQUIRED:Warning Message received in Feed%' ;;
   label: "gfs_org_structure_dq_error_details"
 }
 
