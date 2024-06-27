@@ -10,10 +10,6 @@ explore: finance_dq_org_errors {
   label: "gfs_org_structure_dq_error_details"
 }
 
-explore: outbound_gfs {
-  label: "GFS"
-}
-
 explore: corp_identity_dq_error_details {
   label: "Corp_identity_dq_error_details"
 }
