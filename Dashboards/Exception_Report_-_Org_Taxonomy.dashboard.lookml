@@ -8,7 +8,7 @@
   elements:
   - title: ''
     name: ''
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: finance_dq_org_errors
     type: looker_grid
     fields: [finance_dq_org_errors.rule_column, finance_dq_org_errors.severity, finance_dq_org_errors.error_description,
@@ -100,7 +100,7 @@
     ui_config:
       type: tag_list
       display: popover
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: finance_dq_org_errors
     listens_to_filters: []
     field: finance_dq_org_errors.gfs_business_unit_code
@@ -113,7 +113,7 @@
     ui_config:
       type: button_group
       display: popover
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: finance_dq_org_errors
     listens_to_filters: []
     field: finance_dq_org_errors.severity
@@ -126,7 +126,7 @@
     ui_config:
       type: tag_list
       display: popover
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: finance_dq_org_errors
     listens_to_filters: []
     field: finance_dq_org_errors.ics_code
@@ -139,7 +139,7 @@
     ui_config:
       type: tag_list
       display: popover
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: finance_dq_org_errors
     listens_to_filters: []
     field: finance_dq_org_errors.ou_code
@@ -153,7 +153,7 @@
       type: advanced
       display: popover
       options: []
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: finance_dq_org_errors
     listens_to_filters: []
     field: finance_dq_org_errors.dc_created_timestamp_time
