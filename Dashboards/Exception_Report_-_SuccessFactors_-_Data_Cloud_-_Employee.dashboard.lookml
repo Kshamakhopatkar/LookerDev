@@ -8,7 +8,7 @@
   elements:
   - title: ''
     name: ''
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: emp_dq_errors
     type: looker_grid
     fields: [emp_dq_errors.rule_column, emp_dq_errors.severity, emp_dq_errors.error_description,
@@ -82,7 +82,7 @@
     ui_config:
       type: tag_list
       display: popover
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: emp_dq_errors
     listens_to_filters: []
     field: emp_dq_errors.ggid
@@ -95,7 +95,7 @@
     ui_config:
       type: tag_list
       display: popover
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: emp_dq_errors
     listens_to_filters: []
     field: emp_dq_errors.pernr
@@ -108,7 +108,7 @@
     ui_config:
       type: button_group
       display: popover
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: emp_dq_errors
     listens_to_filters: []
     field: emp_dq_errors.severity
@@ -121,7 +121,7 @@
     ui_config:
       type: tag_list
       display: popover
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: emp_dq_errors
     listens_to_filters: []
     field: emp_dq_errors.ou_code
@@ -134,7 +134,7 @@
     ui_config:
       type: tag_list
       display: popover
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: emp_dq_errors
     listens_to_filters: []
     field: emp_dq_errors.country_of_company
@@ -148,7 +148,7 @@
       type: advanced
       display: popover
       options: []
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: emp_dq_errors
     listens_to_filters: []
     field: emp_dq_errors.dc_created_timestamp_minute

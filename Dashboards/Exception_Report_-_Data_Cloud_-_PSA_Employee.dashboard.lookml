@@ -8,7 +8,7 @@
   elements:
   - title: ''
     name: ''
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: psa_employee_dq_error_details
     type: looker_grid
     fields: [psa_employee_dq_error_details.interface_name, psa_employee_dq_error_details.interface_type,
@@ -71,7 +71,7 @@
     ui_config:
       type: tag_list
       display: popover
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: psa_employee_dq_error_details
     listens_to_filters: []
     field: psa_employee_dq_error_details.global_id
@@ -84,7 +84,7 @@
     ui_config:
       type: button_group
       display: popover
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: psa_employee_dq_error_details
     listens_to_filters: []
     field: psa_employee_dq_error_details.severity
@@ -101,7 +101,7 @@
       - '1'
       - '2'
       - '3'
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: psa_employee_dq_error_details
     listens_to_filters: []
     field: psa_employee_dq_error_details.ou_code
@@ -128,7 +128,7 @@
       type: advanced
       display: popover
       options: []
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: psa_employee_dq_error_details
     listens_to_filters: []
     field: psa_employee_dq_error_details.created_timestamp_time

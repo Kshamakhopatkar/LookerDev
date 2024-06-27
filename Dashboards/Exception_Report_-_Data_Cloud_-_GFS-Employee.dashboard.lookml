@@ -8,7 +8,7 @@
   elements:
   - title: ''
     name: ''
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: gfs_employee_dq_error_details
     type: looker_grid
     fields: [gfs_employee_dq_error_details.interface_name, gfs_employee_dq_error_details.rule_column,
@@ -87,7 +87,7 @@
     ui_config:
       type: tag_list
       display: popover
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: gfs_employee_dq_error_details
     listens_to_filters: []
     field: gfs_employee_dq_error_details.global_group_id
@@ -100,7 +100,7 @@
     ui_config:
       type: button_group
       display: popover
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: gfs_employee_dq_error_details
     listens_to_filters: []
     field: gfs_employee_dq_error_details.severity
@@ -113,7 +113,7 @@
     ui_config:
       type: tag_list
       display: popover
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: gfs_employee_dq_error_details
     listens_to_filters: []
     field: gfs_employee_dq_error_details.ou_code
@@ -126,7 +126,7 @@
     ui_config:
       type: tag_list
       display: popover
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: gfs_employee_dq_error_details
     listens_to_filters: []
     field: gfs_employee_dq_error_details.country_of_company
@@ -140,7 +140,7 @@
       type: advanced
       display: popover
       options: []
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: gfs_employee_dq_error_details
     listens_to_filters: []
     field: gfs_employee_dq_error_details.created_timestamp_time
