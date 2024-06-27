@@ -8,7 +8,7 @@
   elements:
   - title: ''
     name: ''
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: corp_identity_dq_error_details
     type: looker_grid
     fields: [corp_identity_dq_error_details.rule_column, corp_identity_dq_error_details.severity,
@@ -69,7 +69,7 @@
     ui_config:
       type: checkboxes
       display: popover
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: corp_identity_dq_error_details
     listens_to_filters: []
     field: corp_identity_dq_error_details.global_id
@@ -82,7 +82,7 @@
     ui_config:
       type: checkboxes
       display: popover
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: corp_identity_dq_error_details
     listens_to_filters: []
     field: corp_identity_dq_error_details.severity
@@ -95,7 +95,7 @@
     ui_config:
       type: button_group
       display: popover
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: corp_identity_dq_error_details
     listens_to_filters: []
     field: corp_identity_dq_error_details.ou_code
@@ -109,7 +109,7 @@
       type: advanced
       display: popover
       options: []
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: corp_identity_dq_error_details
     listens_to_filters: []
     field: corp_identity_dq_error_details.country_of_company
@@ -123,7 +123,7 @@
       type: advanced
       display: popover
       options: []
-    model: Emp_DQ_Errors
+    model: Emp_DQ_Errors_UAT
     explore: corp_identity_dq_error_details
     listens_to_filters: []
     field: corp_identity_dq_error_details.dc_created_timestamp_time
