@@ -27,6 +27,7 @@ explore: sfec_location_master_dq_error_details {
 }
 
 explore: s4_org_structure_dq_error_details {
+  sql_always_where: error_description NOT LIKE '%IGNORE:NO ACTION REQUIRED:Warning Message received in Feed%' ;;
   label: "s4_org_structure_dq_error_details"
 }
 
