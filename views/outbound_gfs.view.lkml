@@ -1,5 +1,5 @@
 view: outbound_gfs {
-  sql_table_name: `premi0436563-gitenter.hr_dq.outbound_gfs` ;;
+  sql_table_name: `hr_dq.outbound_gfs` ;;
 
   dimension: adm_lineage_id {
     type: string

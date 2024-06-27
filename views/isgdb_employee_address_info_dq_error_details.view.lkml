@@ -1,5 +1,5 @@
 view: isgdb_employee_address_info_dq_error_details {
-  sql_table_name: `premi0436563-gitenter.datacloud_adm_dq.isgdb_employee_address_info_dq_error_details` ;;
+  sql_table_name: `datacloud_adm_dq.isgdb_employee_address_info_dq_error_details` ;;
 
   dimension: address_type {
     type: number

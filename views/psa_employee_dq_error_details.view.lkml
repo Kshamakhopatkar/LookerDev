@@ -1,5 +1,5 @@
 view: psa_employee_dq_error_details {
-  sql_table_name: `premi0436563-gitenter.datacloud_adm_dq.psa_employee_dq_error_details` ;;
+  sql_table_name: `datacloud_adm_dq.psa_employee_dq_error_details` ;;
 
   dimension: adm_lineage_id {
     type: string

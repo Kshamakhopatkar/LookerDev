@@ -1,5 +1,5 @@
 view: sfec_education_dq_error_details {
-  sql_table_name: `premi0436563-gitenter.hr_dq.sfec_education_dq_error_details` ;;
+  sql_table_name: `hr_dq.sfec_education_dq_error_details` ;;
 
   dimension: country_of_company {
     type: string

@@ -1,5 +1,5 @@
 view: finance_dq_org_errors {
-  sql_table_name: `premi0436563-gitenter.finance_dq.gfs_org_structure_dq_error_details` ;;
+  sql_table_name: `finance_dq.gfs_org_structure_dq_error_details` ;;
 
     dimension: data_quality_job_id {
       type: string

@@ -1,5 +1,5 @@
 view: s4_org_structure_dq_error_details {
-  sql_table_name: `premi0436563-gitenter.finance_dq.s4_org_structure_dq_error_details` ;;
+  sql_table_name: `finance_dq.s4_org_structure_dq_error_details` ;;
 
   dimension: country_of_company {
     type: string
