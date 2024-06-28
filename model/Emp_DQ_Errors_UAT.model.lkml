@@ -1,7 +1,7 @@
-connection: "bigquery_uat"
+connection: "bigquery_looker_uat"
 
 include: "/views/*.view.lkml"                # include all views in the views/ folder in this project
-
+include: "/Dashboards/*.dashboard.lookml"
 explore: emp_dq_errors {
   label: "sfec_employee_dq_error_details"
   }
