@@ -59,7 +59,6 @@ explore: psa_employee_dq_error_details {
   label: "psa_employee_dq_error_details"
 }
 
-
-#test connection
-
-#test
+explore: supvrsys_supervisor_mapping_dq_error_details {
+  label: "supvrsys_supervisor_mapping_dq_error_details"
+}
