@@ -3,6 +3,7 @@ view: supvrsys_supervisor_mapping_dq_error_details {
 
   dimension: country_of_company {
     type: string
+    description: "Country of the Company code"
     sql: ${TABLE}.Country_of_Company ;;
   }
   dimension: data_quality_job_id {
