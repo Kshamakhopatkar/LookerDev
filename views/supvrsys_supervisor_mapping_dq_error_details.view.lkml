@@ -16,6 +16,7 @@ view: supvrsys_supervisor_mapping_dq_error_details {
   }
   dimension_group: dc_created_timestamp {
     type: time
+    description: "Timestamp for Batch Run"
     timeframes: [raw, time, date, week, month, quarter, year]
     sql: ${TABLE}.dc_created_timestamp ;;
   }
@@ -37,11 +38,13 @@ view: supvrsys_supervisor_mapping_dq_error_details {
   }
   dimension_group: dc_updated_timestamp {
     type: time
+    description: "Only required for Data Cloud Traceability"
     timeframes: [raw, time, date, week, month, quarter, year]
     sql: ${TABLE}.dc_updated_timestamp ;;
   }
   dimension: error_description {
     type: string
+    description: "Description of the Exception"
     sql: ${TABLE}.error_description ;;
   }
   dimension: error_value {
@@ -50,14 +53,17 @@ view: supvrsys_supervisor_mapping_dq_error_details {
   }
   dimension: ggid {
     type: string
+    description: "Employee GGID on which the exception is reported"
     sql: ${TABLE}.GGID ;;
   }
   dimension: ou_code {
     type: string
+    description: "The Organization unit to which this Employee Record Belongs"
     sql: ${TABLE}.ou_code ;;
   }
   dimension: rule_column {
     type: string
+    description: "Column on which the Exception is reported"
     sql: ${TABLE}.rule_column ;;
   }
   dimension: rule_type {
@@ -66,6 +72,7 @@ view: supvrsys_supervisor_mapping_dq_error_details {
   }
   dimension: severity {
     type: string
+    description: "If Record reported as Error, it will not be processed further, If record reported as Warning , will be processed further"
     sql: ${TABLE}.severity ;;
   }
   measure: count {
