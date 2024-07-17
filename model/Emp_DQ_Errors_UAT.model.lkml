@@ -62,3 +62,9 @@ explore: psa_employee_dq_error_details {
 explore: supvrsys_supervisor_mapping_dq_error_details {
   label: "supvrsys_supervisor_mapping_dq_error_details"
 }
+explore:replicon_leave_request_dq_error_details {
+  label: "replicon_leave_request_dq_error_details"
+}
+explore: ics_legal_entity_dq_error_details {
+  label: "ics_legal_entity_dq_error_details"
+}
