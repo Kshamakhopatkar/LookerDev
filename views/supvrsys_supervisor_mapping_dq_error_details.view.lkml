@@ -73,7 +73,8 @@ view: supvrsys_supervisor_mapping_dq_error_details {
   dimension: severity {
     type: string
     description: "If Record reported as Error, it will not be processed further, If record reported as Warning , will be processed further"
-    sql: ${TABLE}.severity ;;
+    sql:(select (case when severity in ('business-warning') then 'warning' when severity in ('business-error') then 'error' end) as severity from `premi0541131-dataclou.hr_dq.supvrsys_supervisor_mapping_dq_error_details`)
+    ;;
   }
   measure: count {
     type: count
