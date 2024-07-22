@@ -68,3 +68,6 @@ explore:replicon_leave_request_dq_error_details {
 explore: ics_legal_entity_dq_error_details {
   label: "ics_legal_entity_dq_error_details"
 }
+explore: clarity_employee_dq_error_details {
+  label: "clarity_employee_dq_error_details"
+}
