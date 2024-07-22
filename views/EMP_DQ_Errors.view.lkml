@@ -82,7 +82,7 @@ view: emp_dq_errors {
     dimension: severity {
       type: string
       description: "If Record reported as Error, it will not be processed further, If record reported as Warning , will be processed further"
-      sql: substr(severity, 10) ;;
+      sql: SUBSTR(severity, 10) ;;
     }
 
     measure: count {
