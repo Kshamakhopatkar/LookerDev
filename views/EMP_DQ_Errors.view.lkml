@@ -82,7 +82,7 @@ view: emp_dq_errors {
     dimension: severity {
       type: string
       description: "If Record reported as Error, it will not be processed further, If record reported as Warning , will be processed further"
-      sql: (select (case when severity in ('business-warning') then 'warning' when severity in ('business-error') then 'error' end) as severity from `premi0541131-dataclou.hr_dq.sfec_employee_dq_error_details` ) ;;
+      sql: substr(severity, 10) ;;
     }
 
     measure: count {

@@ -117,7 +117,7 @@ view: s4_org_structure_dq_error_details {
   dimension: severity {
     type: string
     description: "If Record reported as Error, it will not be processed further, If record reported as Warning , will be processed further"
-    sql: ${TABLE}.severity;;
+    sql: substr(severity, 10);;
   }
   measure: count {
     type: count
