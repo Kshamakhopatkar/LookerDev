@@ -74,3 +74,6 @@ explore: clarity_employee_dq_error_details {
 explore: sfec_employee_active_dq_error_details {
   label: "sfec_employee_active_dq_error_details"
 }
+explore: gdh_gfs {
+  label: "gdh_gfs"
+}
