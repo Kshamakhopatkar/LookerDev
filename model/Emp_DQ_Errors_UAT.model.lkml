@@ -71,3 +71,6 @@ explore: ics_legal_entity_dq_error_details {
 explore: clarity_employee_dq_error_details {
   label: "clarity_employee_dq_error_details"
 }
+explore: sfec_employee_active_dq_error_details {
+  label: "sfec_employee_active_dq_error_details"
+}
