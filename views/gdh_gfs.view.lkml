@@ -16,7 +16,10 @@
             datacloud_adm_dq.clarity_employee_dq_error_details
             UNION ALL
             SELECT interface_name,interface_type,rule_column,severity,error_description,global_id,ou_code,country_of_company,created_timestamp FROM
-            datacloud_adm_dq.psa_employee_dq_error_details;;
+            datacloud_adm_dq.psa_employee_dq_error_details
+            UNION ALL
+            SELECT "Sfec" as interface_name,"Inbound" as interface_type,rule_column,severity,error_description,GGID,ou_code,country_of_company, dc_created_timestamp FROM
+            hr_dq.sfec_employee_dq_error_details;;
 
                    }
 

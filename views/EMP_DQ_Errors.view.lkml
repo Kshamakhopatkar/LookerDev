@@ -84,6 +84,16 @@ view: emp_dq_errors {
       description: "If Record reported as Error, it will not be processed further, If record reported as Warning , will be processed further"
       sql: SUBSTR(severity, 10) ;;
     }
+  dimension: interface_name{
+    label: "INTERFACE NAME"
+    type: string
+    sql: "SFEC" ;;
+  }
+  dimension: interface_type{
+    label: "INTERFACE TYPE"
+    type: string
+    sql: "Inbound" ;;
+  }
 
     measure: count {
       type: count
