@@ -75,7 +75,7 @@ explore: sfec_employee_active_dq_error_details {
   label: "sfec_employee_active_dq_error_details"
 }
 explore: gdh_gfs {
-  label: "gdh_gfs"
+  label: "Consolidation Report"
 }
 explore: Inbound {
   label: "Inbound"
