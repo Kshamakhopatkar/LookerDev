@@ -1,27 +1,57 @@
   view: gdh_gfs {
     derived_table: {
-      sql:  SELECT interface_name,interface_type,rule_column,severity,error_description,global_group_id,ou_code,country_of_company,created_timestamp FROM
+      sql:  SELECT interface_name,interface_type,rule_column,severity,error_description,global_group_id,"Not available in Interface" as pernr_id,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.gfs_employee_dq_error_details
             UNION ALL
-            SELECT interface_name,interface_type,rule_column,severity,error_description,global_group_id,ou_code,country_of_company,created_timestamp FROM
+            SELECT interface_name,interface_type,rule_column,severity,error_description,global_group_id,pernr,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.gdh_newjoiner_dq_error_details
             UNION ALL
-            SELECT interface_name,interface_type,rule_column,severity,error_description,global_group_id,ou_code,country_of_company,created_timestamp FROM
+            SELECT interface_name,interface_type,rule_column,severity,error_description,global_group_id,pernr_id,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.gdh_employee_global_dq_error_details
             UNION ALL
-            SELECT interface_name,interface_type,rule_column,severity,error_description,globalgroupid,ou_code,country_of_company,created_timestamp FROM
+            SELECT interface_name,interface_type,rule_column,severity,error_description,globalgroupid,"Not available in Interface" as pernr_id,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.corp_employee_dq_error_details
             UNION ALL
-            SELECT interface_name,interface_type,rule_column,severity,error_description,global_group_id,ou_code,country_of_company,created_timestamp FROM
+            SELECT interface_name,interface_type,rule_column,severity,error_description,global_group_id,pernr_id,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.clarity_employee_dq_error_details
             UNION ALL
-            SELECT interface_name,interface_type,rule_column,severity,error_description,global_id,ou_code,country_of_company,created_timestamp FROM
+            SELECT interface_name,interface_type,rule_column,severity,error_description,global_id,"Not available in Interface" as pernr_id,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.psa_employee_dq_error_details
             UNION ALL
-            SELECT "Sfec" as interface_name,"Inbound" as interface_type,rule_column,severity,error_description,GGID,ou_code,country_of_company, dc_created_timestamp FROM
-            hr_dq.sfec_employee_dq_error_details;;
-
-                   }
+            SELECT interface_name,"Outbound" as interface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid,pernr_id,ou_code,country_of_company,created_timestamp FROM
+            datacloud_adm_dq.immidart_employee_dq_error_details
+            UNION ALL
+            SELECT "Sfec Employee" as interface_name,"Inbound" as interface_type,rule_column,severity,error_description,GGID,pernr,ou_code,country_of_company, dc_created_timestamp FROM
+            hr_dq.sfec_employee_dq_error_details
+            UNION ALL
+            SELECT interface_name,interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
+            datacloud_adm_dq.isgdb_employee_address_info_dq_error_details
+            UNION ALL
+            SELECT interface_name,interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
+            datacloud_adm_dq.isgdb_employee_dependents_info_dq_error_details
+            UNION ALL
+            SELECT interface_name,interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
+            datacloud_adm_dq.isgdb_employee_master_dq_error_details
+            UNION ALL
+            SELECT interface_name,interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
+            datacloud_adm_dq.isgdb_employee_org_assignment_dq_error_details
+            UNION ALL
+            SELECT interface_name,interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
+            datacloud_adm_dq.isgdb_employee_passport_info_dq_error_details
+            UNION ALL
+            SELECT interface_name,interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
+            datacloud_adm_dq.isgdb_employee_personal_info_dq_error_details
+            UNION ALL
+            SELECT interface_name,interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
+            datacloud_adm_dq.isgdb_employee_personal_phone_info_dq_error_details
+            UNION ALL
+            SELECT interface_name,interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
+            datacloud_adm_dq.isgdb_employee_work_info_dq_error_details
+            UNION ALL
+            SELECT "Sfec Education" as interface_name,"Inbound" as interface_type,rule_column,severity,error_description,global_group_id,pernr_id,ou_code,country_of_company, dc_created_timestamp FROM
+            hr_dq.sfec_education_dq_error_details
+            ;;
+          }
 
          dimension: interface_name {
     type: string
@@ -39,7 +69,12 @@
     dimension: severity {
       type: string
       description: "If Record reported as Error, it will not be processed further, If record reported as Warning , will be processed further"
-      sql: ${TABLE}.severity ;;
+      sql: SUBSTR(severity, 10) ;;
+    }
+    dimension: pernr {
+      type: string
+      description: "Employee PERNR on which this exception is reported"
+      sql: ${TABLE}.PERNR ;;
     }
     dimension: error_description {
       type: string
