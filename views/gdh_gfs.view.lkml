@@ -18,7 +18,7 @@
             SELECT interface_name,interface_type,rule_column,severity,error_description,global_id,"Not available in Interface" as pernr_id,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.psa_employee_dq_error_details
             UNION ALL
-            SELECT interface_name,"Outbound" as interface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid,pernr_id,ou_code,country_of_company,created_timestamp FROM
+            SELECT interface_name,"outbound" as interface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid,pernr_id,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.immidart_employee_dq_error_details
             UNION ALL
             SELECT "Sfec Employee" as interface_name,"Inbound" as interface_type,rule_column,severity,error_description,GGID,pernr,ou_code,country_of_company, dc_created_timestamp FROM
