@@ -21,7 +21,7 @@
             SELECT interface_name,"outbound" as interface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid,pernr_id as pernr,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.immidart_employee_dq_error_details
             UNION ALL
-            SELECT "Sfec Employee" as interface_name,"Inbound" as interface_type,rule_column,severity,error_description,GGID,pernr,ou_code,country_of_company, dc_created_timestamp FROM
+            SELECT "Sfec Employee" as interface_name,"Inbound" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,GGID,pernr,ou_code,country_of_company, dc_created_timestamp FROM
             hr_dq.sfec_employee_dq_error_details
             UNION ALL
             SELECT interface_name,interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
@@ -69,7 +69,7 @@
     dimension: severity {
       type: string
       description: "If Record reported as Error, it will not be processed further, If record reported as Warning , will be processed further"
-      sql: SUBSTR(severity, 10) ;;
+      sql: ${TABLE}.severity ;;
     }
     dimension: error_description {
       type: string
