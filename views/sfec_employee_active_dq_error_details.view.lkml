@@ -14,6 +14,7 @@ view: sfec_employee_active_dq_error_details {
   }
   dimension: company_code {
     type: string
+    description: "The Organization unit to which this Employee Record Belongs"
     sql: ${TABLE}.company_code ;;
   }
   dimension: country_of_company {
