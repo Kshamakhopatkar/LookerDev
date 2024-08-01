@@ -1,54 +1,54 @@
   view: gdh_gfs {
     derived_table: {
-      sql:  SELECT interface_name,interface_type,rule_column,severity,error_description,global_group_id as ggid,"Not available in Interface" as pernr,ou_code,country_of_company,created_timestamp FROM
+      sql:  SELECT UPPER(interface_name) as interface_name ,UPPER(interface_type) as interface_type,rule_column,severity,error_description,global_group_id as ggid,"Not available in Interface" as pernr,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.gfs_employee_dq_error_details
             UNION ALL
-            SELECT interface_name,interface_type,rule_column,severity,error_description,global_group_id as ggid,pernr,ou_code,country_of_company,created_timestamp FROM
+            SELECT UPPER(interface_name) as interface_name ,UPPER(interface_type) as interface_type,rule_column,severity,error_description,global_group_id as ggid,pernr,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.gdh_newjoiner_dq_error_details
             UNION ALL
-            SELECT interface_name,interface_type,rule_column,severity,error_description,global_group_id as ggid,pernr_id as pernr,ou_code,country_of_company,created_timestamp FROM
+            SELECT UPPER(interface_name) as interface_name ,UPPER(interface_type) as interface_type,rule_column,severity,error_description,global_group_id as ggid,pernr_id as pernr,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.gdh_employee_global_dq_error_details
             UNION ALL
-            SELECT interface_name,interface_type,rule_column,severity,error_description,globalgroupid as ggid,"Not available in Interface" as pernr,ou_code,country_of_company,created_timestamp FROM
+            SELECT UPPER(interface_name) as interface_name ,UPPER(interface_type) as interface_type,rule_column,severity,error_description,globalgroupid as ggid,"Not available in Interface" as pernr,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.corp_employee_dq_error_details
             UNION ALL
-            SELECT interface_name,interface_type,rule_column,severity,error_description,global_group_id as ggid,pernr_id,ou_code,country_of_company,created_timestamp FROM
+            SELECT UPPER(interface_name) as interface_name ,UPPER(interface_type) as interface_type,rule_column,severity,error_description,global_group_id as ggid,pernr_id,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.clarity_employee_dq_error_details
             UNION ALL
-            SELECT interface_name,interface_type,rule_column,severity,error_description,global_id as ggid,"Not available in Interface" as pernr,ou_code,country_of_company,created_timestamp FROM
+            SELECT UPPER(interface_name) as interface_name ,UPPER(interface_type) as interface_type,rule_column,severity,error_description,global_id as ggid,"Not available in Interface" as pernr,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.psa_employee_dq_error_details
             UNION ALL
-            SELECT interface_name,"outbound" as interface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid,pernr_id as pernr,ou_code,country_of_company,created_timestamp FROM
+            SELECT UPPER(interface_name) as interface_name ,"OUTBOUND" as interface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid,pernr_id as pernr,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.immidart_employee_dq_error_details
             UNION ALL
-            SELECT "Sfec Employee" as interface_name,"Inbound" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,GGID,pernr,ou_code,country_of_company, dc_created_timestamp FROM
+            SELECT "SFEC EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,GGID,pernr,ou_code,country_of_company, dc_created_timestamp FROM
             hr_dq.sfec_employee_dq_error_details
             UNION ALL
-            SELECT interface_name,interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
+            SELECT UPPER(interface_name) as interface_name ,UPPER(interface_type) as interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.isgdb_employee_address_info_dq_error_details
             UNION ALL
-            SELECT interface_name,interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
+            SELECT UPPER(interface_name) as interface_name ,UPPER(interface_type) as interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.isgdb_employee_dependents_info_dq_error_details
             UNION ALL
-            SELECT interface_name,interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
+            SELECT UPPER(interface_name) as interface_name ,UPPER(interface_type) as interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.isgdb_employee_master_dq_error_details
             UNION ALL
-            SELECT interface_name,interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
+            SELECT UPPER(interface_name) as interface_name ,UPPER(interface_type) as interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.isgdb_employee_org_assignment_dq_error_details
             UNION ALL
-            SELECT interface_name,interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
+            SELECT UPPER(interface_name) as interface_name ,UPPER(interface_type) as interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.isgdb_employee_passport_info_dq_error_details
             UNION ALL
-            SELECT interface_name,interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
+            SELECT UPPER(interface_name) as interface_name ,UPPER(interface_type) as interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.isgdb_employee_personal_info_dq_error_details
             UNION ALL
-            SELECT interface_name,interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
+            SELECT UPPER(interface_name) as interface_name ,UPPER(interface_type) as interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.isgdb_employee_personal_phone_info_dq_error_details
             UNION ALL
-            SELECT interface_name,interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
+            SELECT UPPER(interface_name) as interface_name ,UPPER(interface_type) as interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.isgdb_employee_work_info_dq_error_details
             UNION ALL
-            SELECT "Sfec Education" as interface_name,"Inbound" as interface_type,rule_column,severity,error_description,global_group_id as ggid,pernr_id as pernr,ou_code,country_of_company, dc_created_timestamp FROM
+            SELECT "SFEC EDUCATION" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,global_group_id as ggid,pernr_id as pernr,ou_code,country_of_company, dc_created_timestamp FROM
             hr_dq.sfec_education_dq_error_details
             ;;
           }
