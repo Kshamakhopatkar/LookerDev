@@ -47,6 +47,10 @@ view: sfec_employee_active_dq_error_details {
     description: "Field from Success Factors(Pxcell) which has error"
     sql: ${TABLE}.rule_column ;;
   }
+  dimension: employee_status_code {
+    type: string
+    sql: ${TABLE}.employee_status_code ;;
+  }
   dimension: status {
     type: string
     description: "Will have one of the two values: 1.Record Blocked-(DC never passed this record in DQ validation. This record was never moved to cleansed). 2.Update Blocked - (Sometime in the past, this record moved to cleaned, but update on this record is blocked due to DQ issue)"
