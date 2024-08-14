@@ -21,7 +21,7 @@
             SELECT UPPER(interface_name) as interface_name ,"OUTBOUND" as interface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid,pernr_id as pernr,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.immidart_employee_dq_error_details
             UNION ALL
-            SELECT "SFEC EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,GGID,pernr,ou_code,country_of_company, dc_created_timestamp FROM
+            SELECT "SFEC_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,GGID,pernr,ou_code,country_of_company, dc_created_timestamp FROM
             hr_dq.sfec_employee_dq_error_details
             UNION ALL
             SELECT UPPER(interface_name) as interface_name ,UPPER(interface_type) as interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
@@ -94,6 +94,9 @@
       type: string
       description: "Country of the Company code"
       sql: ${TABLE}.country_of_company;;
+    }
+    measure: count {
+      type: count
     }
     dimension_group: created_timestamp {
       type: time
