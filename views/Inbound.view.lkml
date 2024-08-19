@@ -1,13 +1,13 @@
 view: Inbound {
   derived_table: {
-    sql: SELECT rule_column,severity,error_description,Global_id,country_of_company, dc_created_timestamp FROM
+    sql: SELECT rule_column,severity,error_description,Global_id,ou_code,country_of_company, dc_created_timestamp FROM
           hr_dq.corp_identity_dq_error_details
 
             UNION ALL
-            SELECT rule_column,severity,error_description,GGID,country_of_company, dc_created_timestamp FROM
+            SELECT rule_column,severity,error_description,GGID,ou_code,country_of_company, dc_created_timestamp FROM
             hr_dq.sfec_employee_dq_error_details
             UNION ALL
-             SELECT rule_column,severity,error_description,GGID,country_of_company, dc_created_timestamp FROM
+             SELECT rule_column,severity,error_description,GGID,ou_code,country_of_company, dc_created_timestamp FROM
             hr_dq.supvrsys_supervisor_mapping_dq_error_details;;
 
   }
@@ -21,17 +21,17 @@ view: Inbound {
   dimension: severity {
     type: string
     description: "If Record reported as Error, it will not be processed further, If record reported as Warning , will be processed further"
-    sql: ${TABLE}.severity ;;
+    sql: substr(severity, 10);;
   }
   dimension: error_description {
     type: string
     description: "Description of the Exception"
     sql: ${TABLE}.error_description ;;
   }
-  dimension: global_group_id {
+  dimension:  Global_id {
     type: string
     description: "Employee GGID on which the exception is reported"
-    sql: ${TABLE}.global_group_id;;
+    sql: ${TABLE}.Global_id;;
   }
   dimension: ou_code {
     type: string
