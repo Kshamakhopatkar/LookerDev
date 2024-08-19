@@ -59,6 +59,15 @@ view: sfec_employee_active_dq_error_details {
   measure: count {
     type: count
   }
+  measure: GGID {
+    type: string
+    link: {
+      label: "Drilldown through Page Navigation Dashboard"
+      url: " https://2d00cf92-deaf-410e-94ff-13cfe08a7cea.looker.app/dashboards/GiYuyQ6yDLMZ4HtRaGwp7u?
+      GGID=1&COUNTRY+OF+OU+CODE=&PERNR+ID=&OU+CODE=&EXCEPTION+DESCRIPTION=&EMPLOYEE+STATUS+CODE=GGID={{['sfec_employee_active_dq_error_details.global_group_id'] }}"
+    }
+    sql: ${TABLE}.global_group_id ;;
+  }
   measure: dash_nav {
 
 
