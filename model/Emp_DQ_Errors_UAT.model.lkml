@@ -75,8 +75,17 @@ explore: sfec_employee_active_dq_error_details {
   label: "sfec_employee_active_dq_error_details"
 }
 explore: gdh_gfs {
-  label: "gdh_gfs"
+  label: "Consolidation Report"
 }
 explore: Inbound {
   label: "Inbound"
+}
+explore: s4_employee_dq_error_details {
+  label: "s4_employee_dq_error_details"
+}
+explore: ibm_ecm_employee_dq_error_details {
+  label: "ibm_ecm_employee_dq_error_details"
+}
+explore: dtx_employee_dq_error_details {
+  label: "dtx_employee_dq_error_details"
 }
