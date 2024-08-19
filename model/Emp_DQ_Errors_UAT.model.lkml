@@ -80,3 +80,12 @@ explore: gdh_gfs {
 explore: Inbound {
   label: "Inbound"
 }
+explore: s4_employee_dq_error_details {
+  label: "s4_employee_dq_error_details"
+}
+explore: ibm_ecm_employee_dq_error_details {
+  label: "ibm_ecm_employee_dq_error_details"
+}
+explore: dtx_employee_dq_error_details {
+  label: "dtx_employee_dq_error_details"
+}
