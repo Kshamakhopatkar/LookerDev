@@ -56,15 +56,51 @@ view: sfec_employee_active_dq_error_details {
     description: "Will have one of the two values: 1.Record Blocked-(DC never passed this record in DQ validation. This record was never moved to cleansed). 2.Update Blocked - (Sometime in the past, this record moved to cleaned, but update on this record is blocked due to DQ issue)"
     sql: ${TABLE}.status ;;
   }
+  dimension: global_group_idtest {
+    type: number
+    sql: ${TABLE}.global_group_id ;;
+    html:
+      {% assign url_split_at_f = filter_link._link | split: '&amp;f' %}
+      {% assign user_filters = '' %}
+      {% assign continue_loop = true %}
+
+    {% for url_part in url_split_at_f offset:1 %}
+    {% if continue_loop %}
+    {% if url_part contains '&amp;sorts' %}
+    {% assign part_split_at_sorts = url_part | split: '&amp;sorts' %}
+    {% assign last_filter = part_split_at_sorts | first %}
+    {% assign user_filters = global_group_id | append:'&f' %}
+    {% assign user_filters = global_group_id | append:last_filter %}
+    {% assign continue_loop = false %}
+    {% else %}
+    {% assign user_filters = global_group_id | append:'&amp;f' %}
+    {% assign user_filters = global_group_id | append:url_part %}
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+
+    {% assign user_filters = global_group_id | replace: 'f[sfec_employee_active_dq_error_details.global_group_id]', 'global_group_id' %}
+    {% assign user_filters = global_group_id | replace: 'f[sfec_employee_active_dq_error_details.global_group_id]', 'global_group_id' %}
+    {% assign user_filters = global_group_id | replace: 'f[sfec_employee_active_dq_error_details.global_group_id]', 'global_group_id' %}
+
+    <a href='https://2d00cf92-deaf-410e-94ff-13cfe08a7cea.looker.app/dashboards/GiYuyQ6yDLMZ4HtRaGwp7u?{{ global_group_id }}'>{{ value }}</a>;;
+  }
+
+  measure: filter_link {
+    type: count_distinct
+    hidden: yes
+    drill_fields: []
+    sql: ${TABLE}.global_group_id ;;
+  }
   measure: count {
     type: count
   }
-  measure: GGID {
+  dimension: GGID {
     type: string
     link: {
       label: "Drilldown through Page Navigation Dashboard"
       url: " https://2d00cf92-deaf-410e-94ff-13cfe08a7cea.looker.app/dashboards/GiYuyQ6yDLMZ4HtRaGwp7u?
-      GGID=1&COUNTRY+OF+OU+CODE=&PERNR+ID=&OU+CODE=&EXCEPTION+DESCRIPTION=&EMPLOYEE+STATUS+CODE=GGID={{['sfec_employee_active_dq_error_details.global_group_id'] }}"
+      GGID=1&COUNTRY+OF+OU+CODE=&PERNR+ID=&OU+CODE=&EXCEPTION+DESCRIPTION=&EMPLOYEE+STATUS+CODE=GGID={{['sfec_employee_active_dq_error_details.global_group_id'] | url_encode }}"
     }
     sql: ${TABLE}.global_group_id ;;
   }
