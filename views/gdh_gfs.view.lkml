@@ -48,10 +48,10 @@
             SELECT UPPER(interface_name) as interface_name ,UPPER(interface_type) as interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.isgdb_employee_work_info_dq_error_details
             UNION ALL
-            SELECT "SFEC EDUCATION" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,global_group_id as ggid,pernr_id as pernr,ou_code,country_of_company, dc_created_timestamp FROM
+            SELECT "SFEC EDUCATION" as interface_name,"INBOUND" as interface_type,rule_column,severity ,error_description,global_group_id as ggid,pernr_id as pernr,ou_code,country_of_company, dc_created_timestamp FROM
             hr_dq.sfec_education_dq_error_details
             UNION ALL
-            SELECT "CORP" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,global_id as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, dc_created_timestamp FROM
+            SELECT "CORP" as interface_name,"INBOUND" as interface_type,rule_column,substr(severity, 10),error_description,global_id as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, dc_created_timestamp FROM
             hr_dq.corp_identity_dq_error_details
             ;;
           }
