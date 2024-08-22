@@ -34,6 +34,7 @@ view: corp_employee_dq_error_details {
     type: string
     sql: ${TABLE}.interface_name ;;
   }
+
   dimension: interface_type {
     type: string
     sql: ${TABLE}.interface_type ;;
