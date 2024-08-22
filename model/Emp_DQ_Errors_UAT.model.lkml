@@ -75,15 +75,16 @@ explore: sfec_employee_active_dq_error_details {
   label: "sfec_employee_active_dq_error_details"
 }
 explore: gdh_gfs {
-   access_filter: {
-   field: interface_name
-    user_attribute: corp_users
+
+    #access_filter: {
+    #field: interface_name
+    #user_attribute: corp_users
+    #}
+  access_filter: {
+    field: interface_name
+    user_attribute: psa_users
   }
-  #access_filter: {
-   # field: interface_name
-  #  user_attribute: psa_users
- # }
-  label: "Consolidation Report"
+ label: "Consolidation Report"
 }
 explore: Inbound {
   label: "Inbound"
