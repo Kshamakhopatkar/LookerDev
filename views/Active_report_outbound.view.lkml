@@ -1,9 +1,9 @@
 view: active_report_outbound {
   derived_table: {
-    sql:  SELECT "GDH_EMPLOYEE" as interface_name,"OUTBOUND" as interface_type,rule_column,severity,error_description,global_group_id,pernr_id as pernr,ou_code,country_of_company,"Not available in Interface" as employee_status_code FROM
+    sql:  SELECT "GDH_EMPLOYEE_ACTIVE" as interface_name,"OUTBOUND" as interface_type,rule_column,severity,error_description,global_group_id,pernr_id as pernr,ou_code,country_of_company,"Not available in Interface" as employee_status_code FROM
     datacloud_adm_dq.gdh_employee_global_dq_error_details
     UNION ALL
-    SELECT "SFEC_EMPLOYEE_Active" as interface_name,"INBOUND" as interface_type,rule_column,"Not available in Interface" as severity,error_description,global_group_id,pernr,"Not available in Interface" as ou_code,country_of_company,employee_status_code FROM
+    SELECT "SFEC_EMPLOYEE_ACTIVE" as interface_name,"INBOUND" as interface_type,rule_column,"Not available in Interface" as severity,error_description,global_group_id,pernr,"Not available in Interface" as ou_code,country_of_company,employee_status_code FROM
     hr_dq.sfec_employee_active_dq_error_details ;;
     }
 
