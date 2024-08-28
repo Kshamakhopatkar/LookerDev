@@ -7,6 +7,14 @@ view: active_report_outbound {
     hr_dq.sfec_employee_active_dq_error_details ;;
     }
 
+  dimension: interface_name {
+    type: string
+    sql: ${TABLE}.interface_name ;;
+  }
+  dimension: interface_type {
+    type: string
+    sql: ${TABLE}.interface_type ;;
+  }
   dimension: blocked_age_in_days {
     type: number
     description: "Number of days since this record is blocked due to DQ issue"
