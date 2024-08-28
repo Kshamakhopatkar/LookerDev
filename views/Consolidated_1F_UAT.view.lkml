@@ -33,7 +33,7 @@ view: Consolidated_1F_UAT {
       description: "Description of the Exception"
       sql: ${TABLE}.error_description ;;
     }
-    dimension: ggid {
+    dimension: global_group_id {
       type: string
       description: "Employee GGID on which the exception is reported"
       sql: ${TABLE}.ggid;;
