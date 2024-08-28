@@ -36,7 +36,7 @@ view: Consolidated_1F_UAT {
     dimension: global_group_id {
       type: string
       description: "Employee GGID on which the exception is reported"
-      sql: ${TABLE}.ggid;;
+      sql: ${TABLE}.global_group_id;;
     }
     dimension: pernr {
       type: string
