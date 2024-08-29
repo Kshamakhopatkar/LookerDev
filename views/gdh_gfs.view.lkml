@@ -3,9 +3,6 @@
       sql:  SELECT UPPER(interface_name) as interface_name ,UPPER(interface_type) as interface_type,rule_column,severity,error_description,global_group_id as ggid,"Not available in Interface" as pernr,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.gfs_employee_dq_error_details
             UNION ALL
-            SELECT UPPER(interface_name) as interface_name ,UPPER(interface_type) as interface_type,rule_column,severity,error_description,global_group_id as ggid,pernr,ou_code,country_of_company,created_timestamp FROM
-            datacloud_adm_dq.gdh_newjoiner_dq_error_details
-            UNION ALL
             SELECT UPPER(interface_name) as interface_name ,UPPER(interface_type) as interface_type,rule_column,severity,error_description,global_group_id as ggid,pernr_id as pernr,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.gdh_employee_global_dq_error_details
             UNION ALL
