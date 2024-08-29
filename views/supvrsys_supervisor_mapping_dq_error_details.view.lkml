@@ -73,7 +73,7 @@ view: supvrsys_supervisor_mapping_dq_error_details {
   dimension: severity {
     type: string
     description: "If Record reported as Error, it will not be processed further, If record reported as Warning , will be processed further"
-    sql:substr(severity, 10)
+    sql:substr(severity, 11)
     ;;
   }
   measure: count {

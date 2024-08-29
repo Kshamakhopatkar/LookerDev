@@ -32,6 +32,7 @@ view: sfec_employee_active_dq_error_details {
     description: "Employee GGID on which the exception is reported"
     sql: ${TABLE}.global_group_id ;;
   }
+
   dimension: latest_dc_lineage_id {
     type: string
     description: "Job ID of latest feed in from SF to DC in which this record is blocked. Record can come as delta in multiple feeds and get blocked multiple times, this will specify latest job id in DC which blocked the record"

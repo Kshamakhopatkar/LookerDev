@@ -97,3 +97,9 @@ explore: dtx_employee_dq_error_details {
 explore: active_report_outbound {
   label: "active_report_outbound"
 }
+explore: Consolidated_1F_UAT {
+  label: "consolidated_1F_UAT"
+}
+explore: employee_exception_historical {
+  label: "employee_exception_historical"
+}
