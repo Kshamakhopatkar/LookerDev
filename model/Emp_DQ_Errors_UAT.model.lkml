@@ -75,16 +75,14 @@ explore: sfec_employee_active_dq_error_details {
   label: "sfec_employee_active_dq_error_details"
 }
 explore: gdh_gfs {
-  access_filter:{
+    access_filter:{
     field: interface_name
     user_attribute:psa_users
   }
 
-  label: "Consolidated"
+  label: "Employee_Exceptions_Historical"
 }
-explore: Inbound {
-  label: "Inbound"
-}
+
 explore: s4_employee_dq_error_details {
   label: "s4_employee_dq_error_details"
 }
@@ -95,11 +93,11 @@ explore: dtx_employee_dq_error_details {
   label: "dtx_employee_dq_error_details"
 }
 explore: active_report_outbound {
-  label: "active_report_outbound"
+  label: "Employee_Exceptions_Active"
 }
 explore: Consolidated_1F_UAT {
   label: "consolidated_1F_UAT"
 }
 explore: Employee_historical_new_joiner {
-  label: "Employee_historical_new_joiner"
+  label: "Employee_NewJoiner_Exceptions_Historical"
 }
