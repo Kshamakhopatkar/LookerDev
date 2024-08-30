@@ -71,14 +71,17 @@ view: s4_org_structure_dq_error_details {
   }
   dimension: gfs_group_of_business_unit_code {
     type: string
+    label: "BU ID"
     sql: ${TABLE}.gfs_group_of_business_unit_code ;;
   }
   dimension: gfs_org_operating_unit_code {
     type: string
+    label: "OU ID"
     sql: ${TABLE}.gfs_org_operating_unit_code ;;
   }
   dimension: gfs_production_unit_code {
     type: string
+    label: "COST CENTER ID"
     sql: ${TABLE}.gfs_production_unit_code ;;
   }
   dimension: gfs_strategic_business_unit_code {
