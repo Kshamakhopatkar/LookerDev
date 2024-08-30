@@ -55,6 +55,7 @@ view: s4_org_structure_dq_error_details {
   }
   dimension: gfs_business_unit_code {
     type: string
+    label: "BU ID"
     sql: ${TABLE}.gfs_business_unit_code ;;
   }
   dimension: gfs_discipline_code {
@@ -71,7 +72,7 @@ view: s4_org_structure_dq_error_details {
   }
   dimension: gfs_group_of_business_unit_code {
     type: string
-    label: "BU ID"
+
     sql: ${TABLE}.gfs_group_of_business_unit_code ;;
   }
   dimension: gfs_org_operating_unit_code {
