@@ -34,10 +34,10 @@ view: Employee_historical_new_joiner {
     description: "Description of the Exception"
     sql: ${TABLE}.error_description ;;
   }
-  dimension: ggid {
+  dimension: global_group_id {
     type: string
     description: "Employee GGID on which the exception is reported"
-    sql: ${TABLE}.ggid;;
+    sql: ${TABLE}.global_group_id;;
   }
   dimension: pernr {
     type: string
