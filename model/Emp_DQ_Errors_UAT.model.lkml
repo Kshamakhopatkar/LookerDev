@@ -100,6 +100,6 @@ explore: active_report_outbound {
 explore: Consolidated_1F_UAT {
   label: "consolidated_1F_UAT"
 }
-explore: employee_exception_historical {
-  label: "employee_exception_historical"
+explore: Employee_historical_new_joiner {
+  label: "Employee_historical_new_joiner"
 }
