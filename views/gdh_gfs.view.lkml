@@ -53,6 +53,9 @@
             UNION ALL
             SELECT " SUPERVISOR_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,substr(severity, 10),error_description,ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, dc_created_timestamp FROM
             hr_dq.supvrsys_supervisor_mapping_dq_error_details
+            UNION ALL
+            SELECT " REPLICON_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,substr(severity, 10),error_description,"Not available in Interface" as ggid,"Not available in Interface" as pernr_id,ou_code,"Not available in Interface" as country_of_company, dc_created_timestamp FROM
+            hr_dq.replicon_leave_request_dq_error_details
             ;;
           }
 
