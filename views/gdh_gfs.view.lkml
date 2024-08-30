@@ -51,7 +51,7 @@
             SELECT "CORP" as interface_name,"INBOUND" as interface_type,rule_column,substr(severity, 10),error_description,global_id as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, dc_created_timestamp FROM
             hr_dq.corp_identity_dq_error_details
             UNION ALL
-            SELECT " SUPERVISOR_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,substr(severity, 10),error_description,global_id as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, dc_created_timestamp FROM
+            SELECT " SUPERVISOR_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,substr(severity, 10),error_description,ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, dc_created_timestamp FROM
             hr_dq.supvrsys_supervisor_mapping_dq_error_details
             ;;
           }
