@@ -6,7 +6,7 @@ view: Employee_historical_new_joiner {
             SELECT UPPER(interface_name) as interface_name ,UPPER(interface_type) as interface_type,rule_column,severity,error_description,globalgroupid as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.corp_newjoiner_dq_error_details
             UNION ALL
-            SELECT "SERVICE CENTRAL_NEW JOINER_EMPLOYEE" as interface_name ,"OUTBOUND" as interface_type,rule_column,severity,error_description,global_group_id as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company,created_timestamp FROM
+            SELECT "SERVICE CENTRAL_NEW JOINER_EMPLOYEE" as interface_name ,"OUTBOUND" as interface_type,rule_column,severity,error_description,"Not available in Interface" as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.servicecentral_newjoiner_dq_error_details
             ;;
   }
@@ -34,10 +34,10 @@ view: Employee_historical_new_joiner {
     description: "Description of the Exception"
     sql: ${TABLE}.error_description ;;
   }
-  dimension: global_group_id {
+  dimension: ggid {
     type: string
     description: "Employee GGID on which the exception is reported"
-    sql: ${TABLE}.global_group_id;;
+    sql: ${TABLE}.ggid;;
   }
   dimension: pernr {
     type: string
