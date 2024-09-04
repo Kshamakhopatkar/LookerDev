@@ -101,3 +101,7 @@ explore: Consolidated_1F_UAT {
 explore: Employee_historical_new_joiner {
   label: "Employee_NewJoiner_Exceptions_Historical"
 }
+
+explore: employee_new_joiner_active_exceptions {
+  label: "employee_new_joiner_active_exceptions"
+}

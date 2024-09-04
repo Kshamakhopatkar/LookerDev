@@ -1,11 +1,21 @@
 view: active_report_outbound {
+
   derived_table: {
-    sql:  SELECT Upper(interface_name) as interface_name,Upper(interface_type) as interface_type,rule_column,severity,error_description,global_group_id,pernr_id as pernr,ou_code,country_of_company,"Not available in Interface" as employee_status_code FROM
-    datacloud_adm_dq.gdh_employee_global_dq_error_details
-    UNION ALL
-    SELECT "SFEC_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,"Not available in Interface" as severity,error_description,global_group_id,pernr,"Not available in Interface" as ou_code,country_of_company,employee_status_code FROM
-    hr_dq.sfec_employee_active_dq_error_details ;;
-    }
+    sql:  with distinct_rec as(SELECT UPPER(interface_name) as interface_name,UPPER(interface_type) as interface_type,rule_column, error_description, global_group_id,pernr_id as pernr,ou_code,country_of_company,"not available" AS employee_status_code,created_timestamp,last_updated_adm_timestamp,row_number() over (partition by global_group_id, pernr_id order by last_updated_adm_timestamp desc , created_timestamp desc) rn
+      FROM `datacloud_adm_dq.gdh_employee_global_dq_error_details` where severity = 'error'
+      qualify rn = 1)
+      select * except(rn, last_updated_adm_timestamp,created_timestamp)  from distinct_rec dist_rec
+      where created_timestamp >  coalesce(last_updated_adm_timestamp,'1900-01-01 00:00:00.000000 UTC')
+      UNION ALL
+      (with distinct_rec as(SELECT UPPER(interface_name) as interface_name,UPPER(interface_type) as interface_type,rule_column, error_description, global_group_id,pernr,ou_code,country_of_company,"not available" AS employee_status_code,created_timestamp,last_updated_adm_timestamp, row_number() over (partition by global_group_id, pernr order by last_updated_adm_timestamp desc , created_timestamp desc) rn
+      FROM `datacloud_adm_dq.gfs_employee_dq_error_details` where severity = 'error'
+      qualify rn = 1)
+      select * except(rn, last_updated_adm_timestamp,created_timestamp) from distinct_rec dist_rec
+      where created_timestamp >  coalesce(last_updated_adm_timestamp,'1900-01-01 00:00:00.000000 UTC'))
+      UNION ALL
+      (SELECT "SFEC_EMPLOYEE" AS interface_name,"INBOUND" AS interface_type,rule_column,error_description,global_group_id,pernr,"Not available in Interface" AS ou_code,country_of_company,employee_status_code
+      FROM `hr_dq.sfec_employee_active_dq_error_details`) ;;
+  }
 
   dimension: interface_name {
     type: string
