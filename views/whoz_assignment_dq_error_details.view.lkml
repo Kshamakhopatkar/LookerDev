@@ -1,10 +1,10 @@
 view: whoz_assignment_dq_error_details {
   derived_table: {
-    sql:SELECT "GTD" as interface_name ,"INBOUND" as interface_type,country_of_company,data_quality_job_id,data_scan_id, dc_file_id, dc_lineage_id, dc_rowhash, dc_source_id, error_description, error_value, GGID, LocalEmployeeNumber, ou_code, rule_column, rule_type, severity FROM
+    sql:SELECT "GTD" as interface_name ,"INBOUND" as interface_type,country_of_company,AllocationID,data_quality_job_id,data_scan_id, dc_file_id, dc_lineage_id,dc_created_timestamp, dc_rowhash, dc_source_id, error_description, error_value, GGID, LocalEmployeeNumber, ou_code, rule_column, rule_type, severity FROM
     gtd_dq.whoz_assignment_dq_error_details;;
     }
 
-  dimension: allocation_id {
+  dimension: AllocationID {
     type: string
     sql: ${TABLE}.AllocationID ;;
   }
@@ -90,7 +90,7 @@ view: whoz_assignment_dq_error_details {
   dimension: severity {
     type: string
     description: "If Record reported as Error, it will not be processed further, If record reported as Warning , will be processed further"
-    sql: ${TABLE}.severity ;;
+    sql: ${TABLE}.substr(severity, 10) ;;
   }
   measure: count {
     type: count
