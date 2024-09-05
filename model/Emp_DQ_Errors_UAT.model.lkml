@@ -105,3 +105,6 @@ explore: Employee_historical_new_joiner {
 explore: employee_new_joiner_active_exceptions {
   label: "employee_new_joiner_active_exceptions"
 }
+explore: whoz_assignment_dq_error_details {
+  label: "whoz_assignment_dq_error_details"
+}
