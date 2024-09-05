@@ -5,6 +5,14 @@ view: whoz_assignment_dq_error_details {
     type: string
     sql: ${TABLE}.AllocationID ;;
   }
+  dimension: interface_name {
+    type: string
+    sql: ${TABLE}.interface_name ;;
+  }
+  dimension: interface_type  {
+    type: string
+    sql: ${TABLE}.interface_type ;;
+  }
   dimension: country_of_company {
     type: string
     description: "Country of the Company code"
