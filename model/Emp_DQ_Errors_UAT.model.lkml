@@ -108,3 +108,6 @@ explore: employee_new_joiner_active_exceptions {
 explore: whoz_assignment_dq_error_details {
   label: "whoz_assignment_dq_error_details"
 }
+explore: replicon_absence_request_dq_error_details {
+  label: "replicon_absence_request_dq_error_details"
+}
