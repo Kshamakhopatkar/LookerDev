@@ -1,6 +1,6 @@
 view: whoz_assignment_dq_error_details {
   derived_table: {
-    sql:SELECT "GTD" as interface_name ,"INBOUND" as interface_type,AllocationID,country_of_company,data_quality_job_id,data_scan_id, dc_file_id, dc_lineage_id, dc_rowhash, dc_source_id, error_description, error_value, GGID, LocalEmployeeNumber, ou_code, rule_column,dc_created_timestamp, rule_type, severity FROM
+    sql:SELECT "GTD" as interface_name ,"INBOUND" as interface_type,AllocationID,data_quality_job_id,data_scan_id, dc_file_id, dc_lineage_id, dc_rowhash, dc_source_id, error_description, error_value, GGID, LocalEmployeeNumber, rule_column,dc_created_timestamp, rule_type, severity FROM
     gtd_dq.whoz_assignment_dq_error_details;;
     }
 
@@ -15,11 +15,6 @@ view: whoz_assignment_dq_error_details {
   dimension: interface_type  {
     type: string
     sql: ${TABLE}.interface_type ;;
-  }
-  dimension: country_of_company {
-    type: string
-    description: "Country of the Company code"
-    sql: ${TABLE}.Country_of_Company ;;
   }
   dimension: data_quality_job_id {
     type: string
@@ -73,11 +68,7 @@ view: whoz_assignment_dq_error_details {
     type: string
     sql: ${TABLE}.LocalEmployeeNumber ;;
   }
-  dimension: ou_code {
-    type: string
-    description: "The Organization unit to which this Employee Record Belongs"
-    sql: ${TABLE}.ou_code ;;
-  }
+
   dimension: rule_column {
     type: string
     description: "Column on which the Exception is reported"
