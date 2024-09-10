@@ -111,3 +111,9 @@ explore: whoz_assignment_dq_error_details {
 explore: replicon_absence_request_dq_error_details {
   label: "replicon_absence_request_dq_error_details"
 }
+explore: cost_center {
+  label: "cost_center"
+}
+explore: Consolidate_s4 {
+  label: "Consolidate_s4"
+}
