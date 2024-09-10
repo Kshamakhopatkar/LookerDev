@@ -117,3 +117,12 @@ explore: cost_center {
 explore: Consolidate_s4 {
   label: "Consolidate_s4"
 }
+explore: partner_io {
+  label: "partner_io"
+}
+explore: gfs_task {
+  label: "gfs_task"
+}
+explore: s4_work_item_dq_error_details {
+  label: "s4_work_item_dq_error_details"
+}
