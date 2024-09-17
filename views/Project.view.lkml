@@ -7,7 +7,7 @@ view: Consolidate_s4 {
       SELECT "S4_PROJECT" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,country_of_company,ProjectDefinition_ID as project_number,ou_code, dc_created_timestamp FROM finance_dq.s4_project_definition_dq_error_details
 
       UNION ALL
-      SELECT "S4_PPROJECT_WBS" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,country_of_company,WBS_Element as project_number,ou_code, dc_created_timestamp FROM finance_dq.s4_wbs_dq_error_details
+      SELECT "S4_PROJECT_WBS" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,country_of_company,WBS_Element as project_number,ou_code, dc_created_timestamp FROM finance_dq.s4_wbs_dq_error_details
 
       UNION ALL
       SELECT "GFS_PROJECT" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description, country_of_company,project_number,ou_code,dc_created_timestamp FROM finance_dq.gfs_project_dq_error_details
