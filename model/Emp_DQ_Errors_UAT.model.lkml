@@ -92,7 +92,7 @@ explore: ibm_ecm_employee_dq_error_details {
 explore: dtx_employee_dq_error_details {
   label: "dtx_employee_dq_error_details"
 }
-explore: active_report_outbound {
+explore: Employee_Exceptions_Active {
   label: "Employee_Exceptions_Active"
 }
 explore: Consolidated_1F_UAT {

@@ -1,10 +1,15 @@
 view: employee_new_joiner_active_exceptions {
   derived_table: {
-    sql: with distinct_rec as(SELECT *, row_number() over (partition by global_group_id, pernr order by last_updated_adm_timestamp desc , created_timestamp desc) rn
-      FROM `datacloud_adm_dq.gdh_newjoiner_dq_error_details` where severity = 'error'
-      qualify rn = 1)
-      select * except(rn, last_updated_adm_timestamp) from distinct_rec
-      where created_timestamp >  coalesce(last_updated_adm_timestamp,'1900-01-01 00:00:00.000000 UTC') ;;
+    sql:with distinct_rec as(SELECT UPPER(interface_name) as interface_name,UPPER(interface_type) as interface_type,rule_column, error_description, global_group_id,pernr as pernr,ou_code,country_of_company,"not available" AS employee_status_code,severity,created_timestamp,last_updated_adm_timestamp,row_number() over (partition by global_group_id, pernr order by last_updated_adm_timestamp desc , created_timestamp desc) rn FROM `datacloud_adm_dq.gdh_newjoiner_dq_error_details` where severity = 'error' qualify rn = 1)
+
+      select * except(rn, last_updated_adm_timestamp)  from distinct_rec dist_rec where created_timestamp >  coalesce(last_updated_adm_timestamp,'1900-01-01 00:00:00.000000 UTC')
+
+      UNION ALL
+
+      (with distinct_rec as(SELECT UPPER(interface_name) as interface_name,UPPER(interface_type) as interface_type,rule_column, error_description, globalgroupid as global_group_id,"Not available in Interface" AS pernr,ou_code,country_of_company,"not available" AS employee_status_code,severity,created_timestamp,last_updated_adm_timestamp, row_number() over (partition by globalgroupid order by last_updated_adm_timestamp desc , created_timestamp desc) rn  FROM `datacloud_adm_dq.corp_newjoiner_dq_error_details` where severity = 'error'
+
+      qualify rn = 1) select * except(rn, last_updated_adm_timestamp) from distinct_rec dist_rec  where created_timestamp >  coalesce(last_updated_adm_timestamp,'1900-01-01 00:00:00.000000 UTC'))
+      ;;
   }
   dimension: interface_name {
     type: string
@@ -41,6 +46,7 @@ view: employee_new_joiner_active_exceptions {
   }
   dimension: ou_code {
     type: string
+    description: "The Organization unit to which this Employee Record belongs"
     sql: ${TABLE}.ou_code ;;
   }
   dimension: country_of_company {
