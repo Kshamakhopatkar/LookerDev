@@ -28,6 +28,7 @@ view: whoz_assignment_active_dq_error_details {
   }
   dimension: error_description {
     type: string
+    description: "Description of the Exception"
     sql: ${TABLE}.error_description ;;
   }
   dimension: ggid {
@@ -52,10 +53,12 @@ view: whoz_assignment_active_dq_error_details {
   }
   dimension: rule_column {
     type: string
+    description: "Column on which the Exception is reported"
     sql: ${TABLE}.rule_column ;;
   }
   dimension: severity {
     type: string
+    description: "If Record reported as Error, it will not be processed further, If record reported as Warning , will be processed further"
     sql: ${TABLE}.severity ;;
   }
   dimension: status {
