@@ -126,3 +126,6 @@ explore: gfs_task {
 explore: s4_work_item_dq_error_details {
   label: "s4_work_item_dq_error_details"
 }
+explore: whoz_assignment_active_dq_error_details {
+  label: "whoz_assignment_active_dq_error_details"
+}
