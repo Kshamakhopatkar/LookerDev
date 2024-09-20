@@ -3,7 +3,7 @@ view: Replicon {
     sql:SELECT "REPLICON ABSENCE REQUEST" as interface_name ,"INBOUND" as interface_type,blocked_age_in_days, blocked_since, company_code, country_of_company, error_description, global_group_id, latest_dc_lineage_id, leave_request_id, rule_column, severity, status FROM
       gtm_dq.replicon_absence_request_active_dq_error_details
        UNION ALL
-    sql:SELECT "REPLICON CANCELLED LEAVE REQUEST" as interface_name ,"INBOUND" as interface_type,blocked_age_in_days, blocked_since, company_code, country_of_company, error_description, global_group_id, latest_dc_lineage_id, leave_request_id, rule_column, severity, status FROM
+    SELECT "REPLICON CANCELLED LEAVE REQUEST" as interface_name ,"INBOUND" as interface_type,blocked_age_in_days, blocked_since, company_code, country_of_company, error_description, global_group_id, latest_dc_lineage_id, leave_request_id, rule_column, severity, status FROM
     gtm_dq.replicon_cancelled_leave_requests_active_dq_error_details;;
 
   }
