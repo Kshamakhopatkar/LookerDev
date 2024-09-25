@@ -42,6 +42,7 @@ view: Replicon {
   }
   dimension: global_group_id {
     type: string
+    description: "Employee GGID on which the exception is reported"
     sql: ${TABLE}.global_group_id ;;
   }
   dimension: latest_dc_lineage_id {
