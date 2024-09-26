@@ -56,6 +56,21 @@
             UNION ALL
             SELECT "REPLICON_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,substr(severity, 10),error_description,"Not available in Interface" as ggid,"Not available in Interface" as pernr_id,ou_code,"Not available in Interface" as country_of_company, dc_created_timestamp FROM
             hr_dq.replicon_leave_request_dq_error_details
+            UNION ALL
+            SELECT "HRDB_EMPLOYEE" as interface_name ,"INBOUND" as interface_type,rule_column,severity,error_description,Global_Group_GGID as ggid,"Not available in Interface" as pernr,ou_code,country_of_company,dc_created_timestamp AS created_timestamp FROM
+            hr_dq.hrdb_employee_master_dq_error_details
+            UNION ALL
+            SELECT "INAZ_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,severity ,error_description,Global_Group as ggid,"Not available in Interface"  as pernr,ou_code,country_of_company, dc_created_timestamp FROM
+            hr_dq.inaz_employee_master_dq_error_details
+            UNION ALL
+            SELECT "MYC_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,substr(severity, 10),error_description,Global_Group_ID as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, dc_created_timestamp FROM
+            hr_dq.myc_employee_master_dq_error_details
+            UNION ALL
+            SELECT "SAPNL_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,case when severity in ("business-error") then "error" when severity in ("technical-error") then "error" else "warning" end as severity,error_description,ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, dc_created_timestamp FROM
+            hr_dq.sapnl_employee_master_dq_error_details
+            UNION ALL
+            SELECT "OLDSF_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,substr(severity, 10),error_description,"Not available in Interface" as ggid,"Not available in Interface" as pernr_id,ou_code,"Not available in Interface" as country_of_company, dc_created_timestamp FROM
+            hr_dq.oldsf_employee_master_dq_error_details
             ;;
           }
 
