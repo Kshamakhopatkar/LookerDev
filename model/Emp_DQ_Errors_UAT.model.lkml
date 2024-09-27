@@ -81,8 +81,6 @@ explore: gdh_gfs {
     #user_attribute:psa_users
   #}
 
-
-
   label: "Employee_Exceptions_Historical"
 }
 
