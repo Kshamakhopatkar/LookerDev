@@ -75,10 +75,10 @@ explore: sfec_employee_active_dq_error_details {
   label: "sfec_employee_active_dq_error_details"
 }
 explore: gdh_gfs {
-    access_filter:{
-    field: interface_name
-    user_attribute:psa_users
-  }
+   # access_filter:{
+    #field: interface_name
+    #user_attribute:psa_users
+  #}
 
   label: "Employee_Exceptions_Historical"
 }

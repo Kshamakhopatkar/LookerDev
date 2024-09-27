@@ -71,22 +71,22 @@
             UNION ALL
             SELECT "OLDSF_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,substr(severity, 10),error_description,Global_ID as ggid,"Not available in Interface" as pernr_id,ou_code,"Not available in Interface" as country_of_company, dc_created_timestamp FROM
             hr_dq.oldsf_employee_master_dq_error_details
+
             UNION ALL
-            SELECT "S4_EMPLOYEE" as interface_name,"OUTBOUND" as interface_type,rule_column,severity ,error_description,global_group_id as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM
+            SELECT interface_name,"OUTBOUND" as interface_type,rule_column,severity ,error_description,global_group_id as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM
             datacloud_adm_dq.s4_employee_dq_error_details
             UNION ALL
-            SELECT "DTX_EMPLOYEE" as interface_name,"OUTBOUND" as interface_type,rule_column,substr(severity, 10),error_description,global_group_id as ggid, pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM
+            SELECT interface_name,"OUTBOUND" as interface_type,rule_column,substr(severity, 10),error_description,global_group_id as ggid, "Not available in Interface" as pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM
             datacloud_adm_dq.dtx_employee_dq_error_details
             UNION ALL
-            SELECT "IBM_ECM_EMPLOYEE" as interface_name,"OUTBOUND" as interface_type,rule_column,case when severity in ("business-error") then "error" when severity in ("technical-error") then "error" else "warning" end as severity,error_description,global_group_id,pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM
+            SELECT interface_name,"OUTBOUND" as interface_type,rule_column,case when severity in ("business-error") then "error" when severity in ("technical-error") then "error" else "warning" end as severity,error_description,global_group_id,"Not available in Interface" as pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM
             datacloud_adm_dq.ibm_ecm_employee_dq_error_details
             UNION ALL
-            SELECT "CONCUR_EMPLOYEE" as interface_name,"OUTBOUND" as interface_type,rule_column,substr(severity, 10),error_description,global_group_id as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM
+            SELECT interface_name,"OUTBOUND" as interface_type,rule_column,substr(severity, 10),error_description,global_group_id as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM
             datacloud_adm_dq.concur_employee_dq_error_details
-            ;;
+;;
           }
-
-         dimension: interface_name {
+    dimension: interface_name {
     type: string
     sql: ${TABLE}.interface_name ;;
       }
