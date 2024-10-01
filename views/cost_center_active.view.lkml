@@ -55,13 +55,9 @@ finance_dq.s4_cost_center_active_dq_error_details
     sql: ${TABLE}.ou_code ;;
 
   }
-  dimension_group: blocked_since {
-
-    type: time
-
-    timeframes: [raw, time, date, week, month, quarter, year]
-
-    sql: ${TABLE}.blocked_since ;;
+  dimension: blocked_since {
+    type: string
+    sql: ${TABLE}.blocked_sinc;;
 
   }
 
