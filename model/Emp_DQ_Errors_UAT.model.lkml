@@ -136,3 +136,6 @@ explore: Replicon {
  explore: consolidate_project {
    label: "consolidate_project"
  }
+explore: cost_center_active {
+  label: "cost_center_active"
+}
