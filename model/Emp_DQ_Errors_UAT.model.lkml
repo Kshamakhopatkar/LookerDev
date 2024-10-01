@@ -139,3 +139,6 @@ explore: Replicon {
 explore: cost_center_active {
   label: "cost_center_active"
 }
+explore: s4_work_item_active_dq_error_details {
+  label: "s4_work_item_active_dq_error_details"
+}
