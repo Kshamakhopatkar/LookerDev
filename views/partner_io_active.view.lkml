@@ -4,7 +4,7 @@ view: partner_io_active {
       SELECT "S4_WBS_Partner" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description, WBS_Element as IO_Number, blocked_since FROM finance_dq.s4_wbs_partner_active_dq_error_details
 
                   UNION ALL
-                  SELECT "S4_IO_Partner" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,IO_number, blocked_since FROM
+                  SELECT "S4_IO_Partner" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,IO_number, blocked_since as blocked_since FROM
                   finance_dq.s4_partner_io_active_dq_error_details
           ;;
   }
