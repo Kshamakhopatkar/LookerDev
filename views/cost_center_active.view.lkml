@@ -1,9 +1,9 @@
 view: cost_center_active {
   derived_table: {
-    sql:SELECT "S4_Cost Centre" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,CC_code , ou_code, blocked_since FROM
-finance_dq.s4_cost_center_active_dq_error_details
-      UNION ALL
-     SELECT "S4_Partner_Cost Centre" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,CC_code , ou_code, blocked_since FROM finance_dq.s4_partner_cost_center_active_dq_error_details;;
+    sql:SELECT "S4_Cost Centre" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,CC_code , ou_code, Date(blocked_since)  FROM
+      finance_dq.s4_cost_center_active_dq_error_details
+            UNION ALL
+           SELECT "S4_Partner_Cost Centre" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,CC_code , ou_code, Date(blocked_since) FROM finance_dq.s4_partner_cost_center_active_dq_error_details;;
   }
 
   dimension: interface_name {
@@ -55,9 +55,13 @@ finance_dq.s4_cost_center_active_dq_error_details
     sql: ${TABLE}.ou_code ;;
 
   }
-  dimension: blocked_since {
-    type: string
-    sql: ${TABLE}.blocked_sinc;;
+  dimension_group: dc_created_timestamp {
+
+    type: time
+
+    timeframes: [raw, time, date, week, month, quarter, year]
+
+    sql: ${TABLE}.dc_created_timestamp ;;
 
   }
 
