@@ -1,7 +1,7 @@
 view: s4_work_item_active_dq_error_details {
   derived_table: {
     sql:
-    SELECT "S4_WORK_ITEM" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description, date(blocked_since),project_role_id, wbs_level_1_id FROM
+    SELECT "S4_WORK_ITEM" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description, date(blocked_since) as blocked_since,project_role_id, wbs_level_1_id FROM
 finance_dq.s4_work_item_active_dq_error_details;;
   }
   dimension: interface_name {

@@ -1,9 +1,9 @@
 view: cost_center_active {
   derived_table: {
-    sql:SELECT "S4_Cost Centre" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,CC_code , ou_code, Date(blocked_since)  FROM
+    sql:SELECT "S4_Cost Centre" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,CC_code , ou_code, Date(blocked_since) as blocked_since FROM
       finance_dq.s4_cost_center_active_dq_error_details
             UNION ALL
-           SELECT "S4_Partner_Cost Centre" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,CC_code , ou_code, Date(blocked_since) FROM finance_dq.s4_partner_cost_center_active_dq_error_details;;
+           SELECT "S4_Partner_Cost Centre" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,CC_code , ou_code, Date(blocked_since) as blocked_since FROM finance_dq.s4_partner_cost_center_active_dq_error_details;;
   }
 
   dimension: interface_name {
@@ -55,13 +55,13 @@ view: cost_center_active {
     sql: ${TABLE}.ou_code ;;
 
   }
-  dimension_group: dc_created_timestamp {
+  dimension_group: blocked_since {
 
     type: time
 
     timeframes: [raw, time, date, week, month, quarter, year]
 
-    sql: ${TABLE}.dc_created_timestamp ;;
+    sql: ${TABLE}.blocked_since ;;
 
   }
 
