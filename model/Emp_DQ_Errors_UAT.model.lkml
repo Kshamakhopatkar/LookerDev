@@ -142,3 +142,6 @@ explore: cost_center_active {
 explore: s4_work_item_active_dq_error_details {
   label: "s4_work_item_active_dq_error_details"
 }
+explore: partner_io_active {
+  label: "partner_io_active"
+}
