@@ -133,3 +133,6 @@ explore: whoz_assignment_active_dq_error_details {
 explore: Replicon {
   label: "Replicon"
 }
+ explore: consolidate_project {
+   label: "consolidate_project"
+ }
