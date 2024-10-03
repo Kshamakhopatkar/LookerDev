@@ -145,3 +145,6 @@ explore: s4_work_item_active_dq_error_details {
 explore: partner_io_active {
   label: "partner_io_active"
 }
+explore: consolidation_active_s4 {
+  label: "consolidation_active_s4"
+}
