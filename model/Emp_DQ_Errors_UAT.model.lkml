@@ -151,3 +151,6 @@ explore: consolidation_active_s4 {
 explore: consolidation_active_gfs {
   label: "consolidation_active_gfs"
 }
+explore: vms_subcon_dq_error_details {
+  label: "vms_subcon_dq_error_details"
+}
