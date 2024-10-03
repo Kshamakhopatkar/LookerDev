@@ -1,9 +1,22 @@
 view: vms_subcon_dq_error_details {
-  sql_table_name: `premi0541131-dataclou.hr_dq.vms_subcon_dq_error_details` ;;
+  derived_table: {
+    sql:SELECT "VMS_SUBCON" as interface_name ,"INBOUND" as interface_type,country_of_company, data_quality_job_id,data_scan_id, dc_created_timestamp,dc_file_id,dc_lineage_id,error_description,
+          ggid, ou_code,rule_column,severity,work_order_id
 
+          FROM
+          hr_dq.vms_subcon_dq_error_details
+        ;;
+  }
+  dimension: interface_name {
+    type: string
+    sql: ${TABLE}.interface_name ;;
+  }
+  dimension: interface_type {
+    type: string
+    sql: ${TABLE}.interface_type ;;
+  }
   dimension: country_of_company {
     type: string
-    description: "Country of the Company code"
     sql: ${TABLE}.Country_of_Company ;;
   }
   dimension: data_quality_job_id {
@@ -16,7 +29,6 @@ view: vms_subcon_dq_error_details {
   }
   dimension_group: dc_created_timestamp {
     type: time
-    description: "Timestamp for Batch Run"
     timeframes: [raw, time, date, week, month, quarter, year]
     sql: ${TABLE}.dc_created_timestamp ;;
   }
@@ -43,7 +55,6 @@ view: vms_subcon_dq_error_details {
   }
   dimension: error_description {
     type: string
-    description: "Description of the Exception"
     sql: ${TABLE}.error_description ;;
   }
   dimension: error_value {
@@ -52,7 +63,6 @@ view: vms_subcon_dq_error_details {
   }
   dimension: ggid {
     type: string
-    description: "Employee GGID on which the exception is reported"
     sql: ${TABLE}.ggid ;;
   }
   dimension: ou_code {
@@ -61,7 +71,6 @@ view: vms_subcon_dq_error_details {
   }
   dimension: rule_column {
     type: string
-    description: "Column on which the Exception is reported"
     sql: ${TABLE}.rule_column ;;
   }
   dimension: rule_type {
@@ -70,13 +79,7 @@ view: vms_subcon_dq_error_details {
   }
   dimension: severity {
     type: string
-    description: "If Record reported as Error, it will not be processed further, If record reported as Warning , will be processed further"
-
-    sql: CASE
-          WHEN severity ="business-error" THEN "error"
-          WHEN severity="business-warning" THEN "warning"
-          ELSE "error"
-      END ;;
+    sql: ${TABLE}.severity ;;
   }
   dimension: work_order_id {
     type: string
