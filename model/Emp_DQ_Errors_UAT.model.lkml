@@ -148,3 +148,6 @@ explore: partner_io_active {
 explore: consolidation_active_s4 {
   label: "consolidation_active_s4"
 }
+explore: consolidation_active_gfs {
+  label: "consolidation_active_gfs"
+}
