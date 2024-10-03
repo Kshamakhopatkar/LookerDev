@@ -49,11 +49,6 @@ dimension: ProjectDefinition_ID {
   type: string
   sql: ${TABLE}.ProjectDefinition_ID;;
 }
-dimension: country_of_company {
-  type: string
-  description: "Country of the Company code"
-  sql: ${TABLE}.country_of_company;;
-}
 measure: count {
   type: count
 }
