@@ -1,19 +1,29 @@
 view: consolidation_active_gfs {
   derived_table: {
-    sql:  SELECT "S4_WBS_PARTNER" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,"Not available in Interface" as ProjectDefinition_ID, date(blocked_since) as blocked_since FROM
-            finance_dq.s4_wbs_partner_active_dq_error_details
-            UNION ALL
-            SELECT "S4_WBS" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,"Not available in Interface" as ProjectDefinition_ID,date(blocked_since) as blocked_since FROM
+    sql:              SELECT "S4_WBS" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,"Not available in Interface" as project_number FROM
             finance_dq.s4_wbs_active_dq_error_details
             UNION ALL
-            SELECT "S4_PROJECT" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code, ProjectDefinition_ID, date(blocked_since) as blocked_since FROM
+            SELECT "S4_PROJECT" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code, ProjectDefinition_ID as project_number FROM
             finance_dq.s4_project_definition_active_dq_error_details
-            UNION ALL
-            SELECT "S4_PARTNER" as interface_name,"INBOUND" as interface_type,rule_column,severity ,error_description,ou_code,"Not available in Interface" as ProjectDefinition_ID, date(blocked_since) as blocked_since FROM
-            finance_dq.s4_partner_io_active_dq_error_details
-            UNION ALL
-            SELECT "S4_INTERNAL" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,"Not available in Interface" as ProjectDefinition_ID, date(blocked_since) as blocked_since  FROM
-            finance_dq.s4_internal_order_active_dq_error_details
+UNION ALL
+
+SELECT "S4_IO" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,io_number as project_number,ou_code FROM finance_dq.s4_internal_order_active_dq_error_details
+
+
+      UNION ALL
+      SELECT "GFS_PROJECT" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,project_number,ou_code FROM finance_dq.gfs_project_active_dq_error_details
+
+      UNION ALL
+      SELECT "GFS_PROJECT_CLASSIFICATION" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,project_number, ou_code FROM finance_dq.gfs_project_classification_active_dq_error_details
+
+      UNION ALL
+      SELECT "GFS_PROJECT_MEMBER" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,project_number, ou_code FROM finance_dq.gfs_project_member_active_dq_error_details
+
+
+      UNION ALL
+      SELECT "GFS_Provider_OU" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,project_number, ou_code FROM finance_dq.gfs_provider_ou_active_dq_error_details
+
+
             ;;
   }
 
@@ -45,17 +55,12 @@ view: consolidation_active_gfs {
     description: "The Organization unit to which this Employee Record Belongs"
     sql: ${TABLE}.ou_code ;;
   }
-  dimension: ProjectDefinition_ID {
+  dimension: project_number {
     type: string
-    sql: ${TABLE}.ProjectDefinition_ID;;
+    sql: ${TABLE}.project_number;;
   }
   measure: count {
     type: count
   }
-  dimension_group: blocked_since {
-    type: time
-    description: "Timestamp for Batch Run"
-    timeframes: [raw, time, date, week, month, quarter, year]
-    sql: ${TABLE}.blocked_since ;;
-  }
+
 }
