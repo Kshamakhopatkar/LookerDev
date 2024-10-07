@@ -2,7 +2,7 @@ view: gfs_task_active_dq_error_details {
 
   derived_table: {
     sql:
-    SELECT "GFS_TASK" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description, project_number, task_number,ou_code, blocked_since FROM finance_dq.gfs_task_active_dq_error_details;;
+    SELECT "GFS_TASK" as interface_name,"INBOUND" as interface_type,blocked_age_in_days,rule_column,severity,error_description, project_number, task_number,ou_code, blocked_since FROM finance_dq.gfs_task_active_dq_error_details;;
   }
 
   dimension: interface_name {
