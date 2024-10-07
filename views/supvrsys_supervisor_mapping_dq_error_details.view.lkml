@@ -79,4 +79,56 @@ view: supvrsys_supervisor_mapping_dq_error_details {
   measure: count {
     type: count
   }
+  measure: test {
+    label: "test"
+    type: string
+    sql: "" ;;
+    html:
+    <style>
+* {
+  box-sizing: border-box;
+}
+
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+</head>
+<body>
+<div style="width: 100%; display: table;">
+
+    <div style="display: table-row">
+        <div style="border: 2px solid #51CCC5; padding: 10px; border-radius: 5px; text-align: center; background-color:#51ccc5; display: table-cell"> <h2> PROJECT </h2>  </div> &nbsp;
+
+        <div style="border: 2px solid #51CCC5; padding: 10px; border-radius: 5px; text-align: center; background-color:#51ccc5; display: table-cell">  <h2> PARTNER </h2> </div>
+    </div>
+    <h3></h3>
+    <div style="display: table-row">
+        <div style="border: 2px solid #51CCC5; padding: 10px; border-radius: 5px; text-align: center; background-color:#51ccc5; display: table-cell">  <h2> WORK  </h2> </div> &nbsp;
+
+        <div style="border: 2px solid #51CCC5; padding: 10px; border-radius: 5px; text-align: center; background-color:#51ccc5; display: table-cell"> Column 2 </div>
+    </div>
+    <h3></h3>
+    <div style="display: table-row">
+        <div style="border: 2px solid #51CCC5; padding: 10px; color:#aaa; border-radius: 5px; text-align: center; background-color:#51ccc5; display: table-cell"><h2> TASK </h2> </div> &nbsp;
+
+        <div style="border: 2px solid #51CCC5; padding: 10px; border-radius: 5px; text-align: center; background-color:#51ccc5; display: table-cell"> <h2> COST CENTER </h2> </div>
+    </div>
+</div>
+
+
+</body>
+;;
+
+  }
 }
