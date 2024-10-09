@@ -33,6 +33,7 @@ view: whoz_assignment_active_dq_error_details {
   }
   dimension: ggid {
     type: string
+    description: "Employee GGID on which the exception is reported"
     sql: ${TABLE}.ggid ;;
   }
   dimension: latest_dc_lineage_id {
