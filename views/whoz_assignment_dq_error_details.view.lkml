@@ -86,8 +86,14 @@ view: whoz_assignment_dq_error_details {
   dimension: severity {
     type: string
     description: "If Record reported as Error, it will not be processed further, If record reported as Warning , will be processed further"
-    sql:substr(severity, 10) ;;
-  }
+
+    sql: CASE
+          WHEN severity ="business-error" THEN "error"
+          WHEN severity="business-warning" THEN "warning"
+          WHEN severity="technical-error" THEN "error"
+          WHEN severity="reject-warning" THEN "warning"
+          ELSE "error"
+      END ;;  }
   measure: count {
     type: count
   }
