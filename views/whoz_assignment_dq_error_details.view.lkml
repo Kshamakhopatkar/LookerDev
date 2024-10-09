@@ -78,6 +78,11 @@ view: whoz_assignment_dq_error_details {
     type: string
     sql: ${TABLE}.rule_type ;;
   }
+  dimension: ou_code {
+    type: string
+    description: "The Organization unit to which this Employee Record Belongs"
+    sql: ${TABLE}.ou_code ;;
+  }
   dimension: severity {
     type: string
     description: "If Record reported as Error, it will not be processed further, If record reported as Warning , will be processed further"
