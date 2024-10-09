@@ -1,7 +1,7 @@
 view: replicon_absence_request_dq_error_details {
   derived_table: {
-    sql: SELECT "replicon_absence" as interface_name ,"INBOUND" as interface_type,data_quality_job_id , data_scan_id, dc_created_timestamp, dc_file_id, dc_lineage_id, dc_rowhash, dc_source_id, dc_updated_timestamp, Employee_ID, error_description, error_value, Leave_Request_ID, rule_column, rule_type, severity from
-          gtm_dq.replicon_absence_request_dq_error_details ;;
+    sql: SELECT "replicon_absence" as interface_name ,"INBOUND" as interface_type,data_quality_job_id , data_scan_id, dc_created_timestamp, dc_file_id, dc_lineage_id, dc_rowhash, dc_source_id, dc_updated_timestamp, Employee_ID, error_description, error_value, Leave_Request_ID,ou_code, rule_column, rule_type, severity from
+      gtm_dq.replicon_absence_request_dq_error_details ;;
   }
 
   dimension: interface_name {
@@ -65,6 +65,11 @@ view: replicon_absence_request_dq_error_details {
   dimension: rule_column {
     type: string
     sql: ${TABLE}.rule_column ;;
+  }
+  dimension: ou_code {
+    type: string
+    description: "The Organization unit to which this Employee Record Belongs"
+    sql: ${TABLE}.ou_code ;;
   }
   dimension: rule_type {
     type: string

@@ -1,6 +1,6 @@
 view: whoz_assignment_dq_error_details {
   derived_table: {
-    sql:SELECT "GTD" as interface_name ,"INBOUND" as interface_type,AllocationID,data_quality_job_id,data_scan_id, dc_file_id, dc_lineage_id, dc_rowhash, dc_source_id, error_description, error_value, GGID, LocalEmployeeNumber, rule_column,dc_created_timestamp, rule_type, severity FROM
+    sql:SELECT "GTD" as interface_name ,"INBOUND" as interface_type,AllocationID,data_quality_job_id,data_scan_id, dc_file_id, dc_lineage_id, dc_rowhash, dc_source_id, error_description, error_value, GGID, LocalEmployeeNumber, rule_column,dc_created_timestamp, rule_type,ou_code,severity FROM
     gtd_dq.whoz_assignment_dq_error_details;;
     }
 
