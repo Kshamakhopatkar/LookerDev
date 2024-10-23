@@ -1,19 +1,10 @@
 view: employee_new_joiner_active_exceptions {
   derived_table: {
-    sql:with distinct_rec as(SELECT UPPER(interface_name) as interface_name,UPPER(interface_type) as interface_type,rule_column, error_description, global_group_id,pernr as pernr,ou_code,country_of_company,"not available" AS employee_status_code,severity,created_timestamp,last_updated_adm_timestamp,row_number() over (partition by global_group_id, pernr order by last_updated_adm_timestamp desc , created_timestamp desc) rn FROM `datacloud_adm_dq.gdh_newjoiner_dq_error_details` where severity = 'error' qualify rn = 1)
-
-select * except(rn, last_updated_adm_timestamp)  from distinct_rec dist_rec where created_timestamp >  coalesce(last_updated_adm_timestamp,'1900-01-01 00:00:00.000000 UTC')
-
-UNION ALL
-
-(with distinct_rec as(SELECT UPPER(interface_name) as interface_name,UPPER(interface_type) as interface_type,rule_column, error_description, globalgroupid as global_group_id,"Not available in Interface" AS pernr,ou_code,country_of_company,"not available" AS employee_status_code,severity,created_timestamp,last_updated_adm_timestamp, row_number() over (partition by globalgroupid order by last_updated_adm_timestamp desc , created_timestamp desc) rn  FROM `datacloud_adm_dq.corp_newjoiner_dq_error_details` where severity = 'error'
-
-qualify rn = 1) select * except(rn, last_updated_adm_timestamp) from distinct_rec dist_rec  where created_timestamp >  coalesce(last_updated_adm_timestamp,'1900-01-01 00:00:00.000000 UTC'))
-
-UNION ALL
-
-SELECT "SFEC_New Joiner" as interface_name,"INBOUND" as interface_type,rule_column,error_description,global_group_id,"Not available in Interface" AS pernr,"Not available in Interface" as ou_code,country_of_company,"Not available in Interface" as employee_status_code,"not available in Interface" as severity, blocked_since as created_timestamp FROM
- hr_dq.sfec_newjoiner_active_dq_error_details
+    sql:SELECT  UPPER(interface_name) as  interface_name, UPPER(interface_type) as interface_type,rule_column,error_description, globalgroupid as ggid,country_of_company, ou_code ,"Not available in interface" as pernr_id,severity, created_timestamp FROM
+       datacloud_adm_dq.corp_newjoiner_dq_active_error_details
+          UNION ALL
+          SELECT UPPER(interface_name) as  interface_name, UPPER(interface_type) as interface_type,rule_column,error_description, global_group_id as ggid,country_of_company, ou_code, pernr_id,severity, created_timestamp FROM
+       datacloud_adm_dq.gdh_newjoiner_dq_active_error_details
       ;;
   }
   dimension: interface_name {
@@ -42,12 +33,12 @@ SELECT "SFEC_New Joiner" as interface_name,"INBOUND" as interface_type,rule_colu
   dimension: global_group_id {
     type: string
     description: "Employee GGID on which the exception is reported"
-    sql: ${TABLE}.global_group_id;;
+    sql: ${TABLE}.ggid;;
   }
   dimension: pernr {
     type: string
     description: "Employee PERNR on which this exception is reported"
-    sql: ${TABLE}.PERNR ;;
+    sql: ${TABLE}.pernr_id ;;
   }
   dimension: ou_code {
     type: string
