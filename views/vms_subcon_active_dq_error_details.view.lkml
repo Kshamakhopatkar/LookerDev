@@ -5,6 +5,14 @@ view: vms_subcon_active_dq_error_details {
 
     FROM procure_dq.vms_subcon_active_dq_error_details ;;
 }
+  dimension: interface_name {
+    type: string
+    sql: ${TABLE}.interface_name ;;
+  }
+  dimension: interface_type {
+    type: string
+    sql: ${TABLE}.interface_type ;;
+  }
   dimension: country_of_company {
     type: string
     sql: ${TABLE}.Country_of_Company ;;
