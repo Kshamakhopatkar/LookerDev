@@ -19,6 +19,9 @@ view: Employee_Exceptions_Active {
            UNION ALL
            SELECT "HRDB_EMPLOYEE" as interface_name ,"INBOUND" as interface_type,rule_column,"Not available in interface" as severity, global_group_GGID as ggid,error_description,"Not available in interface" as ou_code, "Not available in interface" as pernr_id,country_of_company, blocked_since as dc_created_timestamp FROM
              hr_dq.hrdb_employee_master_active_dq_error_details
+            UNION ALL
+           SELECT "MYC_EMPLOYEE" as interface_name ,"INBOUND" as interface_type,rule_column,"Not available in interface" as severity, global_group_id as ggid,error_description,"Not available in interface" as ou_code, "Not available in interface" as pernr_id,country_of_company, blocked_since as dc_created_timestamp FROM
+             hr_dq.myc_employee_master_active_dq_error_details
           ;;
   }
 
