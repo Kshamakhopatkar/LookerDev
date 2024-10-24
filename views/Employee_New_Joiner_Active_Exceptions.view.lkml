@@ -30,7 +30,7 @@ view: employee_new_joiner_active_exceptions {
     description: "Description of the Exception"
     sql: ${TABLE}.error_description ;;
   }
-  dimension: global_group_id {
+  dimension: ggid {
     type: string
     description: "Employee GGID on which the exception is reported"
     sql: ${TABLE}.ggid;;
