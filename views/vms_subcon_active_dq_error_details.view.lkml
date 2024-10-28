@@ -1,6 +1,6 @@
 view: vms_subcon_active_dq_error_details {
   derived_table: {
-    sql:SELECT "VMS_SUBCON" as interface_name ,"INBOUND" as interface_type,country_of_company, data_quality_job_id,data_scan_id, dc_created_timestamp,dc_file_id,dc_lineage_id,error_description,
+    sql:SELECT "VMS_SUBCON" as interface_name ,"INBOUND" as interface_type,country_of_company, dc_created_timestamp ,dc_file_id,dc_lineage_id,error_description,
     ggid, ou_code,rule_column,severity,work_order_id
 
     FROM procure_dq.vms_subcon_active_dq_error_details ;;
