@@ -20,8 +20,14 @@ view: Employee_Exceptions_Active {
            SELECT "HRDB_EMPLOYEE" as interface_name ,"INBOUND" as interface_type,rule_column,"Not available in interface" as severity, global_group_GGID as ggid,error_description,"Not available in interface" as ou_code, "Not available in interface" as pernr_id,country_of_company, employee_status_code ,blocked_since as dc_created_timestamp FROM
              hr_dq.hrdb_employee_master_active_dq_error_details
             UNION ALL
-           SELECT "MYC_EMPLOYEE" as interface_name ,"INBOUND" as interface_type,rule_column,"Not available in interface" as severity, global_group_id as ggid,error_description,"Not available in interface" as ou_code, "Not available in interface" as pernr_id,country_of_company, employee_status_code, blocked_since as dc_created_timestamp FROM
+            SELECT "MYC_EMPLOYEE" as interface_name ,"INBOUND" as interface_type,rule_column,"Not available in interface" as severity, global_group_id as ggid,error_description,"Not available in interface" as ou_code, "Not available in interface" as pernr_id,country_of_company, employee_status_code, blocked_since as dc_created_timestamp FROM
              hr_dq.myc_employee_master_active_dq_error_details
+           UNION ALL
+           SELECT "MYC_EMPLOYEE" as interface_name ,"INBOUND" as interface_type,"Not available in interface" as rule_column,"Not available in interface" as severity, "Not available in interface" as ggid,"Not available in interface" as error_description,"Not available in interface" as ou_code, "Not available in interface" as pernr_id,"Not available in interface" as country_of_company, "Not available in interface" as employee_status_code, current_timestamp() as dc_created_timestamp
+           UNION ALL
+           SELECT "INAZ_EMPLOYEE" as interface_name ,"INBOUND" as interface_type,"Not available in interface" as rule_column,"Not available in interface" as severity, "Not available in interface" as ggid,"Not available in interface" as error_description,"Not available in interface" as ou_code, "Not available in interface" as pernr_id,"Not available in interface" as country_of_company, "Not available in interface" as employee_status_code, current_timestamp() as dc_created_timestamp
+             UNION ALL
+           SELECT "SAPNL_EMPLOYEE" as interface_name ,"INBOUND" as interface_type,"Not available in interface" as rule_column,"Not available in interface" as severity, "Not available in interface" as ggid,"Not available in interface" as error_description,"Not available in interface" as ou_code, "Not available in interface" as pernr_id,"Not available in interface" as country_of_company, "Not available in interface" as employee_status_code, current_timestamp() as dc_created_timestamp
           ;;
   }
 
