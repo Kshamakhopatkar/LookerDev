@@ -3,24 +3,24 @@ view: Employee_Exceptions_Active {
   derived_table: {
     sql:
 
-          SELECT UPPER(interface_name) as  interface_name, UPPER(interface_type) as interface_type, rule_column , severity, globalgroupid as ggid, error_description, ou_code,"Not available in interface" as pernr_id, country_of_company, created_timestamp from datacloud_adm_dq.corp_employee_dq_active_error_details
+           SELECT UPPER(interface_name) as  interface_name, UPPER(interface_type) as interface_type, rule_column , severity, globalgroupid as ggid, error_description, ou_code,"Not available in interface" as pernr_id, country_of_company,"Not available in Interface" as employee_status_code, created_timestamp from datacloud_adm_dq.corp_employee_dq_active_error_details
           UNION ALL
-           SELECT UPPER(interface_name) as  interface_name, UPPER(interface_type) as interface_type, rule_column , severity, global_group_id as ggid, error_description, ou_code, pernr_id, country_of_company, created_timestamp from datacloud_adm_dq.gdh_employee_global_dq_active_error_details
+           SELECT UPPER(interface_name) as  interface_name, UPPER(interface_type) as interface_type, rule_column , severity, global_group_id as ggid, error_description, ou_code, pernr_id, country_of_company,"Not available in Interface" as employee_status_code, created_timestamp from datacloud_adm_dq.gdh_employee_global_dq_active_error_details
            UNION ALL
-           SELECT UPPER(interface_name) as  interface_name, UPPER(interface_type) as interface_type, rule_column , severity, global_group_id as ggid, error_description, ou_code, pernr as pernr_id , country_of_company, created_timestamp from datacloud_adm_dq.gfs_employee_dq_active_error_details
+           SELECT UPPER(interface_name) as  interface_name, UPPER(interface_type) as interface_type, rule_column , severity, global_group_id as ggid, error_description, ou_code, pernr as pernr_id , country_of_company,"Not available in Interface" as employee_status_code, created_timestamp from datacloud_adm_dq.gfs_employee_dq_active_error_details
             UNION ALL
-            SELECT "SFEC_EMPLOYEE" AS interface_name,"INBOUND" AS interface_type, rule_column , "Not available in interface" as severity, global_group_id as ggid,error_description, "Not available in interface" as ou_code, pernr as pernr_id,  country_of_company, blocked_since as created_timestamp from sfec_employee_active_dq_error_details
+            SELECT "SFEC_EMPLOYEE" AS interface_name,"INBOUND" AS interface_type, rule_column , "Not available in interface" as severity, global_group_id as ggid,error_description, "Not available in interface" as ou_code, pernr as pernr_id,  employee_status_code ,country_of_company, blocked_since as created_timestamp from sfec_employee_active_dq_error_details
             UNION ALL
-            SELECT "SAPNL_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,"Not available in interface" as severity,global_group as ggid,error_description,"Not available in interface" as ou_code, "Not available in interface" as pernr_id,country_of_company, blocked_since as dc_created_timestamp FROM
+            SELECT "SAPNL_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,"Not available in interface" as severity,global_group as ggid,error_description,"Not available in interface" as ou_code, "Not available in interface" as pernr_id,country_of_company, employee_status_code, blocked_since as dc_created_timestamp FROM
             hr_dq.sapnl_employee_active_dq_error_details
           UNION ALL
-          SELECT "INAZ_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column ,"Not available in interface" as severity,global_group as ggid,error_description,"Not available in interface" as ou_code, "Not available in interface" as pernr_id,country_of_company, blocked_since as dc_created_timestamp FROM
+          SELECT "INAZ_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column ,"Not available in interface" as severity,global_group as ggid,error_description,"Not available in interface" as ou_code, "Not available in interface" as pernr_id,country_of_company, employee_status_code, blocked_since as dc_created_timestamp FROM
            hr_dq.inaz_employee_master_active_dq_error_details
            UNION ALL
-           SELECT "HRDB_EMPLOYEE" as interface_name ,"INBOUND" as interface_type,rule_column,"Not available in interface" as severity, global_group_GGID as ggid,error_description,"Not available in interface" as ou_code, "Not available in interface" as pernr_id,country_of_company, blocked_since as dc_created_timestamp FROM
+           SELECT "HRDB_EMPLOYEE" as interface_name ,"INBOUND" as interface_type,rule_column,"Not available in interface" as severity, global_group_GGID as ggid,error_description,"Not available in interface" as ou_code, "Not available in interface" as pernr_id,country_of_company, employee_status_code ,blocked_since as dc_created_timestamp FROM
              hr_dq.hrdb_employee_master_active_dq_error_details
             UNION ALL
-           SELECT "MYC_EMPLOYEE" as interface_name ,"INBOUND" as interface_type,rule_column,"Not available in interface" as severity, global_group_id as ggid,error_description,"Not available in interface" as ou_code, "Not available in interface" as pernr_id,country_of_company, blocked_since as dc_created_timestamp FROM
+           SELECT "MYC_EMPLOYEE" as interface_name ,"INBOUND" as interface_type,rule_column,"Not available in interface" as severity, global_group_id as ggid,error_description,"Not available in interface" as ou_code, "Not available in interface" as pernr_id,country_of_company, employee_status_code, blocked_since as dc_created_timestamp FROM
              hr_dq.myc_employee_master_active_dq_error_details
           ;;
   }
@@ -59,6 +59,7 @@ view: Employee_Exceptions_Active {
     description: "Country of the Company code"
     sql: ${TABLE}.country_of_company ;;
   }
+
   dimension: error_description {
     type: string
     description: "Description of the Exception"
