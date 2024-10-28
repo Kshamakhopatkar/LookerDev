@@ -1,7 +1,10 @@
 view: vms_subcon_active_dq_error_details {
   derived_table: {
-    sql:SELECT "VMS_SUBCON" as interface_name ,"INBOUND" as interface_type,country_of_company, dc_created_timestamp ,dc_file_id,dc_lineage_id,error_description,
-    ggid, ou_code,rule_column,severity,work_order_id
+    sql:SELECT "VMS_SUBCON" as interface_name ,"INBOUND" as interface_type,
+
+
+country_of_company,company_code,ggid,work_order_id,rule_column,error_description,status1,blocked_since,blocked_age_in_days,latest_dc_lineage_id,subcon_status_code
+
 
     FROM procure_dq.vms_subcon_active_dq_error_details ;;
 }
@@ -25,11 +28,7 @@ view: vms_subcon_active_dq_error_details {
     type: string
     sql: ${TABLE}.data_scan_id ;;
   }
-  dimension_group: dc_created_timestamp {
-    type: time
-    timeframes: [raw, time, date, week, month, quarter, year]
-    sql: ${TABLE}.dc_created_timestamp ;;
-  }
+
   dimension: dc_file_id {
     type: string
     sql: ${TABLE}.dc_file_id ;;
@@ -63,22 +62,20 @@ view: vms_subcon_active_dq_error_details {
     type: string
     sql: ${TABLE}.ggid ;;
   }
-  dimension: ou_code {
-    type: string
-    sql: ${TABLE}.ou_code ;;
-  }
   dimension: rule_column {
     type: string
     sql: ${TABLE}.rule_column ;;
+  }
+  dimension_group: dc_created_timestamp {
+    type: time
+    timeframes: [raw, time, date, week, month, quarter, year]
+    sql: ${TABLE}.blocked_since ;;
   }
   dimension: rule_type {
     type: string
     sql: ${TABLE}.rule_type ;;
   }
-  dimension: severity {
-    type: string
-    sql: ${TABLE}.severity ;;
-  }
+
   dimension: work_order_id {
     type: string
     sql: ${TABLE}.work_order_id ;;
