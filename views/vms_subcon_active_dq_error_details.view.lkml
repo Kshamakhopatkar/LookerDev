@@ -1,9 +1,7 @@
 view: vms_subcon_active_dq_error_details {
   derived_table: {
-    sql:SELECT "VMS_SUBCON" as interface_name ,"INBOUND" as interface_type,
-
-
-country_of_company,company_code,ggid,work_order_id,rule_column,error_description,status1,blocked_since,blocked_age_in_days,latest_dc_lineage_id,subcon_status_code
+    sql:SELECT "VMS_SUBCON" as interface_name ,"INBOUND" as interface_type,rule_column,
+Country_of_Company, error_description,ggid,ou_code,dc_updated_timestamp,data_quality_job_id,dc_created_timestamp
 
 
     FROM procure_dq.vms_subcon_active_dq_error_details ;;
@@ -69,7 +67,7 @@ country_of_company,company_code,ggid,work_order_id,rule_column,error_description
   dimension_group: dc_created_timestamp {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
-    sql: ${TABLE}.blocked_since ;;
+    sql: ${TABLE}.dc_created_timestamp ;;
   }
   dimension: rule_type {
     type: string
