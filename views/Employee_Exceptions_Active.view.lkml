@@ -28,9 +28,9 @@ view: Employee_Exceptions_Active {
              hr_dq.oldsf_employee_master_active_dq_error_details
            UNION ALL
 
-           SELECT "OLDSF" as interface_name ,"INBOUND" as interface_type,"Not available in interface" as rule_column,"Not available in interface" as severity, "Not available in interface" as ggid,"Not available in interface" as error_description,"Not available in interface" as ou_code, "Not available in interface" as pernr_id,"Not available in interface" as country_of_company, "Not available in interface" as employee_status_code, current_timestamp() as dc_created_timestamp
+           SELECT "OLDSF" as interface_name ,"INBOUND" as interface_type,"Not available in interface" as rule_column,"Not available in interface" as severity, "Not available in interface" as ggid,"No rejection recorded in this interface" as error_description,"Not available in interface" as ou_code, "Not available in interface" as pernr_id,"Not available in interface" as country_of_company, "Not available in interface" as employee_status_code, current_timestamp() as dc_created_timestamp
              UNION ALL
-           SELECT "SAPNL_EMPLOYEE" as interface_name ,"INBOUND" as interface_type,"Not available in interface" as rule_column,"Not available in interface" as severity, "Not available in interface" as ggid,"Not available in interface" as error_description,"Not available in interface" as ou_code, "Not available in interface" as pernr_id,"Not available in interface" as country_of_company, "Not available in interface" as employee_status_code, current_timestamp() as dc_created_timestamp
+           SELECT "SAPNL_EMPLOYEE" as interface_name ,"INBOUND" as interface_type,"Not available in interface" as rule_column,"Not available in interface" as severity, "Not available in interface" as ggid,"No rejection recorded in this interface" as error_description,"Not available in interface" as ou_code, "Not available in interface" as pernr_id,"Not available in interface" as country_of_company, "Not available in interface" as employee_status_code, current_timestamp() as dc_created_timestamp
 
           ;;
   }
