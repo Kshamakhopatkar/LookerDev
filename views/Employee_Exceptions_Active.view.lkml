@@ -49,6 +49,15 @@ SELECT interface_name ,interface_type,rule_column, severity, global_group_id as 
              UNION ALL
            SELECT "SAPNL_EMPLOYEE" as interface_name ,"INBOUND" as interface_type," " as rule_column," " as severity, " " as ggid,"No rejection recorded in this interface" as error_description," " as ou_code, " " as pernr_id," " as country_of_company, " " as employee_status_code, current_timestamp() as dc_created_timestamp
 
+                     SELECT "GBI" as interface_name ,"OUTBOUND" as interface_type," " as rule_column," " as severity, " " as ggid,"No rejection recorded in this interface" as error_description," " as ou_code, " " as pernr_id," " as country_of_company,"" as employee_status_code, current_timestamp() as dc_created_timestamp
+             UNION ALL
+           SELECT "CONCUR" as interface_name ,"OUTBOUND" as interface_type," " as rule_column," " as severity, " " as ggid,"No rejection recorded in this interface" as error_description," " as ou_code, " " as pernr_id," " as country_of_company, " " as employee_status_code, current_timestamp() as dc_created_timestamp
+                    UNION ALL
+                     SELECT "S4" as interface_name ,"OUTBOUND" as interface_type," " as rule_column," " as severity, " " as ggid,"No rejection recorded in this interface" as error_description," " as ou_code, " " as pernr_id," " as country_of_company,"" as employee_status_code, current_timestamp() as dc_created_timestamp
+             UNION ALL
+           SELECT "IBM" as interface_name ,"OUTBOUND" as interface_type," " as rule_column," " as severity, " " as ggid,"No rejection recorded in this interface" as error_description," " as ou_code, " " as pernr_id," " as country_of_company, " " as employee_status_code, current_timestamp() as dc_created_timestamp
+                              UNION ALL
+                     SELECT "DTX" as interface_name ,"OUTBOUND" as interface_type," " as rule_column," " as severity, " " as ggid,"No rejection recorded in this interface" as error_description," " as ou_code, " " as pernr_id," " as country_of_company,"" as employee_status_code, current_timestamp() as dc_created_timestamp
           ;;
   }
 
