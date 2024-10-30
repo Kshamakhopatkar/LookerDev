@@ -30,8 +30,6 @@ view: Employee_Exceptions_Active {
 SELECT interface_name ,interface_type,rule_column, severity, global_group_id as ggid,error_description,ou_code, pernr_id,country_of_company, employee_number as employee_status_code, created_timestamp as dc_created_timestamp FROM
              datacloud_adm_dq.dtx_employee_dq_active_error_details
              UNION ALL
-
-<<<<<<< HEAD
              SELECT interface_name ,interface_type,rule_column, severity, global_group_id as ggid,error_description,ou_code, pernr_id,country_of_company, "Not Available in interface" as employee_status_code, created_timestamp as dc_created_timestamp FROM
              datacloud_adm_dq.ibm_ecm_employee_dq_active_error_details
              UNION ALL
@@ -46,9 +44,8 @@ SELECT interface_name ,interface_type,rule_column, severity, global_group_id as 
              datacloud_adm_dq.s4_employee_dq_active_error_details
           UNION ALL
            SELECT "OLDSF" as interface_name ,"INBOUND" as interface_type,"Not available in interface" as rule_column,"Not available in interface" as severity, "Not available in interface" as ggid,"No rejection recorded in this interface" as error_description,"Not available in interface" as ou_code, "Not available in interface" as pernr_id,"Not available in interface" as country_of_company, "Not available in interface" as employee_status_code, current_timestamp() as dc_created_timestamp
-=======
+
            SELECT "OLDSF" as interface_name ,"INBOUND" as interface_type," " as rule_column," " as severity, " " as ggid,"No rejection recorded in this interface" as error_description," " as ou_code, " " as pernr_id," " as country_of_company,"" as employee_status_code, current_timestamp() as dc_created_timestamp
->>>>>>> branch 'Main-branch' of git@github.com:aroramohit01/looker_connect_UAT.git
              UNION ALL
            SELECT "SAPNL_EMPLOYEE" as interface_name ,"INBOUND" as interface_type," " as rule_column," " as severity, " " as ggid,"No rejection recorded in this interface" as error_description," " as ou_code, " " as pernr_id," " as country_of_company, " " as employee_status_code, current_timestamp() as dc_created_timestamp
 
