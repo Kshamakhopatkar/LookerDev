@@ -8,6 +8,9 @@ view: Employee_historical_new_joiner {
             UNION ALL
             SELECT "SERVICE CENTRAL_NEW JOINER_EMPLOYEE" as interface_name ,"OUTBOUND" as interface_type,rule_column,severity,error_description,"Not available in Interface" as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.servicecentral_newjoiner_dq_error_details
+            UNION ALL
+            SELECT "SERVICE CENTRAL_NEW JOINER_EMPLOYEE" as interface_name ,"OUTBOUND" as interface_type,rule_column,severity,error_description, Global_Group_ID as ggid, PERNR as pernr_id,ou_code,country_of_company, dc_created_timestamp FROM
+            hr_dq.sfec_newjoiner_dq_error_details
             ;;
   }
 
