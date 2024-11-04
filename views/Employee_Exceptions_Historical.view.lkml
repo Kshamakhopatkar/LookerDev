@@ -18,7 +18,7 @@
             SELECT UPPER(interface_name) as interface_name ,"OUTBOUND" as interface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid,pernr_id as pernr,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.immidart_employee_dq_error_details
             UNION ALL
-            SELECT "SFEC_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,GGID,pernr,ou_code,country_of_company, dc_created_timestamp FROM
+            SELECT "SFEC" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,GGID,pernr,ou_code,country_of_company, dc_created_timestamp FROM
             hr_dq.sfec_employee_dq_error_details
             UNION ALL
             SELECT UPPER(interface_name) as interface_name ,UPPER(interface_type) as interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
@@ -45,31 +45,31 @@
             SELECT UPPER(interface_name) as interface_name ,UPPER(interface_type) as interface_type,rule_column,severity,error_description,ggid,pernr,ou_code,country_of_company,created_timestamp FROM
             datacloud_adm_dq.isgdb_employee_work_info_dq_error_details
             UNION ALL
-            SELECT "SFEC_EDUCATION_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,severity ,error_description,global_group_id as ggid,pernr_id as pernr,ou_code,country_of_company, dc_created_timestamp FROM
+            SELECT "SFEC" as interface_name,"INBOUND" as interface_type,rule_column,severity ,error_description,global_group_id as ggid,pernr_id as pernr,ou_code,country_of_company, dc_created_timestamp FROM
             hr_dq.sfec_education_dq_error_details
             UNION ALL
-            SELECT "CORP_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,substr(severity, 10),error_description,global_id as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, dc_created_timestamp FROM
+            SELECT "CORP" as interface_name,"INBOUND" as interface_type,rule_column,substr(severity, 10),error_description,global_id as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, dc_created_timestamp FROM
             hr_dq.corp_identity_dq_error_details
             UNION ALL
-            SELECT "SUPERVISOR_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,case when severity in ("business-error") then "error" when severity in ("technical-error") then "error" else "warning" end as severity,error_description,ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, dc_created_timestamp FROM
+            SELECT "SUPERVISOR" as interface_name,"INBOUND" as interface_type,rule_column,case when severity in ("business-error") then "error" when severity in ("technical-error") then "error" else "warning" end as severity,error_description,ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, dc_created_timestamp FROM
             hr_dq.supvrsys_supervisor_mapping_dq_error_details
             UNION ALL
-            SELECT "REPLICON_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,substr(severity, 10),error_description,"Not available in Interface" as ggid,"Not available in Interface" as pernr_id,ou_code,"Not available in Interface" as country_of_company, dc_created_timestamp FROM
+            SELECT "REPLICON" as interface_name,"INBOUND" as interface_type,rule_column,substr(severity, 10),error_description,"Not available in Interface" as ggid,"Not available in Interface" as pernr_id,ou_code,"Not available in Interface" as country_of_company, dc_created_timestamp FROM
             hr_dq.replicon_leave_request_dq_error_details
             UNION ALL
-            SELECT "HRDB_EMPLOYEE" as interface_name ,"INBOUND" as interface_type,rule_column,severity,error_description,Global_Group_GGID as ggid,"Not available in Interface" as pernr,ou_code,country_of_company,dc_created_timestamp AS created_timestamp FROM
+            SELECT "HRDB" as interface_name ,"INBOUND" as interface_type,rule_column,severity,error_description,Global_Group_GGID as ggid,"Not available in Interface" as pernr,ou_code,country_of_company,dc_created_timestamp AS created_timestamp FROM
             hr_dq.hrdb_employee_master_dq_error_details
             UNION ALL
-            SELECT "INAZ_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,severity ,error_description,Global_Group as ggid,"Not available in Interface"  as pernr,ou_code,country_of_company, dc_created_timestamp FROM
+            SELECT "INAZ" as interface_name,"INBOUND" as interface_type,rule_column,severity ,error_description,Global_Group as ggid,"Not available in Interface"  as pernr,ou_code,country_of_company, dc_created_timestamp FROM
             hr_dq.inaz_employee_master_dq_error_details
             UNION ALL
-            SELECT "MYC_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,substr(severity, 10),error_description,Global_Group_GGID as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, dc_created_timestamp FROM
+            SELECT "MYC" as interface_name,"INBOUND" as interface_type,rule_column,substr(severity, 10),error_description,Global_Group_GGID as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, dc_created_timestamp FROM
             hr_dq.myc_employee_master_dq_error_details
             UNION ALL
-            SELECT "SAPNL_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,case when severity in ("business-error") then "error" when severity in ("technical-error") then "error" else "warning" end as severity,error_description,global_group as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, dc_created_timestamp FROM
+            SELECT "SAPN" as interface_name,"INBOUND" as interface_type,rule_column,case when severity in ("business-error") then "error" when severity in ("technical-error") then "error" else "warning" end as severity,error_description,global_group as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, dc_created_timestamp FROM
             hr_dq.sapnl_employee_master_dq_error_details
             UNION ALL
-            SELECT "OLDSF_EMPLOYEE" as interface_name,"INBOUND" as interface_type,rule_column,substr(severity, 10),error_description,Global_ID as ggid,"Not available in Interface" as pernr_id,ou_code,"Not available in Interface" as country_of_company, dc_created_timestamp FROM
+            SELECT "OLDSF" as interface_name,"INBOUND" as interface_type,rule_column,substr(severity, 10),error_description,Global_ID as ggid,"Not available in Interface" as pernr_id,ou_code,"Not available in Interface" as country_of_company, dc_created_timestamp FROM
             hr_dq.oldsf_employee_master_dq_error_details
 
             UNION ALL
