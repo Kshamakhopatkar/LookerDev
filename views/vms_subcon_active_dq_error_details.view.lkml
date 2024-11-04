@@ -26,7 +26,10 @@ Country_of_Company, error_description,ggid,ou_code,dc_updated_timestamp,data_qua
     type: string
     sql: ${TABLE}.data_scan_id ;;
   }
-
+  dimension: ou_code {
+    type: string
+    sql: ${TABLE}.ou_code ;;
+  }
   dimension: dc_file_id {
     type: string
     sql: ${TABLE}.dc_file_id ;;
