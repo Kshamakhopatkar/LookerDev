@@ -1,7 +1,7 @@
 view: vms_subcon_active_dq_error_details {
   derived_table: {
     sql:SELECT "VMS_SUBCON" as interface_name ,"INBOUND" as interface_type,rule_column,
-Country_of_Company, error_description,ggid,ou_code,dc_updated_timestamp,data_quality_job_id,dc_created_timestamp
+Country_of_Company, error_description,ggid
 
 
     FROM procure_dq.vms_subcon_active_dq_error_details ;;
@@ -18,19 +18,11 @@ Country_of_Company, error_description,ggid,ou_code,dc_updated_timestamp,data_qua
     type: string
     sql: ${TABLE}.Country_of_Company ;;
   }
-  dimension: data_quality_job_id {
-    type: string
-    sql: ${TABLE}.data_quality_job_id ;;
-  }
-  dimension: data_scan_id {
+   dimension: data_scan_id {
     type: string
     sql: ${TABLE}.data_scan_id ;;
   }
-  dimension: ou_code {
-    type: string
-    sql: ${TABLE}.ou_code ;;
-  }
-  dimension: dc_file_id {
+    dimension: dc_file_id {
     type: string
     sql: ${TABLE}.dc_file_id ;;
   }
@@ -46,12 +38,7 @@ Country_of_Company, error_description,ggid,ou_code,dc_updated_timestamp,data_qua
     type: string
     sql: ${TABLE}.dc_source_id ;;
   }
-  dimension_group: dc_updated_timestamp {
-    type: time
-    timeframes: [raw, time, date, week, month, quarter, year]
-    sql: ${TABLE}.dc_updated_timestamp ;;
-  }
-  dimension: error_description {
+   dimension: error_description {
     type: string
     sql: ${TABLE}.error_description ;;
   }
@@ -66,11 +53,6 @@ Country_of_Company, error_description,ggid,ou_code,dc_updated_timestamp,data_qua
   dimension: rule_column {
     type: string
     sql: ${TABLE}.rule_column ;;
-  }
-  dimension_group: dc_created_timestamp {
-    type: time
-    timeframes: [raw, time, date, week, month, quarter, year]
-    sql: ${TABLE}.dc_created_timestamp ;;
   }
   dimension: rule_type {
     type: string
