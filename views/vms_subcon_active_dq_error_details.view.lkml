@@ -2,9 +2,7 @@ view: vms_subcon_active_dq_error_details {
   derived_table: {
     sql:SELECT "VMS_SUBCON" as interface_name ,"INBOUND" as interface_type,rule_column,
 Country_of_Company, error_description,ggid
-
-
-    FROM procure_dq.vms_subcon_active_dq_error_details ;;
+FROM procure_dq.vms_subcon_active_dq_error_details ;;
 }
   dimension: interface_name {
     type: string
