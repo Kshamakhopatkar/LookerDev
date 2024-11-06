@@ -34,7 +34,7 @@ view: Employee_Exceptions_Active {
              SELECT UPPER(interface_name) as  interface_name ,UPPER(interface_type) as interface_type,rule_column, severity, global_group_id as ggid,error_description,ou_code, pernr_id,country_of_company, "Not Available in interface" as employee_status_code, created_timestamp as dc_created_timestamp FROM
              datacloud_adm_dq.concur_employee_dq_active_error_details
              UNION ALL
-             SELECT UPPER(interface_name) as  interface_name ,UPPER(interface_type) as interface_type,rule_column, severity, global_group_id as ggid,error_description,ou_code, pernr_id,country_of_company, "Not Available in interface" as employee_status_code, created_timestamp as dc_created_timestamp FROM
+             SELECT UPPER(substring(interface_name,1,3)) as  interface_name ,UPPER(interface_type) as interface_type,rule_column, severity, global_group_id as ggid,error_description,ou_code, pernr_id,country_of_company, "Not Available in interface" as employee_status_code, created_timestamp as dc_created_timestamp FROM
              datacloud_adm_dq.gbi_employee_dq_active_error_details
              UNION ALL
              SELECT UPPER(interface_name) as  interface_name ,UPPER(interface_type) as interface_type,rule_column, severity, global_group_id as ggid,error_description,ou_code, pernr_id,country_of_company, "Not Available in interface" as employee_status_code, created_timestamp as dc_created_timestamp FROM
