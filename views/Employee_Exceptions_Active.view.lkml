@@ -42,6 +42,7 @@ view: Employee_Exceptions_Active {
              UNION ALL
            SELECT "CONCUR" as interface_name ,"OUTBOUND" as interface_type," " as rule_column," " as severity, " " as ggid,"No rejection recorded in this interface" as error_description," " as ou_code, " " as pernr_id," " as country_of_company, " " as employee_status_code, current_timestamp() as dc_created_timestamp
 
+
           ;;
   }
 
