@@ -94,10 +94,7 @@ explore: dtx_employee_dq_error_details {
   label: "dtx_employee_dq_error_details"
 }
 explore: Employee_Exceptions_Active {
-  access_filter:{
-    field: interface_name
-    user_attribute:emp_active_errors
-  }
+
   sql_always_where: date(${created_timestamp_date}) > '2024-07-01' ;;
   label: "Employee_Exceptions_Active"
 }
