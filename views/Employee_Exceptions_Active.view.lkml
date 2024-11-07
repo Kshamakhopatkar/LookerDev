@@ -54,65 +54,44 @@ view: Employee_Exceptions_Active {
     type: string
     sql: ${TABLE}.interface_type ;;
   }
-  dimension: blocked_age_in_days {
-    type: number
-    description: "Number of days since this record is blocked due to DQ issue"
-    sql: ${TABLE}.blocked_age_in_days ;;
-  }
-  dimension_group: blocked_since {
-    type: time
-    description: "Timetsamp from raw table since this record is blocked due to DQ issue"
-    timeframes: [raw, time, date, week, month, quarter, year]
-    sql: ${TABLE}.blocked_since ;;
-  }
-  dimension: ou_code {
+  dimension: rule_column {
     type: string
-    description: "The Organization unit to which this Employee Record belongs"
-    sql: ${TABLE}.ou_code ;;
+    description: "Field from Success Factors(Pxcell) which has error"
+    sql: ${TABLE}.rule_column ;;
   }
-  dimension: company_code {
+  dimension: severity {
     type: string
-    description: "The Organization unit to which this Employee Record Belongs"
-    sql: ${TABLE}.company_code ;;
-  }
-  dimension: country_of_company {
-    type: string
-    description: "Country of the Company code"
-    sql: ${TABLE}.country_of_company ;;
-  }
-
-  dimension: error_description {
-    type: string
-    description: "Description of the Exception"
-    sql: ${TABLE}.error_description ;;
+    sql: ${TABLE}.severity ;;
   }
   dimension:global_group_id {
     type: string
     description: "Employee GGID on which the exception is reported"
     sql: ${TABLE}.ggid ;;
   }
-  dimension: latest_dc_lineage_id {
+  dimension: error_description {
     type: string
-    description: "Job ID of latest feed in from SF to DC in which this record is blocked. Record can come as delta in multiple feeds and get blocked multiple times, this will specify latest job id in DC which blocked the record"
-    sql: ${TABLE}.latest_dc_lineage_id ;;
+    description: "Description of the Exception"
+    sql: ${TABLE}.error_description ;;
+  }
+
+  dimension: ou_code {
+    type: string
+    description: "The Organization unit to which this Employee Record belongs"
+    sql: ${TABLE}.ou_code ;;
   }
   dimension: pernr {
     type: string
     description: "Employee PERNR on which this exception is reported"
     sql: ${TABLE}.pernr_id ;;
   }
-  dimension: rule_column {
+  dimension: country_of_company {
     type: string
-    description: "Field from Success Factors(Pxcell) which has error"
-    sql: ${TABLE}.rule_column ;;
+    description: "Country of the Company code"
+    sql: ${TABLE}.country_of_company ;;
   }
   dimension: employee_status_code {
     type: string
     sql: ${TABLE}.employee_status_code ;;
-  }
-  dimension: severity {
-    type: string
-    sql: ${TABLE}.severity ;;
   }
   dimension_group: created_timestamp {
     type: time
