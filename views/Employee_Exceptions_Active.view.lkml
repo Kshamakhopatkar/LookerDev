@@ -2,13 +2,10 @@ view: Employee_Exceptions_Active {
 
   derived_table: {
     sql:
-           with crc_not_null as (select distinct pernr,ggid from hr_curated.vw_cost_rate_code where crc is null)
-,qual_error as (SELECT UPPER(interface_name) as  interface_name, UPPER(interface_type) as interface_type, rule_column , severity, global_group_id as ggid, error_description, ou_code, pernr as pernr_id , country_of_company,"Not available in Interface" as employee_status_code, created_timestamp,  FROM `premi0541131-dataclou.datacloud_adm_dq.gfs_employee_dq_active_error_details` where rule_column='qualification')
-SELECT a.* FROM qual_error a
-left join  crc_not_null f
-on a.pernr_id=f.pernr
-and a.ggid=f.ggid
-where f.pernr is not null
+           SELECT UPPER(interface_name) as  interface_name, UPPER(interface_type) as interface_type, rule_column , severity, global_group_id as ggid, error_description, ou_code, pernr as pernr_id , country_of_company,"Not available in Interface" as employee_status_code, created_timestamp FROM `datacloud_adm_dq.gfs_employee_dq_active_error_details` where (rule_column <> 'qualification')
+or
+(pernr in(select distinct pernr from hr_curated.vw_cost_rate_code where crc is null) and rule_column = 'qualification')
+
 union all
  SELECT UPPER(interface_name) as  interface_name, UPPER(interface_type) as interface_type, rule_column , severity, globalgroupid as ggid, error_description, ou_code,"Not available in interface" as pernr_id, country_of_company,"Not available in Interface" as employee_status_code, created_timestamp from datacloud_adm_dq.corp_employee_dq_active_error_details
           UNION ALL
