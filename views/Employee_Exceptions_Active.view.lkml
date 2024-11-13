@@ -38,16 +38,11 @@ where rule_column<>'qualification'
              SELECT UPPER(interface_name) as  interface_name ,UPPER(interface_type) as interface_type,rule_column, severity, global_group_id as ggid,error_description,ou_code, pernr_id,country_of_company, "Not Available in interface" as employee_status_code, created_timestamp as dc_created_timestamp FROM
              datacloud_adm_dq.ibm_ecm_employee_dq_active_error_details
              UNION ALL
-             SELECT UPPER(interface_name) as  interface_name ,UPPER(interface_type) as interface_type,rule_column, severity, global_group_id as ggid,error_description,ou_code, pernr_id,country_of_company, "Not Available in interface" as employee_status_code, created_timestamp as dc_created_timestamp FROM
-             datacloud_adm_dq.concur_employee_dq_active_error_details
-             UNION ALL
              SELECT UPPER(substring(interface_name,1,3)) as  interface_name ,UPPER(interface_type) as interface_type,rule_column, severity, global_group_id as ggid,error_description,ou_code, pernr_id,country_of_company, "Not Available in interface" as employee_status_code, created_timestamp as dc_created_timestamp FROM
              datacloud_adm_dq.gbi_employee_dq_active_error_details
              UNION ALL
              SELECT UPPER(interface_name) as  interface_name ,UPPER(interface_type) as interface_type,rule_column, severity, global_group_id as ggid,error_description,ou_code, pernr_id,country_of_company, "Not Available in interface" as employee_status_code, created_timestamp as dc_created_timestamp FROM
              datacloud_adm_dq.s4_employee_dq_active_error_details
-             UNION ALL
-           SELECT "CONCUR" as interface_name ,"OUTBOUND" as interface_type," " as rule_column," " as severity, " " as ggid,"No rejection recorded in this interface" as error_description," " as ou_code, " " as pernr_id," " as country_of_company, " " as employee_status_code, current_timestamp() as dc_created_timestamp
 
 
 
