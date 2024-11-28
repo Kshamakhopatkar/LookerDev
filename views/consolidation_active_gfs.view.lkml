@@ -19,6 +19,8 @@ view: consolidation_active_gfs {
 
       UNION ALL
       SELECT "GFS_Provider_OU" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,project_number,date(blocked_since) as blocked_since FROM finance_dq.gfs_provider_ou_active_dq_error_details
+      UNION ALL
+            SELECT "GFS_Active" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,project_number,date(blocked_since) as blocked_since FROM finance_dq.gfs_task_active_dq_error_details
 
 
 
