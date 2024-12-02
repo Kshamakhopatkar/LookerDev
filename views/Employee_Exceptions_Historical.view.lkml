@@ -73,16 +73,16 @@
             hr_dq.oldsf_employee_master_dq_error_details
 
             UNION ALL
-            SELECT interface_name,"OUTBOUND" as interface_type,rule_column,severity ,error_description,global_group_id as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM
+            SELECT UPPER(interface_name),"OUTBOUND" as interface_type,rule_column,severity ,error_description,global_group_id as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM
             datacloud_adm_dq.s4_employee_dq_error_details
             UNION ALL
-            SELECT interface_name,"OUTBOUND" as interface_type,rule_column,substr(severity, 10),error_description,global_group_id as ggid, "Not available in Interface" as pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM
+            SELECT UPPER(interface_name),"OUTBOUND" as interface_type,rule_column,substr(severity, 10),error_description,global_group_id as ggid, "Not available in Interface" as pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM
             datacloud_adm_dq.dtx_employee_dq_error_details
             UNION ALL
-            SELECT interface_name,"OUTBOUND" as interface_type,rule_column,case when severity in ("business-error") then "error" when severity in ("technical-error") then "error" else "warning" end as severity,error_description,global_group_id as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM
+            SELECT UPPER(interface_name),"OUTBOUND" as interface_type,rule_column,case when severity in ("business-error") then "error" when severity in ("technical-error") then "error" else "warning" end as severity,error_description,global_group_id as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM
             datacloud_adm_dq.ibm_ecm_employee_dq_error_details
             UNION ALL
-            SELECT interface_name,"OUTBOUND" as interface_type,rule_column,substr(severity, 10),error_description,global_group_id as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM
+            SELECT UPPER(interface_name),"OUTBOUND" as interface_type,rule_column,substr(severity, 10),error_description,global_group_id as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM
             datacloud_adm_dq.concur_employee_dq_error_details
             UNION ALL
             SELECT UPPER(interface_name), interface_type,rule_column,severity,error_description,globalgroupid as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.corp_employee_dq_error_details
