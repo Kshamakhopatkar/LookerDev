@@ -84,6 +84,29 @@
             UNION ALL
             SELECT interface_name,"OUTBOUND" as interface_type,rule_column,substr(severity, 10),error_description,global_group_id as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM
             datacloud_adm_dq.concur_employee_dq_error_details
+            UNION ALL
+            SELECT interface_name, interface_type,rule_column,severity,error_description,globalgroupid as ggid,"Not available in Interface" as pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.corp_employee_dq_error_details
+            UNION ALL
+            SELECT interface_name, interface_type,rule_column,severity,error_description,global_group_id as ggid, pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.gdh_employee_global_dq_error_details
+            UNION ALL
+            SELECT interface_name, interface_type,rule_column,severity,error_description,global_group_id as ggid, pernr as pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.gfs_employee_dq_error_details
+            UNION ALL
+            SELECT interface_name, interface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid, "Not Available in Interface" as pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.servicecentral_newjoiner_dq_error_details
+            UNION ALL
+            SELECT interface_name, interface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid,  pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.immidart_employee_dq_error_details
+            UNION ALL
+            SELECT interface_name, interface_type,rule_column,severity,error_description,global_id as ggid,"Not Available in Interface" as  pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.psa_employee_dq_error_details
+            UNION ALL
+            SELECT interface_name, interface_type,rule_column,severity,error_description,global_group_id as ggid, pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq. dtsi_employee_dq_error_details
+           UNION ALL
+          SELECT interface_name, interface_type,rule_column,severity,error_description,global_id as ggid,"Not Available in Interface" pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.gras_savoye_employee_dq_error_details
+           UNION ALL
+          SELECT interface_name, interface_type,rule_column,severity,error_description,global_group_id as ggid, pernr as pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq. dpae_employee_dq_error_details
+          UNION ALL
+          SELECT interface_name, interface_type,rule_column,severity,error_description,global_group_id as ggid,  pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq. sgverzuimsignaal_employee_dq_error_details
+
+
+
 ;;
           }
     dimension: interface_name {
