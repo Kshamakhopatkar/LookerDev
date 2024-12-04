@@ -98,9 +98,12 @@
           SELECT "SFEC_Absence" as interface_name, "INBOUND" asinterface_type,rule_column,severity,error_description,global_group_id as ggid, ou_code, pernr_id, dc_created_timestamp FROM hr_dq.sfec_absence_master_dq_error_details
           UNION ALL
           SELECT "SFEC_Job" as interface_name, "INBOUND" asinterface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid, ou_code,"Not Available in Interface" as pernr_id, dc_created_timestamp FROM hr_dq.sfec_job_position_master_dq_error_details
-
-
-
+          UNION ALL
+          SELECT "SFEC_Location_Master" as interface_name, "INBOUND" asinterface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid, ou_code,"Not Available in Interface" as pernr_id, dc_created_timestamp FROM hr_dq.sfec_location_master_dq_error_details
+          UNION ALL
+          SELECT "SFEC_Lov_Master" as interface_name, "INBOUND" asinterface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid, ou_code,"Not Available in Interface" as pernr_id, dc_created_timestamp FROM hr_dq.sfec_lov_master_dq_error_details
+          UNION ALL
+          SELECT "SFEC_Lov_Master" as interface_name, "INBOUND" asinterface_type,rule_column,severity,error_description,Global_Group_ID as ggid, ou_code,pernr_id, dc_created_timestamp FROM hr_dq.sfec_pay_component_dq_error_details
 
 
 ;;
