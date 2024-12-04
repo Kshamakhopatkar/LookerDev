@@ -94,6 +94,12 @@
           SELECT UPPER(interface_name), interface_type,rule_column,severity,error_description,global_group_id as ggid, pernr as pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq. dpae_employee_dq_error_details
           UNION ALL
           SELECT UPPER(interface_name), interface_type,rule_column,severity,error_description,global_group_id as ggid,  pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq. sgverzuimsignaal_employee_dq_error_details
+          UNION ALL
+          SELECT "SFEC_Absence" as interface_name, "INBOUND" asinterface_type,rule_column,severity,error_description,global_group_id as ggid, ou_code, pernr_id, dc_created_timestamp FROM hr_dq.sfec_absence_master_dq_error_details
+          UNION ALL
+          SELECT "SFEC_Job" as interface_name, "INBOUND" asinterface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid, ou_code,"Not Available in Interface" as pernr_id, dc_created_timestamp FROM hr_dq.sfec_job_position_master_dq_error_details
+
+
 
 
 
