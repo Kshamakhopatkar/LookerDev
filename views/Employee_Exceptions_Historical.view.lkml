@@ -95,19 +95,19 @@
           UNION ALL
           SELECT UPPER(interface_name), interface_type,rule_column,severity,error_description,global_group_id as ggid,  pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.sgverzuimsignaal_employee_dq_error_details
           UNION ALL
-          SELECT "SFEC_Absence" as interface_name, "INBOUND" asinterface_type,rule_column,severity,error_description,global_group_id as ggid, ou_code, pernr_id, dc_created_timestamp FROM hr_dq.sfec_absence_master_dq_error_details
+          SELECT "SFEC_Absence" as interface_name, "INBOUND" asinterface_type,rule_column,severity,error_description,global_group_id as ggid, ou_code, pernr_id,"Not Available in Interface" as country_of_company, dc_created_timestamp FROM hr_dq.sfec_absence_master_dq_error_details
           UNION ALL
-          SELECT "SFEC_Job" as interface_name, "INBOUND" asinterface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid, ou_code,"Not Available in Interface" as pernr_id, dc_created_timestamp FROM hr_dq.sfec_job_position_master_dq_error_details
+          SELECT "SFEC_Job" as interface_name, "INBOUND" asinterface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid, ou_code,"Not Available in Interface" as pernr_id, "Not Available in Interface" as country_of_company,dc_created_timestamp FROM hr_dq.sfec_job_position_master_dq_error_details
           UNION ALL
-          SELECT "SFEC_Location_Master" as interface_name, "INBOUND" asinterface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid, ou_code,"Not Available in Interface" as pernr_id, dc_created_timestamp FROM hr_dq.sfec_location_master_dq_error_details
+          SELECT "SFEC_Location_Master" as interface_name, "INBOUND" asinterface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid, ou_code,"Not Available in Interface" as pernr_id,"Not Available in Interface" as country_of_company, dc_created_timestamp FROM hr_dq.sfec_location_master_dq_error_details
           UNION ALL
-          SELECT "SFEC_Lov_Master" as interface_name, "INBOUND" asinterface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid, ou_code,"Not Available in Interface" as pernr_id, dc_created_timestamp FROM hr_dq.sfec_lov_master_dq_error_details
+          SELECT "SFEC_Lov_Master" as interface_name, "INBOUND" asinterface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid, ou_code,"Not Available in Interface" as pernr_id, "Not Available in Interface" as country_of_company,dc_created_timestamp FROM hr_dq.sfec_lov_master_dq_error_details
           UNION ALL
-          SELECT "SFEC_Lov_Master" as interface_name, "INBOUND" asinterface_type,rule_column,severity,error_description,Global_Group_ID as ggid, ou_code,pernr_id, dc_created_timestamp FROM hr_dq.sfec_pay_component_dq_error_details
+          SELECT "SFEC_Lov_Master" as interface_name, "INBOUND" asinterface_type,rule_column,severity,error_description,Global_Group_ID as ggid, ou_code,pernr_id,"Not Available in Interface" as country_of_company, dc_created_timestamp FROM hr_dq.sfec_pay_component_dq_error_details
           UNION ALL
-          SELECT "SFEC_Voluntary" as interface_name, "INBOUND" asinterface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid, ou_code, PERNR AS pernr_id, dc_created_timestamp FROM hr_dq.sfec_voluntary_separation_dq_error_details
+          SELECT "SFEC_Voluntary" as interface_name, "INBOUND" asinterface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid, ou_code, PERNR AS pernr_id,"Not Available in Interface" as country_of_company, dc_created_timestamp FROM hr_dq.sfec_voluntary_separation_dq_error_details
          UNION ALL
-        SELECT "SFEC_Bank" as interface_name, "INBOUND" as interface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid, ou_code,"Not Available in Interface"  AS pernr_id, dc_created_timestamp FROM hr_dq.sfec_bank_master_dq_error_details
+        SELECT "SFEC_Bank" as interface_name, "INBOUND" as interface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid, ou_code,"Not Available in Interface"  AS pernr_id, "Not Available in Interface" as country_of_company,dc_created_timestamp FROM hr_dq.sfec_bank_master_dq_error_details
 
 
 
