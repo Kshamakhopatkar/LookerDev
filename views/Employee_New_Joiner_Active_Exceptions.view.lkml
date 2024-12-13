@@ -7,6 +7,9 @@ view: employee_new_joiner_active_exceptions {
        datacloud_adm_dq.gdh_newjoiner_dq_active_error_details
         UNION ALL
             SELECT "SFEC" AS interface_name,"INBOUND" AS interface_type, rule_column ,error_description,global_group_id as ggid,country_of_company, "Not available in interface" as ou_code,  employee_status_code ,"Not available in interface" as pernr_id, blocked_since as created_timestamp from hr_dq.sfec_newjoiner_active_dq_error_details
+            UNION ALL
+            SELECT UPPER(interface_name) as  interface_name, UPPER(interface_type) as interface_type,rule_column,severity,error_description, "Not available in interface" as ggid,country_of_company, ou_code, "Not available in interface" as employee_status_code,"Not available in interface"pernr_id, created_timestamp FROM
+       datacloud_adm_dq.servicecentral_newjoiner_dq_active_error_details
       ;;
   }
   dimension: interface_name {
