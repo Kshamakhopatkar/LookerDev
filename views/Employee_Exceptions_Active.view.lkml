@@ -91,6 +91,12 @@ where rule_column<>'qualification'
             SELECT "SPAIN" as interface_name ,"OUTBOUND" as interface_type,rule_column,"Not available in interface" as severity,global_group_id as ggid,"Not available in interface" as error_description,"Not available in interface" as ou_code, "Not available in interface" as  pernr_id,country_of_company,employee_status_code, blocked_since as dc_created_timestamp FROM datacloud_adm_dq.spain_new_portal_active_dq_error_details
             UNION ALL
             SELECT "SIG" as interface_name ,"OUTBOUND" as interface_type,rule_column, severity, ggid,error_description, ou_code, PERNR as  pernr_id,country_of_company,"Not available in interface" as employee_status_code, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.sig_active_dq_error_details
+            UNION ALL
+            SELECT "CROP" as interface_name ,"INBOUND" as interface_type,rule_column,"Not available in interface" as severity,Global_id as  ggid,error_description, "Not available in interface" as ou_code, "Not available in interface" as  pernr_id,country_of_company,"Not available in interface" as employee_status_code, blocked_since as dc_created_timestamp FROM hr_dq.corp_identity_active_dq_error_details
+            UNION ALL
+            SELECT "SFEC_BANK" as interface_name ,"INBOUND" as interface_type,rule_column,"Not available in interface" as severity,"Not available in interface" as  ggid,error_description, "Not available in interface" as ou_code, "Not available in interface" as  pernr_id,country_of_company,"Not available in interface" as employee_status_code, blocked_since as dc_created_timestamp FROM hr_dq.sfec_bank_master_active_dq_error_details
+            UNION ALL
+            SELECT "SUPERVISOR" as interface_name ,"INBOUND" as interface_type,rule_column,"Not available in interface" as severity, ggid,error_description, "Not available in interface" as ou_code, "Not available in interface" as  pernr_id,country_of_company,"Not available in interface" as employee_status_code, blocked_since as dc_created_timestamp FROM hr_dq.supvrsys_supervisor_mapping_active_dq_error_details
 
 
 
