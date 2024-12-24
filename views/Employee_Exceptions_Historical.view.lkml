@@ -108,6 +108,20 @@
           SELECT "SFEC_Voluntary" as interface_name, "INBOUND" asinterface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid, ou_code, PERNR AS pernr_id,"Not Available in Interface" as country_of_company, dc_created_timestamp FROM hr_dq.sfec_voluntary_separation_dq_error_details
          UNION ALL
         SELECT "SFEC_Bank" as interface_name, "INBOUND" as interface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid, ou_code,"Not Available in Interface"  AS pernr_id, "Not Available in Interface" as country_of_company,dc_created_timestamp FROM hr_dq.sfec_bank_master_dq_error_details
+        UNION ALL
+        SELECT UPPER(interface_name), interface_type,rule_column,severity,error_description,global_group_id as ggid, "Not Available in Interface" as  pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.spain_new_portal_employee_dq_error_details
+        UNION ALL
+        SELECT interface_name, interface_type,rule_column,severity,error_description,ggid,PERNR AS pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.sig_dq_error_details
+        UNION ALL
+        SELECT interface_name, interface_type,rule_column,severity,error_description,global_group_id as ggid,pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.capp_dq_error_details
+        UNION ALL
+        SELECT interface_name, interface_type,rule_column,severity,error_description,global_group_id as ggid,pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.capp_dq_error_details
+        UNION ALL
+        SELECT interface_name, interface_type,rule_column,severity,error_description,global_group_id as ggid,pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.cgverzuimsignaal_dq_error_details
+        UNION ALL
+        SELECT interface_name, interface_type,rule_column,severity,error_description,global_group_id as ggid,pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.imagenow_bnl_sogeti_dq_error_details
+        UNION ALL
+        SELECT interface_name, interface_type,rule_column,severity,error_description,global_group_id as ggid,pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.imagenow_bnl_capgemini_dq_error_details
 
 
 
