@@ -114,9 +114,7 @@
         SELECT interface_name, interface_type,rule_column,severity,error_description,ggid,PERNR AS pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.sig_dq_error_details
         UNION ALL
         SELECT interface_name, interface_type,rule_column,severity,error_description,global_group_id as ggid,pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.capp_dq_error_details
-        UNION ALL
-        SELECT interface_name, interface_type,rule_column,severity,error_description,global_group_id as ggid,pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.capp_dq_error_details
-        UNION ALL
+          UNION ALL
         SELECT interface_name, interface_type,rule_column,severity,error_description,global_group_id as ggid,pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.cgverzuimsignaal_dq_error_details
         UNION ALL
         SELECT interface_name, interface_type,rule_column,severity,error_description,global_group_id as ggid,pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.imagenow_bnl_sogeti_dq_error_details
