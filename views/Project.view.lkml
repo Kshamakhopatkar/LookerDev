@@ -22,6 +22,26 @@ view: Consolidate_s4 {
       UNION ALL
       SELECT "GFS_Provider_OU" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description, country_of_company,project_number, ou_code, dc_created_timestamp FROM finance_dq.gfs_provider_ou_dq_error_details
 
+     UNION ALL
+    SELECT "S4_IO" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as country_of_company,""  as project_number,"" as ou_code, timestamp("1900-01-01") as dc_created_timestamp
+
+      UNION ALL
+      SELECT "S4_PROJECT" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as country_of_company,""  as project_number,"" as ou_code, timestamp("1900-01-01") as dc_created_timestamp
+      UNION ALL
+      SELECT "S4_PROJECT_WBS" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as country_of_company,""  as project_number,"" as ou_code, timestamp("1900-01-01") as dc_created_timestamp
+
+      UNION ALL
+      SELECT "GFS_PROJECT" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as country_of_company,""  as project_number,"" as ou_code, timestamp("1900-01-01") as dc_created_timestamp
+
+      UNION ALL
+      SELECT "GFS_PROJECT_CLASSIFICATION" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as country_of_company,""  as project_number,"" as ou_code, timestamp("1900-01-01") as dc_created_timestamp
+
+      UNION ALL
+      SELECT "GFS_PROJECT_MEMBER" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as country_of_company,""  as project_number,"" as ou_code, timestamp("1900-01-01") as dc_created_timestamp
+
+
+      UNION ALL
+      SELECT "GFS_Provider_OU" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as country_of_company,""  as project_number,"" as ou_code, timestamp("1900-01-01") as dc_created_timestamp
 
       ;;
   }
