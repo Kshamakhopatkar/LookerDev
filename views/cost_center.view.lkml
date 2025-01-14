@@ -1,8 +1,12 @@
 view: cost_center {
   derived_table: {
     sql:SELECT "S4_Cost Centre" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,country_of_company, ou_code,CC_code, dc_created_timestamp FROM finance_dq.s4_cost_center_dq_error_details
+    UNION ALL
+    SELECT "S4_Cost Centre" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as country_of_company,"" as ou_code,"" as CC_code,timestamp("1900-01-01") as dc_created_timestamp
       UNION ALL
-     SELECT "S4_Partner_Cost Centre" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,country_of_company, ou_code,CC_code, dc_created_timestamp FROM finance_dq.s4_partner_cost_center_dq_error_details;;
+     SELECT "S4_Partner_Cost Centre" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,country_of_company, ou_code,CC_code, dc_created_timestamp FROM finance_dq.s4_partner_cost_center_dq_error_details
+    UNION ALL
+    SELECT "S4_Partner_Cost Centre" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as country_of_company,"" as ou_code,"" as CC_code,timestamp("1900-01-01") as dc_created_timestamp;;
   }
 
   dimension: interface_name {

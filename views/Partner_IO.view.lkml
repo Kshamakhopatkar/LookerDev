@@ -2,10 +2,12 @@ view: partner_io {
   derived_table: {
     sql:
       SELECT "S4_WBS_Partner" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description, Partner_Function, WBS_Element as IO_Number,dc_created_timestamp FROM finance_dq.s4_wbs_partner_dq_error_details
-
+UNION ALL
+SELECT "S4_WBS_Partner" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as Partner_Function, "" as IO_Number,timestamp("1900-01-01") as dc_created_timestamp
               UNION ALL
               SELECT "S4_IO_Partner" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,Partner_role as Partner_Function,IO_number, dc_created_timestamp FROM finance_dq.s4_partner_io_dq_error_details
-
+UNION ALL
+SELECT "S4_IO_Partner" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as Partner_Function, "" as IO_Number,timestamp("1900-01-01") as dc_created_timestamp
       ;;
   }
   dimension: interface_name {
