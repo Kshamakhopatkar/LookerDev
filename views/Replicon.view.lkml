@@ -4,7 +4,11 @@ view: Replicon {
       gtm_dq.replicon_absence_request_active_dq_error_details
        UNION ALL
     SELECT "REPLICON CANCELLED LEAVE REQUEST" as interface_name ,"INBOUND" as interface_type,blocked_age_in_days, blocked_since, "Not Available in interface" as company_code,"Not Availble in Interface" as  country_of_company, error_description, global_group_id, latest_dc_lineage_id, leave_request_id, rule_column, severity, status FROM
-    gtm_dq.replicon_cancelled_leave_requests_active_dq_error_details;;
+    gtm_dq.replicon_cancelled_leave_requests_active_dq_error_details
+      UNION ALL
+       SELECT "REPLICON ABSENCE REQUEST" as interface_name ,"INBOUND" as interface_type, timestamp("1900-01-01") as dc_created_timestamp, "" as country_of_company,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as c employee_id, "" as leave_request_id,"" as rule_column,"" as severity,"" as ou_code
+        UNION ALL
+       SELECT "REPLICON CANCELLED LEAVE REQUEST" as interface_name ,"INBOUND" as interface_type, timestamp("1900-01-01") as dc_created_timestamp, "" as country_of_company,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as c employee_id, "" as leave_request_id,"" as rule_column,"" as severity,"" as ou_code;;
 
   }
 
