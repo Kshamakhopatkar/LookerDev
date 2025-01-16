@@ -173,3 +173,6 @@ explore: org_alternative_hierachy_active {
 explore: ukr_org_structure_active_dq_error_details {
   label: "ukr_org_structure_active_dq_error_details"
 }
+explore: org_member_active {
+  label: "org_member_active"
+}
