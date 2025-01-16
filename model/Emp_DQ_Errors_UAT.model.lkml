@@ -176,3 +176,6 @@ explore: ukr_org_structure_active_dq_error_details {
 explore: org_member_active {
   label: "org_member_active"
 }
+explore: FA_Segment_Plant_1BB_1BS_CC_PC_Active {
+  label: "FA_Segment_Plant_1BB_1BS_CC_PC_Active"
+}
