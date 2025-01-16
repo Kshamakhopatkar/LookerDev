@@ -166,3 +166,7 @@ explore: sapnl_employee_master_dq_error_details {
   label: "sapnl_employee_master_dq_error_details"
 }
 explore: duplicate_records {}
+
+explore: org_alternative_hierachy_active {
+  label: "org_alternative_hierachy_active"
+}
