@@ -188,3 +188,6 @@ explore: s4_GFS_org {
 explore: FA_Segment_Plant_1BB_1BS_CC_PC {
   label: "FA_Segment_Plant_1BB_1BS_CC_PC"
 }
+explore: org_alternative_hierarchy {
+  label: "org_alternative_hierarchy"
+}
