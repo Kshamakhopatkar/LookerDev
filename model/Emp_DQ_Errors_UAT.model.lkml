@@ -179,3 +179,6 @@ explore: org_member_active {
 explore: FA_Segment_Plant_1BB_1BS_CC_PC_Active {
   label: "FA_Segment_Plant_1BB_1BS_CC_PC_Active"
 }
+explore: gfs_alternate_hierarchy_error_details {
+  label: "gfs_alternate_hierarchy_error_details"
+}
