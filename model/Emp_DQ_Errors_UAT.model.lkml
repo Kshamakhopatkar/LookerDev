@@ -200,7 +200,8 @@ explore: Customer {
 }
 explore:  Customer_Function {
   label: "Customer_Function"
+
 }
-explore: Customer_Legal_Entity {
-  label: "Customer_Legal_Entity"
+explore: s4_customer_legal_entity_level_active_dq_error_details {
+  label: "s4_customer_legal_entity_level_active_dq_error_details"
 }
