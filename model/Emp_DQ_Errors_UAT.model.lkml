@@ -198,3 +198,6 @@ explore: org_alternative_hierarchy {
 explore: Customer {
   label: "Customer"
 }
+explore:  Customer_Function {
+  label: "Customer_Function"
+}
