@@ -195,3 +195,6 @@ explore: FA_Segment_Plant_1BB_1BS_CC_PC {
 explore: org_alternative_hierarchy {
   label: "org_alternative_hierarchy"
 }
+explore: Customer {
+  label: "Customer"
+}
