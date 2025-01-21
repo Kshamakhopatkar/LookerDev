@@ -201,3 +201,6 @@ explore: Customer {
 explore:  Customer_Function {
   label: "Customer_Function"
 }
+explore: Customer_Legal_Entity {
+  label: "Customer_Legal_Entity"
+}
