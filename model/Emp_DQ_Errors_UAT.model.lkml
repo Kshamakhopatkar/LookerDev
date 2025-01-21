@@ -205,3 +205,9 @@ explore:  Customer_Function {
 explore: s4_customer_legal_entity_level_active_dq_error_details {
   label: "s4_customer_legal_entity_level_active_dq_error_details"
 }
+explore: s4_customer_active_dq_error_details {
+  label: "s4_customer_active_dq_error_details"
+}
+explore: s4_customer_contact {
+  label: "s4_customer_contact"
+}
