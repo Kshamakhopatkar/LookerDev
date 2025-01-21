@@ -3,6 +3,11 @@ view: Customer {
     sql:SELECT "CUSTOMER" as interface_name,"INBOUND" as interface_type,rule_column, severity,error_description, BusinessPartner,Customer,AddressID,"Not Available in Interface" as BankIdentification, Country_of_Company,dc_created_timestamp FROM finance_dq.s4_customer_dq_error_details
       union all
       SELECT "CUSTOMER_BANK" as interface_name,"INBOUND" as interface_type,rule_column, severity,error_description, BusinessPartner,"Not Available in Interface" as Customer,"Not Available in Interface" as AddressID,BankIdentification, Country_of_Company,dc_created_timestamp FROM finance_dq.s4_customer_bank_dq_error_details
+      union all
+      Union all
+SELECT "CUSTOMER" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity, "DUMMY Exception inserted to handle No Exception Scenario" as error_description,  "" as BusinessPartner,"" as Customer,"" as AddressID," " as BankIndentification,"" as country_of_company,timestamp("1900-01-01") as dc_created_timestamp
+        Union all
+        SELECT "CUSTOMER_BANK" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as BusinessPartner," " as Customer," " as AddressID, "" as BankIdentification,"" as country_of_company,timestamp("1900-01-01") as dc_created_timestamp
 
 
       ;;

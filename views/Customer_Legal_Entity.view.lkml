@@ -1,6 +1,8 @@
 view: Customer_Legal_Entity {
   derived_table: {
     sql:SELECT "CUSTOMER_legal_Entity" as interface_name,"INBOUND" as interface_type,rule_column, severity,error_description,Customer,Country_of_Company FROM finance_dq.s4_customer_legal_entity_level_dq_error_details
+     union all
+    SELECT "CUSTOMER_LEGAL_ENTITY" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as Customer,"" as Country_of_Company
       ;;
   }
   dimension: interface_name {

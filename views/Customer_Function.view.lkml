@@ -5,7 +5,12 @@ view: Customer_Function {
       SELECT "CUSTOMER_FUNCTION" as interface_name,"INBOUND" as interface_type,rule_column, severity,error_description,"Not Available in Interface" as  BusinessPartnerCompany,"Not Available in Interface" as BusinessPartnerPerson, Customer,  SalesOrganization,"Not Available in Interface" as DistributionChannel, Division, PartnerFunction,Country_of_Company,dc_created_timestamp FROM finance_dq.s4_customer_function_dq_error_details
       UNION ALL
       SELECT "CUSTOMER_Sales_Level" as interface_name,"INBOUND" as interface_type,rule_column, severity,error_description,"Not Available in Interface" as  BusinessPartnerCompany,"Not Available in Interface" as BusinessPartnerPerson, Customer,  SalesOrganization, DistributionChannel, Division,"Not Available in Interface" as  PartnerFunction,Country_of_Company,dc_created_timestamp FROM finance_dq.s4_customer_sales_level_dq_error_details
-
+Union all
+SELECT "CUSTOMER_CONTACT" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,  "" as BusinessPartnerPerson,"" as Customer, " " as SalesOrganization, " " as DistributionChannel, " " as Division,   " " as PartnerFunction,  " " as BusinessPartnerCompany, "" as country_of_company,timestamp("1900-01-01") as dc_created_timestamp
+      union all
+      SELECT "CUSTOMER_FUNCTION" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as BusinessPartnerPerson," " as  Customer,"" as SalesOrganization, "" as  DistributionChannel, "" as Division," " as PartnerFunction, "" as  BusinessPartnerCompany,"" as country_of_company,timestamp("1900-01-01") as dc_created_timestamp
+      union all
+      SELECT "CUSTOMER_Sales_Level" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as BusinessPartnerPerson,"" as Customer,"" as SalesOrganization,"" as DistributionChannel, "" as Division, " " as PartnerFunction,  " " as BusinessPartnerCompany,"" as country_of_company,timestamp("1900-01-01") as dc_created_timestamp
 
       ;;
   }
