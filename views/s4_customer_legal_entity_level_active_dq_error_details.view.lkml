@@ -1,6 +1,19 @@
 view: s4_customer_legal_entity_level_active_dq_error_details {
-  sql_table_name: `premi0541131-dataclou.finance_dq.s4_customer_legal_entity_level_active_dq_error_details` ;;
+  derived_table: {
+    sql:SELECT "CUSTOMER_LEGAL_ENTITY" as interface_name,"INBOUND" as interface_type,rule_column, severity,error_description,Customer,CompanyCode,Country_of_Company FROM finance_dq.s4_customer_legal_entity_level_active_dq_error_details
+    UNION ALL
+    SELECT "CUSTOMER_LEGAL_ENTITY" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as Customer,"" as CompanyCode,"" as Country_of_Company
+      ;;
+}
 
+    dimension: interface_name {
+      type: string
+      sql: ${TABLE}.interface_name ;;
+    }
+    dimension: interface_type {
+      type: string
+      sql: ${TABLE}.interface_type ;;
+    }
   dimension: blocked_age_in_days {
     type: string
     sql: ${TABLE}.blocked_age_in_days ;;
@@ -9,10 +22,12 @@ view: s4_customer_legal_entity_level_active_dq_error_details {
     type: string
     sql: ${TABLE}.blocked_since ;;
   }
-  dimension: company_code {
+
+  dimension: CompanyCode {
     type: string
     sql: ${TABLE}.CompanyCode ;;
   }
+
   dimension: country_of_company {
     type: string
     sql: ${TABLE}.country_of_company ;;

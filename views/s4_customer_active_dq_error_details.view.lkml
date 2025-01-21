@@ -1,13 +1,13 @@
 view: s4_customer_active_dq_error_details {
   derived_table: {
-    sql:SELECT "CUSTOMER" as interface_name,"INBOUND" as interface_type,rule_column, severity,error_description, BusinessPartner,Customer,AddressID,"Not Available in Interface" as BankIdentification, Country_of_Company,blocked_since FROM finance_dq.s4_customer_active_dq_error_details
+    sql:SELECT "CUSTOMER" as interface_name,"INBOUND" as interface_type,rule_column, severity,error_description, BusinessPartner,Customer,AddressID,"Not Available in Interface" as BankIdentification, Country_of_Company  FROM finance_dq.s4_customer_active_dq_error_details
       union all
-      SELECT "CUSTOMER_BANK" as interface_name,"INBOUND" as interface_type,rule_column, severity,error_description, BusinessPartner,"Not Available in Interface" as Customer,"Not Available in Interface" as AddressID,BankIdentification, Country_of_Company,blocked_since FROM finance_dq.s4_customer_bank_active_dq_error_details
+      SELECT "CUSTOMER_BANK" as interface_name,"INBOUND" as interface_type,rule_column, severity,error_description, BusinessPartner,"Not Available in Interface" as Customer,"Not Available in Interface" as AddressID,BankIdentification, Country_of_Company FROM finance_dq.s4_customer_bank_active_dq_error_details
        union all
 
-        SELECT "S4_CUSTOMER" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity, "DUMMY Exception inserted to handle No Exception Scenario" as error_description,  "" as BusinessPartner,"" as Customer,"" as AddressID," " as BankIndentification,"" as country_of_company,timestamp("1900-01-01") as blocked_since
+        SELECT "S4_CUSTOMER" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity, "DUMMY Exception inserted to handle No Exception Scenario" as error_description,  "" as BusinessPartner,"" as Customer,"" as AddressID," " as BankIndentification,"" as country_of_company
         Union all
-        SELECT "S4_CUSTOMERBANK" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as BusinessPartner," " as Customer," " as AddressID, "" as BankIdentification,"" as country_of_company, timestamp("1900-01-01") as blocked_since
+        SELECT "S4_CUSTOMERBANK" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as BusinessPartner," " as Customer," " as AddressID, "" as BankIdentification,"" as country_of_company
 
 
       ;;

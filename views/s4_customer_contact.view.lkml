@@ -1,19 +1,19 @@
 view: s4_customer_contact {
   derived_table: {
-    sql:SELECT "S4_CUSTOMERCONTACT" as interface_name,"INBOUND" as interface_type,rule_column,severity, error_description,  BusinessPartnerPerson ,"Not Available in Interface" as Customer,  "Not Available in Interface" as SalesOrganization,   "Not Available in Interface" as DistributionChannel, "Not Available in Interface" as Division, "Not Available in Interface" as PartnerFunction,  "Not Available in Interface" as BPCustomerNumber, country_of_company,blocked_since FROM finance_dq.s4_customer_contact_active_dq_error_details
+    sql:SELECT "S4_CUSTOMERCONTACT" as interface_name,"INBOUND" as interface_type,rule_column,severity, error_description,  BusinessPartnerPerson ,"Not Available in Interface" as Customer,  "Not Available in Interface" as SalesOrganization,   "Not Available in Interface" as DistributionChannel, "Not Available in Interface" as Division, "Not Available in Interface" as PartnerFunction,  "Not Available in Interface" as BPCustomerNumber, country_of_company FROM finance_dq.s4_customer_contact_active_dq_error_details
       union all
-      SELECT "S4_CUSTOMERFUNCTION" as interface_name,"INBOUND" as interface_type,rule_column,severity, error_description, "Not Available in Interface" as BusinessPartnerPerson, Customer, SalesOrganization,  DistributionChannel, Division, PartnerFunction,  BPCustomerNumber,country_of_company,blocked_since FROM finance_dq.s4_customer_function_active_dq_error_details
+      SELECT "S4_CUSTOMERFUNCTION" as interface_name,"INBOUND" as interface_type,rule_column,severity, error_description, "Not Available in Interface" as BusinessPartnerPerson, Customer, SalesOrganization,  DistributionChannel, Division, PartnerFunction,  BPCustomerNumber,country_of_company FROM finance_dq.s4_customer_function_active_dq_error_details
       union all
-      SELECT "S4_SALESLEVEL" as interface_name,"INBOUND" as interface_type,rule_column,severity, error_description, "Not Available in Interface" as BusinessPartnerPerson, Customer,SalesOrganization,  DistributionChannel, Division, "Not Available in Interface" as PartnerFunction,  "Not Available in Interface" as BPCustomerNumber,country_of_company,blocked_since FROM finance_dq.s4_customer_sales_level_active_dq_error_details
+      SELECT "S4_SALESLEVEL" as interface_name,"INBOUND" as interface_type,rule_column,severity, error_description, "Not Available in Interface" as BusinessPartnerPerson, Customer,SalesOrganization,  DistributionChannel, Division, "Not Available in Interface" as PartnerFunction,  "Not Available in Interface" as BPCustomerNumber,country_of_company FROM finance_dq.s4_customer_sales_level_active_dq_error_details
 
 
       union all
 
-      SELECT "S4_CUSTOMERCONTACT" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,  "" as BusinessPartnerPerson,"" as Customer, " " as SalesOrganization, " " as DistributionChannel, " " as Division,   " " as PartnerFunction,  " " as BPCustomerNumber, "" as country_of_company,timestamp("1900-01-01") as blocked_since
+      SELECT "S4_CUSTOMERCONTACT" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,  "" as BusinessPartnerPerson,"" as Customer, " " as SalesOrganization, " " as DistributionChannel, " " as Division,   " " as PartnerFunction,  " " as BPCustomerNumber, "" as country_of_company
       union all
-      SELECT "S4_CUSTOMERFUNCTION" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as BusinessPartnerPerson," " as  Customer,"" as SalesOrganization, "" as  DistributionChannel, "" as Division," " as PartnerFunction, "" as  BPCustomerNumber,"" as country_of_company,timestamp("1900-01-01") as blocked_since
+      SELECT "S4_CUSTOMERFUNCTION" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as BusinessPartnerPerson," " as  Customer,"" as SalesOrganization, "" as  DistributionChannel, "" as Division," " as PartnerFunction, "" as  BPCustomerNumber,"" as country_of_company
       union all
-      SELECT "S4_SALESLEVEL" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as BusinessPartnerPerson,"" as Customer,"" as SalesOrganization,"" as DistributionChannel, "" as Division, " " as PartnerFunction,  " " as BPCustomerNumber,"" as country_of_company,timestamp("1900-01-01") as blocked_since
+      SELECT "S4_SALESLEVEL" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as BusinessPartnerPerson,"" as Customer,"" as SalesOrganization,"" as DistributionChannel, "" as Division, " " as PartnerFunction,  " " as BPCustomerNumber,"" as country_of_company
 
 
 
