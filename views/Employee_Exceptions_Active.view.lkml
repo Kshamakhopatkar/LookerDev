@@ -54,7 +54,11 @@ where rule_column<>'qualification'
             UNION ALL
             SELECT "SFEC_Pay" as interface_name ,"INBOUND" as interface_type,rule_column,"Not available in interface" as severity, Global_Group_ID as ggid,error_description,"Not available in interface" as ou_code,  pernr_id,country_of_company,"Not available in interface" as employee_status_code, blocked_since as dc_created_timestamp FROM hr_dq.sfec_pay_component_active_dq_error_details
             UNION ALL
+<<<<<<< HEAD
+            SELECT "SFEC_Voluntary" as interface_name ,"INBOUND" as interface_type,rule_column,"Not available in interface" as severity,"Not available in interface" as ggid,error_description,"Not available in interface" as ou_code, pernr as  pernr_id,country_of_company,'' as employee_status_code, blocked_since as dc_created_timestamp FROM hr_dq.sfec_voluntary_separation_active_dq_error_details
+=======
             SELECT "SFEC_Voluntary" as interface_name ,"INBOUND" as interface_type,rule_column,"Not available in interface" as severity,"Not available in interface" as ggid,error_description,"Not available in interface" as ou_code, pernr as  pernr_id,country_of_company,"Not available in interface" as employee_status_code, blocked_since as dc_created_timestamp FROM hr_dq.sfec_voluntary_separation_active_dq_error_details
+>>>>>>> c5796f895695610bee296cf510b2174aee721473
             UNION ALL
             SELECT UPPER(interface_name) as interface_name ,UPPER(interface_type) as interface_type,rule_column, severity, global_group_id as ggid,error_description,ou_code, pernr_id,country_of_company, "Not available in interface" as employee_status_code, created_timestamp as dc_created_timestamp FROM
              datacloud_adm_dq.immidart_employee_dq_active_error_details
