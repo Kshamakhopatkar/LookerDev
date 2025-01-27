@@ -1,9 +1,9 @@
 view: org_alternative_hierachy_active {
   derived_table: {
-    sql: SELECT "ORG_ALTERNATIVE_HIERARCHY_ACTIVE" as interface_name,"INBOUND" as interface_type,rule_column, severity,error_description,  Country_of_Company, Prod_Unit_code, ou_code,  dc_created_timestamp FROM
-            finance_dq.gfs_alternate_hierarchy_error_details
+    sql: SELECT "ORG_ALTERNATIVE_HIERARCHY_ACTIVE" as interface_name,"INBOUND" as interface_type,rule_column, severity,error_description, "Not Availabel in Interface" Country_of_Company,  PROD_UNIT_CODE, ou_code,  blocked_since FROM
+            finance_dq.gfs_alternate_hierarchy_active_dq_error_details
              UNION ALL
-           SELECT "ORG_ALTERNATIVE_HIERARCHY" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as  Country_of_Company, "" as Prod_Unit_code, "" as ou_code,timestamp(current_date) AS dc_created_timestamp
+           SELECT "ORG_ALTERNATIVE_HIERARCHY" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as  Country_of_Company, "" as PROD_UNIT_CODE, "" as ou_code,timestamp(current_date) AS blocked_since
 
       ;;
   }
@@ -28,9 +28,9 @@ view: org_alternative_hierachy_active {
     sql: ${TABLE}.error_description ;;
   }
 
-  dimension: Prod_Unit_code {
+  dimension: PROD_UNIT_CODE {
     type: string
-    sql: ${TABLE}.Prod_Unit_code ;;
+    sql: ${TABLE}.PROD_UNIT_CODE ;;
   }
 
   dimension: ou_code {
@@ -51,10 +51,10 @@ view: org_alternative_hierachy_active {
           WHEN severity="business-warning" THEN "warning"
           ELSE "error"
       END ;;  }
-  dimension_group: dc_created_timestamp {
+  dimension_group: blocked_since {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
-    sql: ${TABLE}.dc_created_timestamp ;;
+    sql: ${TABLE}.blocked_since ;;
   }
 
   measure: count {
