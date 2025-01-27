@@ -211,3 +211,7 @@ explore: s4_customer_active_dq_error_details {
 explore: s4_customer_contact {
   label: "s4_customer_contact"
 }
+
+explore: replicon_cost_center_hierarchy_active_dq_error_details{
+  label: "replicon_cost_center_hierarchy_active_dq_error_details"
+}
