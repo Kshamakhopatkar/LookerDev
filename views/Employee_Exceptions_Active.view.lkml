@@ -89,8 +89,6 @@ union all
             SELECT UPPER(interface_name) as interface_name ,UPPER(interface_type) as interface_type,rule_column, severity, global_group_id as ggid,error_description,ou_code,PERNR AS pernr_id,country_of_company, "Not available in interface" as employee_status_code, created_timestamp as dc_created_timestamp FROM
              datacloud_adm_dq.imagenow_bnl_sogeti_active_dq_error_details
             UNION ALL
-            SELECT "SFEC_Employee" as interface_name ,"INBOUND" as interface_type,rule_column,"Not available in interface" as severity,global_group_id as ggid,error_description,"Not available in interface" as ou_code, pernr as  pernr_id,country_of_company,employee_status_code, blocked_since as dc_created_timestamp FROM hr_dq.sfec_employee_active_dq_error_details
-            UNION ALL
             SELECT "SPAIN" as interface_name ,"OUTBOUND" as interface_type,rule_column,"Not available in interface" as severity,global_group_id as ggid,"Not available in interface" as error_description,"Not available in interface" as ou_code, "Not available in interface" as  pernr_id,country_of_company,employee_status_code, blocked_since as dc_created_timestamp FROM datacloud_adm_dq.spain_new_portal_active_dq_error_details
             UNION ALL
             SELECT "SIG" as interface_name ,"OUTBOUND" as interface_type,rule_column, severity, ggid,error_description, ou_code, PERNR as  pernr_id,country_of_company,"Not available in interface" as employee_status_code, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.sig_active_dq_error_details
