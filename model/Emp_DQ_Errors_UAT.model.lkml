@@ -218,3 +218,6 @@ explore: replicon_cost_center_hierarchy_active_dq_error_details{
 explore: replicon_holiday_calendar_dq_error_details {
   label: "replicon_holiday_calendar_dq_error_details"
 }
+explore: replicon_employee_hca_dq_error_details {
+  label: "replicon_employee_hca_dq_error_details"
+}
