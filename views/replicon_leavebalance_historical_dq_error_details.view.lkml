@@ -1,10 +1,9 @@
 view: replicon_leavebalance_historical_dq_error_details {
   derived_table: {
-    sql:SELECT "LEAVEBALANCE" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,
-      global_group_id,  local_id, country_of_company, dc_created_timestamp,absence_type_code  FROM
+    sql:SELECT "LEAVEBALANCE" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,global_group_id,  local_id, country_of_company, dc_created_timestamp,absence_type_code  FROM
          gtm_dq.replicon_leavebalance_dq_error_details
         UNION ALL
-        :SELECT "LEAVEBALANCE" as interface_name,"INBOUND" as interface_type,"" AS rule_column,"" as severity,"Dummy Exception inserted to handle No Exception Scenario" as error_descripition,""global_group_id,"" as local_id,"" as country_of_company,timestamp("1900-01-01") as dc_created_timestamp ,"" as absence_type_code
+        SELECT "LEAVEBALANCE" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"Dummy Exception inserted to handle No Exception Scenario" as error_descripition,""global_group_id,"" as local_id,"" as country_of_company,timestamp("1900-01-01") as dc_created_timestamp ,"" as absence_type_code
       ;;
   }
   dimension: interface_name {
