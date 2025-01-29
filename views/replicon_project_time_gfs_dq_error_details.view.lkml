@@ -1,6 +1,6 @@
 view: replicon_project_time_gfs_dq_error_details {
   derived_table: {
-    sql:SELECT "REPLICON" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description, ProjectTime_GGID as ggid, "Not available in interface" as ou_code,  ProjectTime_ProjectTimeID ,"Not available in interface" as pernr_id,   dc_created_timestamp  FROM gtm_dq.replicon_project_time_gfs_dq_error_details
+    sql:SELECT "REPLICON" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description, ProjectTime_GGID as ggid, "Not available in interface" as ou_code,  ProjectTime_ProjectTimeID ,"Not available in interface" as pernr_id,   dc_created_timestamp as  created_timestamp FROM gtm_dq.replicon_project_time_gfs_dq_error_details
       UNION ALL
       SELECT "GFS" as interface_name,"OUTBOUND" as interface_type,rule_column,severity,error_description,"Not Available in the Interface" as ggid,reference as ProjectTime_ProjectTimeID, ou_code, "Not available in interface" as pernr_id, created_timestamp FROM datacloud_adm_dq.gtm_timecard_gfs_dq_error_details
             UNION ALL
