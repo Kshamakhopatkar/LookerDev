@@ -245,3 +245,6 @@ explore: replicon_leavebalance_historical_dq_error_details {
 explore: replicon_project_time_gfs_dq_error_details {
   label: "replicon_project_time_gfs_dq_error_details"
 }
+explore: replicon_project {
+  label: "replicon_project"
+}
