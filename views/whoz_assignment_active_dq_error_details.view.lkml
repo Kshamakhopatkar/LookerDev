@@ -1,8 +1,12 @@
 view: whoz_assignment_active_dq_error_details {
 
   derived_table: {
-    sql:SELECT "GTD" as interface_name ,"INBOUND" as interface_type,allocationid, blocked_age_in_days, blocked_since, error_description, ggid, latest_dc_lineage_id, localemployeenumber, project_ou, provider_ou, rule_column, severity, status FROM
-      gtd_dq.whoz_assignment_active_dq_error_details;;
+    sql:SELECT "WHOZ" as interface_name,"INBOUND" as interface_type,Allocationid,error_description,GGID as ggid,LocalEmployeeNumber,rule_column, project_ou ,blocked_since FROM
+    gtd_dq.whoz_assignment_active_dq_error_details
+    UNION ALL
+SELECT "SMS" as interface_name,"OUTBOUND" as interface_type,allocationid,error_description,ggid,local_employee_number,rule_column,"Not Available in Interface" as project_ou,created_timestamp as blocked_since FROM datacloud_adm_dq.sms_allocations_active_dq_error_details
+UNION ALL
+SELECT "R2D2" as interface_name,"INBOUND" as interface_type,  AllocationID,error_description, GGID as ggid,"Not available in interface" as local_employee_number,rule_column, "Not available in interface" as project_ou , blocked_since FROM gtd_dq.r2d2_assignment_active_dq_error_details;;
   }
 
   dimension: interface_name {

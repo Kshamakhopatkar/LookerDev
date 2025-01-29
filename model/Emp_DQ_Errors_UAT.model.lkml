@@ -221,3 +221,18 @@ explore: replicon_holiday_calendar_dq_error_details {
 explore: replicon_employee_hca_dq_error_details {
   label: "replicon_employee_hca_dq_error_details"
 }
+explore: lms_clientholiday_assignment_active_dq_error_details {
+  label: "lms_clientholiday_assignment_active_dq_error_details"
+}
+explore: replicon_holiday_calendar_active_dq_error_details {
+  label: "replicon_holiday_calendar_active_dq_error_details"
+}
+explore: replicon_leavebalance_active_dq_error_details {
+  label: "replicon_leavebalance_active_dq_error_details"
+}
+explore: replicon_project_time_gfs_active_dq_error_details {
+  label: "replicon_project_time_gfs_active_dq_error_details"
+}
+explore: replicon_project_active_dq_error_details {
+  label: "replicon_project_active_dq_error_details"
+}
