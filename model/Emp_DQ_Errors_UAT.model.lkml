@@ -245,11 +245,9 @@ explore: replicon_leavebalance_historical_dq_error_details {
 explore: replicon_project_time_gfs_dq_error_details {
   label: "replicon_project_time_gfs_dq_error_details"
 }
-<<<<<<< HEAD
 explore: replicon_cost_center_hierarchy_dq_error_details {
   label: "replicon_cost_center_hierarchy_dq_error_details"
-=======
+}
 explore: replicon_project {
   label: "replicon_project"
->>>>>>> branch 'Main-branch' of git@github.com:aroramohit01/looker_connect_UAT.git
 }
