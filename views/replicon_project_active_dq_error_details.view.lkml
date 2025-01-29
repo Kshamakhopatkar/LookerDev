@@ -2,8 +2,8 @@ view: replicon_project_active_dq_error_details {
   derived_table: {
     sql:
     SELECT "PROJECTACTIVE" as  interface_name, "OUTBOUND" as interface_type, rule_column , severity, error_description,"Not available in interface" as ou_code,  "Not available in interface" as ProjectTaskCode, "Not available in interface" as CostTypeURI ,   Country_of_Company,  blocked_since from datacloud_adm_dq.replicon_project_active_dq_error_details
-    union all
-    SELECT "PROJECTACTIVE" as  interface_name, "OUTBOUND" as interface_type, " " as rule_column ," " as  severity, "DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ou_code,  " " as ProjectTaskCode, " " as CostTypeURI ," " as  country_of_company,  timestamp("1900-01-01") as blocked_since
+    UNION ALL
+    SELECT "PROJECTACTIVE" as  interface_name, "OUTBOUND" as interface_type, " " as rule_column ," " as  severity, "DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ou_code,  " " as ProjectTaskCode, " " as CostTypeURI ," " as  country_of_company,timestamp("1900-01-01") as blocked_since
    ;;
   }
 
@@ -29,8 +29,7 @@ view: replicon_project_active_dq_error_details {
     type: time
     description: "Timestamp for Batch Run"
     timeframes: [raw, time, date, week, month, quarter, year]
-    sql:TIMESTAMP(${TABLE}.blocked_since) ;;
-
+    sql: ${TABLE}.blocked_since ;;
   }
   dimension: ou_code {
     type: string

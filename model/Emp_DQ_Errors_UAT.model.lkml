@@ -236,3 +236,12 @@ explore: replicon_project_time_gfs_active_dq_error_details {
 explore: replicon_project_active_dq_error_details {
   label: "replicon_project_active_dq_error_details"
 }
+explore: lms_clientholiday_assignment_historical_dq_error_details {
+  label: "lms_clientholiday_assignment_historical_dq_error_details"
+}
+explore: replicon_leavebalance_historical_dq_error_details {
+  label: "replicon_leavebalance_historical_dq_error_details"
+}
+explore: replicon_project_time_gfs_dq_error_details {
+  label: "replicon_project_time_gfs_dq_error_details"
+}
