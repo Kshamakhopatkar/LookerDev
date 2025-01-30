@@ -21,8 +21,12 @@ view: Customer_Legal_Entity {
   dimension: severity {
     type: string
     description: "If Record reported as Error, it will not be processed further, If record reported as Warning , will be processed further"
-    sql: ${TABLE}.severity ;;
-  }
+
+    sql: CASE
+          WHEN severity ="business-error" THEN "error"
+          WHEN severity="business-warning" THEN "warning"
+          ELSE "error"
+      END ;;  }
   dimension: error_description {
     type: string
     description: "Description of the Exception"
