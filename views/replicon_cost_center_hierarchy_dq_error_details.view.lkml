@@ -1,8 +1,8 @@
-view: replicon_cost_center_hierarchy_active_dq_error_details {
+view: replicon_cost_center_hierarchy_dq_error_details {
   derived_table: {
-    sql: SELECT "REPLICON_COST_CENTER" as interface_name,"OUTBOUND" as interface_type,rule_column, severity,error_description,  country_of_company, ou_code,"Not available in Interface" as pu_id, cost_center_id,created_timestamp FROM datacloud_adm_dq.replicon_cost_center_hierarchy_active_dq_error_details
+    sql: SELECT "REPLICON_COST_CENTER" as interface_name,"OUTBOUND" as interface_type,rule_column, severity,error_description,  country_of_company, ou_code,"Not available in Interface" as pu_id, cost_center_id,created_timestamp FROM datacloud_adm_dq.replicon_cost_center_hierarchy_dq_error_details
       UNION ALL
-     SELECT "REPLICON_MARKET_UNIT" as interface_name,"OUTBOUND" as interface_type,rule_column, severity,error_description, country_of_company, ou_code,"Not available in Interface" as cost_center_id, pu_id,created_timestamp FROM datacloud_adm_dq.replicon_market_unit_active_dq_error_details
+     SELECT "REPLICON_MARKET_UNIT" as interface_name,"OUTBOUND" as interface_type,rule_column, severity,error_description, country_of_company, ou_code,"Not available in Interface" as cost_center_id, pu_id,created_timestamp FROM datacloud_adm_dq.replicon_market_unit_dq_error_details
       UNION ALL
       SELECT "REPLICON_COST_CENTER" as interface_name,"OUTBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,  "" as country_of_company, "" as ou_code," " as pu_id,"" as cost_center_id,timestamp("1900-01-01") as created_timestamp
       UNION ALL
