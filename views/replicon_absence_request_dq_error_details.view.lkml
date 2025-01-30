@@ -3,12 +3,12 @@ view: replicon_absence_request_dq_error_details {
     sql: SELECT "REPLICON ABSENCE REQUEST" as interface_name ,"INBOUND" as interface_type, dc_created_timestamp, country_of_company, error_description, employee_id, leave_request_id, rule_column, severity,ou_code FROM
       gtm_dq.replicon_absence_request_dq_error_details
       UNION ALL
-       SELECT "REPLICON ABSENCE REQUEST" as interface_name ,"INBOUND" as interface_type, timestamp("1900-01-01") as dc_created_timestamp, "" as country_of_company,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as c employee_id, "" as leave_request_id,"" as rule_column,"" as severity,"" as ou_code
+       SELECT "REPLICON ABSENCE REQUEST" as interface_name ,"INBOUND" as interface_type, timestamp("1900-01-01") as dc_created_timestamp, "" as country_of_company,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as employee_id, "" as leave_request_id,"" as rule_column,"" as severity,"" as ou_code
        UNION ALL
     SELECT "REPLICON CANCELLED LEAVE REQUEST" as interface_name ,"INBOUND" as interface_type, dc_created_timestamp,country_of_company, error_description, employee_id, leave_request_id, rule_column, severity,ou_code FROM
     gtm_dq.replicon_cancelled_leave_requests_dq_error_details
       UNION ALL
-       SELECT "REPLICON CANCELLED LEAVE REQUEST" as interface_name ,"INBOUND" as interface_type, timestamp("1900-01-01") as dc_created_timestamp, "" as country_of_company,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as c employee_id, "" as leave_request_id,"" as rule_column,"" as severity,"" as ou_code;;
+       SELECT "REPLICON CANCELLED LEAVE REQUEST" as interface_name ,"INBOUND" as interface_type, timestamp("1900-01-01") as dc_created_timestamp, "" as country_of_company,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as employee_id, "" as leave_request_id,"" as rule_column,"" as severity,"" as ou_code;;
   }
 
   dimension: interface_name {
