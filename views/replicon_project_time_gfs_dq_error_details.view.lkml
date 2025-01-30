@@ -31,7 +31,11 @@ view: replicon_project_time_gfs_dq_error_details {
   dimension: severity {
     type: string
     description: "If Record reported as Error, it will not be processed further, If record reported as Warning , will be processed further"
-    sql: ${TABLE}.severity ;;
+    sql: CASE
+          WHEN severity ="business-error" THEN "error"
+          WHEN severity="business-warning" THEN "warning"
+          ELSE "error"
+      END ;;
   }
   dimension: error_description {
     type: string
