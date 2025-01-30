@@ -4,7 +4,6 @@ view: Customer {
       union all
       SELECT "CUSTOMER_BANK" as interface_name,"INBOUND" as interface_type,rule_column, severity,error_description, BusinessPartner,"Not Available in Interface" as Customer,"Not Available in Interface" as AddressID,BankIdentification, Country_of_Company,dc_created_timestamp FROM finance_dq.s4_customer_bank_dq_error_details
       union all
-      Union all
 SELECT "CUSTOMER" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity, "DUMMY Exception inserted to handle No Exception Scenario" as error_description,  "" as BusinessPartner,"" as Customer,"" as AddressID," " as BankIndentification,"" as country_of_company,timestamp("1900-01-01") as dc_created_timestamp
         Union all
         SELECT "CUSTOMER_BANK" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as BusinessPartner," " as Customer," " as AddressID, "" as BankIdentification,"" as country_of_company,timestamp("1900-01-01") as dc_created_timestamp
@@ -25,11 +24,16 @@ SELECT "CUSTOMER" as interface_name,"INBOUND" as interface_type,"" as rule_colum
     description: "Column on which the Exception is reported"
     sql: ${TABLE}.rule_column ;;
   }
+
   dimension: severity {
     type: string
     description: "If Record reported as Error, it will not be processed further, If record reported as Warning , will be processed further"
-    sql: ${TABLE}.severity ;;
-  }
+
+    sql: CASE
+          WHEN severity ="business-error" THEN "error"
+          WHEN severity="business-warning" THEN "warning"
+          ELSE "error"
+      END ;;  }
   dimension: error_description {
     type: string
     description: "Description of the Exception"

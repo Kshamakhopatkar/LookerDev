@@ -1,8 +1,8 @@
 view: Customer_Legal_Entity {
   derived_table: {
-    sql:SELECT "CUSTOMER_legal_Entity" as interface_name,"INBOUND" as interface_type,rule_column, severity,error_description,Customer,Country_of_Company FROM finance_dq.s4_customer_legal_entity_level_dq_error_details
+    sql:SELECT "CUSTOMER_legal_Entity" as interface_name,"INBOUND" as interface_type,rule_column, severity,error_description,Customer,Country_of_Company, ou_code, dc_created_timestamp FROM finance_dq.s4_customer_legal_entity_level_dq_error_details
      union all
-    SELECT "CUSTOMER_LEGAL_ENTITY" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as Customer,"" as Country_of_Company
+    SELECT "CUSTOMER_LEGAL_ENTITY" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as Customer,"" as Country_of_Company, "" as ou_code, timestamp("1900-01-01") as dc_created_timestamp
       ;;
   }
   dimension: interface_name {
@@ -39,6 +39,16 @@ view: Customer_Legal_Entity {
     type: string
     description: "The Organization unit to which this Employee Record belongs"
     sql: ${TABLE}.Customer ;;
+  }
+  dimension: ou_code {
+    type: string
+    sql: ${TABLE}.ou_code ;;
+  }
+  dimension_group: dc_created_timestamp {
+    type: time
+    description: "Timestamp for Batch Run"
+    timeframes: [raw, time, date, week, month, quarter, year]
+    sql: ${TABLE}.dc_created_timestamp ;;
   }
   measure: count {
     type: count
