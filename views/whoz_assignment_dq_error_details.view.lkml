@@ -8,10 +8,7 @@ UNION ALL
 SELECT "R2D2" as interface_name,"INBOUND" as interface_type,  AllocationID,error_description, GGID as ggid,"Not available in interface" as local_employee_number,rule_column, "Not available in interface" as project_ou , dc_created_timestamp FROM gtd_dq.r2d2_assignment_dq_error_details;;
     }
 
-  dimension: AllocationID {
-    type: string
-    sql: ${TABLE}.AllocationID ;;
-  }
+
   dimension: interface_name {
     type: string
     sql: ${TABLE}.interface_name ;;
@@ -19,6 +16,10 @@ SELECT "R2D2" as interface_name,"INBOUND" as interface_type,  AllocationID,error
   dimension: interface_type  {
     type: string
     sql: ${TABLE}.interface_type ;;
+  }
+  dimension: AllocationID {
+    type: string
+    sql: ${TABLE}.AllocationID ;;
   }
   dimension: data_quality_job_id {
     type: string
