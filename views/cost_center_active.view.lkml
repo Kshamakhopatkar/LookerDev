@@ -1,11 +1,11 @@
 view: cost_center_active {
   derived_table: {
-    sql:SELECT "S4_Cost Centre" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,CC_code , ou_code, Date(blocked_since) as blocked_since FROM
+    sql:SELECT "S4_Cost Centre" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,CC_code , ou_code, timestamp(blocked_since) as blocked_since FROM
       finance_dq.s4_cost_center_active_dq_error_details
       union all
       SELECT "S4_Cost Center" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity, "DUMMY Exception inserted to handle No Exception Scenario" as error_description,  "" as CC_Code,"" as ou_code,timestamp("1900-01-01") as blocked_since
             UNION ALL
-           SELECT "S4_Partner_Cost Centre" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,CC_code , ou_code, Date(blocked_since) as blocked_since FROM finance_dq.s4_partner_cost_center_active_dq_error_details
+           SELECT "S4_Partner_Cost Centre" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,CC_code , ou_code, timestamp(blocked_since) as blocked_since FROM finance_dq.s4_partner_cost_center_active_dq_error_details
           union all
       SELECT "S4_Partner_Cost Center" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity, "DUMMY Exception inserted to handle No Exception Scenario" as error_description,  "" as CC_Code,"" as ou_code,timestamp("1900-01-01") as blocked_since;;
   }
