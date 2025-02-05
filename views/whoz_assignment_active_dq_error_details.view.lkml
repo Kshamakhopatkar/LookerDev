@@ -6,7 +6,12 @@ view: whoz_assignment_active_dq_error_details {
     UNION ALL
 SELECT "SMS" as interface_name,"OUTBOUND" as interface_type,allocationid,error_description,ggid,local_employee_number,rule_column,"Not Available in Interface" as project_ou,created_timestamp as blocked_since FROM datacloud_adm_dq.sms_allocations_active_dq_error_details
 UNION ALL
-SELECT "R2D2" as interface_name,"INBOUND" as interface_type,  AllocationID,error_description, GGID as ggid,"Not available in interface" as local_employee_number,rule_column, "Not available in interface" as project_ou , blocked_since FROM gtd_dq.r2d2_assignment_active_dq_error_details;;
+SELECT "R2D2" as interface_name,"INBOUND" as interface_type,  AllocationID,error_description, GGID as ggid,"Not available in interface" as local_employee_number,rule_column, "Not available in interface" as project_ou , blocked_since FROM gtd_dq.r2d2_assignment_active_dq_error_details
+UNION ALL
+SELECT "SMS-EMPLOYEE" as interface_name,"OUTBOUND" as interface_type,"" as AllocationID,"No DQ Rule" as error_description, "" as ggid,"No DQ Rule" as local_employee_number,"" as rule_column, " " as project_ou , "" as blocked_since
+UNION ALL
+SELECT "SUPERVISOR MAPPING SYSTEM" as interface_name,"OUTBOUND" as interface_type,"" as AllocationID,"No DQ Rule" as error_description, "" as ggid,"No DQ Rule" as local_employee_number,"" as rule_column, " " as project_ou , "" as blocked_since
+;;
   }
 
   dimension: interface_name {

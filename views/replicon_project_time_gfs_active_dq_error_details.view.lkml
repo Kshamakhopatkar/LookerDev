@@ -12,7 +12,10 @@ view: replicon_project_time_gfs_active_dq_error_details {
       SELECT "GFS" as interface_name,"OUTBOUND" as interface_type," " as  rule_column," " as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description," " as ggid,"" as ProjectTime_ProjectTimeID," " as  ou_code, " " as pernr_id, timestamp('1900-01-01') as created_timestamp
       UNION ALL
       SELECT "S4" as interface_name,"OUTBOUND" as interface_type," " as rule_column," " as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description," "  as ggid,  " " as  ProjectTime_ProjectTimeID, " " as ou_code, " "  as pernr_id, timestamp('1900-01-01') as created_timestamp
-
+      UNION ALL
+SELECT "GBI" as interface_name,"OUTBOUND" as interface_type," " as rule_column," " as severity,"NO DQ RULE" as error_description," "  as ggid,  " " as  ProjectTime_ProjectTimeID, " " as ou_code, " "  as pernr_id, timestamp('1900-01-01') as created_timestamp
+UNION ALL
+SELECT "SUBCONTRACTOR" as interface_name,"OUTBOUND" as interface_type," " as rule_column," " as severity,"NO DQ RULE" as error_description," "  as ggid,  " " as  ProjectTime_ProjectTimeID, " " as ou_code, " "  as pernr_id, timestamp('1900-01-01') as created_timestamp
       ;;
   }
   dimension: interface_name {

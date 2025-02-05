@@ -8,6 +8,16 @@ union all
 SELECT "PROJECTTASK" as  interface_name, "OUTBOUND" as interface_type, rule_column , severity, error_description, ou_code,  project_task_code, "Not available in interface" as CostTypeURI , country_of_company from datacloud_adm_dq.replicon_project_task_active_dq_error_details
 UNION ALL
 SELECT "PROJECTTASK" as  interface_name, "OUTBOUND" as interface_type," " as rule_column ," " as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description," " as ou_code, " " as project_task_code, " " as CostTypeURI ," " as country_of_company
+UNION ALL
+SELECT "LOCATION_MASTER" as interface_name,"INBOUND" as interface_type,"" as rule_column," "as severity,"No DQ Rule" as error_description,  "" as  project_task_code,"" ou_code, ""  as CostTypeURI,  " " as country_of_company
+union all
+  SELECT "PROJECT_MASTER" as interface_name,"INBOUND" as interface_type,"" as rule_column,""as severity,"No DQ Rule" as error_description,  "" as  project_task_code,"" ou_code, ""  as CostTypeURI, " " as country_of_company
+  union all
+  SELECT "ORGANIZATION_TAXONOMY" as interface_name,"INBOUND" as interface_type,"" as rule_column,""as severity,"No DQ Rule" as error_description,  "" as  project_task_code,"" ou_code, ""  as CostTypeURI,  " " as country_of_company
+
+
+
+
 
    ;;
   }
