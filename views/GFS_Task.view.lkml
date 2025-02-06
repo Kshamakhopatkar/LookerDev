@@ -2,7 +2,12 @@ view: gfs_task {
 
   derived_table: {
     sql:
-    SELECT "GFS_TASK" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description, project_number, task_number,ou_code, dc_created_timestamp FROM finance_dq.gfs_task_dq_error_details;;
+    SELECT "GFS_TASK" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description, project_number, task_number,ou_code, dc_created_timestamp FROM finance_dq.gfs_task_dq_error_details
+
+    union all
+
+    SELECT "GFS_TASK" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as project_number, "" as task_number,"" as ou_code, timestamp("1900-01-01") as dc_created_timestamp
+    ;;
   }
 
 
