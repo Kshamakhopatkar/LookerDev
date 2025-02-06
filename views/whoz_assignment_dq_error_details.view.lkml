@@ -13,6 +13,11 @@ union all
 SELECT "R2D2" as interface_name,"INBOUND" as interface_type,"" as AllocationID,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as ggid,"" as local_employee_number,"" as rule_column,"" as project_ou,"" as ou_code, "" as severity,timestamp("1900-01-01") as dc_created_timestamp
 union all
 SELECT "SMS" as interface_name,"OUTBOUND" as interface_type ,"" as AllocationID,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as ggid,"" as local_employee_number,"" as rule_column,"" as project_ou,"" as ou_code, "" as severity,timestamp("1900-01-01") as dc_created_timestamp
+UNION ALL
+SELECT "SMS-EMPLOYEE" as interface_name,"OUTBOUND" as interface_type,"" as AllocationID,"No DQ Rule" as error_description, "" as ggid," No DQ Rule" as local_employee_number,"" as rule_column, " " as project_ou ,"" as ou_code,""as  severity,timestamp("1900-01-01") as dc_created_timestamp
+UNION ALL
+SELECT "SUPERVISOR MAPPING SYSTEM" as interface_name,"OUTBOUND" as interface_type,"" as AllocationID,"No DQ Rule" as error_description, "" as ggid," No DQ Rule" as local_employee_number,"" as rule_column, " " as project_ou ,"" as ou_code,""as  severity,timestamp("1900-01-01") as dc_created_timestamp
+
 ;;
     }
 
