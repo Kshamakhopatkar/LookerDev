@@ -5,7 +5,15 @@ view: whoz_assignment_dq_error_details {
     UNION ALL
 SELECT "SMS" as interface_name,"OUTBOUND" as interface_type,allocationid,error_description,ggid,local_employee_number,rule_column,"Not Available in Interface" as project_ou,"Not Available in Interface" as ou_code, severity,created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.sms_allocations_dq_error_details
 UNION ALL
-SELECT "R2D2" as interface_name,"INBOUND" as interface_type,  AllocationID,error_description, GGID as ggid,"Not available in interface" as local_employee_number,rule_column, "Not available in interface" as project_ou ,ou_code, severity,dc_created_timestamp FROM gtd_dq.r2d2_assignment_dq_error_details;;
+SELECT "R2D2" as interface_name,"INBOUND" as interface_type,  AllocationID,error_description, GGID as ggid,"Not available in interface" as local_employee_number,rule_column, "Not available in interface" as project_ou ,ou_code, severity,dc_created_timestamp FROM gtd_dq.r2d2_assignment_dq_error_details
+
+union all
+SELECT "WHOZ" as interface_name,"INBOUND" as interface_type,"" as AllocationID,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as ggid,"" as local_employee_number,"" as rule_column,"" as project_ou,"" as ou_code, "" as severity,timestamp("1900-01-01") as dc_created_timestamp
+union all
+SELECT "R2D2" as interface_name,"INBOUND" as interface_type,"" as AllocationID,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as ggid,"" as local_employee_number,"" as rule_column,"" as project_ou,"" as ou_code, "" as severity,timestamp("1900-01-01") as dc_created_timestamp
+union all
+SELECT "SMS" as interface_name,"OUTBOUND" as interface_type ,"" as AllocationID,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as ggid,"" as local_employee_number,"" as rule_column,"" as project_ou,"" as ou_code, "" as severity,timestamp("1900-01-01") as dc_created_timestamp
+;;
     }
 
 
