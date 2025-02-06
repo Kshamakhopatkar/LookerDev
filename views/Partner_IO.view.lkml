@@ -8,6 +8,15 @@ SELECT "S4_WBS_Partner" as interface_name,"INBOUND" as interface_type,"" as rule
               SELECT "S4_IO_Partner" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,Partner_role as Partner_Function,IO_number, dc_created_timestamp FROM finance_dq.s4_partner_io_dq_error_details
 UNION ALL
 SELECT "S4_IO_Partner" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as Partner_Function, "" as IO_Number,timestamp("1900-01-01") as dc_created_timestamp
+ UNION ALL
+      SELECT "IBM_ECM_IO" as interface_name ,"OUTBOUND" as interface_type ,rule_column, severity,error_description,"Not Available in Interface" as  global_group_id,"Not Available in Interface" as pernr_id,"Not Available in Interface" as ou_code, project_number,"Not Available in Interface" as legal_entity, created_timestamp FROM datacloud_adm_dq.ibm_ecm_io_dq_error_details
+      UNION ALL
+      SELECT "IBM_ECM_IO" as interface_name ,"OUTBOUND" as interface_type ,"" as rule_column, "" as severity,"" as error_description,"e" as  global_group_id,"" as pernr_id,"" as ou_code, "" as project_number,"" as legal_entity,timestamp("1900-01-01") as created_timestamp
+      UNION ALL
+      SELECT "IBM_ECM_WBS" as interface_name ,"OUTBOUND" as interface_type ,rule_column,  severity,error_description,"Not Available in Interface" as  global_group_id,"Not Available in Interface" as pernr_id,"Not Available in Interface" as ou_code, project_number, "Not Available in Interface" as legal_entity,created_timestamp FROM datacloud_adm_dq.ibm_ecm_wbs_dq_error_details
+       UNION ALL
+      SELECT "IBM_WBS" as interface_name ,"OUTBOUND" as interface_type ,"" as rule_column,  "" as severity,"" as error_description,"" as global_group_id,"" as pernr_id,"" as ou_code,"" as project_number, "" as legal_entity, timestamp("1900-01-01") as dc_created_timestamp
+
       ;;
   }
   dimension: interface_name {
