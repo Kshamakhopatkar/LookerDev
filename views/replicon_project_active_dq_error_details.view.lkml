@@ -31,9 +31,9 @@ union all
     sql: ${TABLE}.interface_type ;;
   }
 
-  dimension:  project_code {
+  dimension:  project_task_code {
     type: string
-    sql: ${TABLE}. project_code ;;
+    sql: ${TABLE}. project_task_code ;;
   }
   dimension:  CostTypeURI {
     type: string
