@@ -122,6 +122,8 @@
         SELECT interface_name, interface_type,rule_column,severity,error_description,global_group_id as ggid,pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.imagenow_bnl_capgemini_dq_error_details
         UNION ALL
         SELECT "REPLICON_EMPLOYEE" as interface_name ,"OUTBOUND" as interface_type,rule_column,severity,error_description, "Not available in interface" as ggid, ou_code,   pernr as pernr_id,country_of_company,created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.replicon_employee_dq_error_details
+        UNION ALL
+            SELECT "REPLICON_EMPLOYEE" as interface_name ,"OUTBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid," "as ou_code,   "" as pernr_id,"" as country_of_company,timestamp("1900-01-01") as created_timestamp
 
 
 ;;
