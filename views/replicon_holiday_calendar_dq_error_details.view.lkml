@@ -1,12 +1,12 @@
 view: replicon_holiday_calendar_dq_error_details {
   derived_table: {
-    sql:SELECT "HOLIDAY CALENDAR" as interface_name,"INBOUND" as interface_type,rule_column, severity, error_description,id_office,holiday_calendar as Holiday_Name,"Not available in interface" as ggid, ou_code,"Not available in interface" as Country_Name,"Not available in interface" as Country_of_Company,  FROM gtm_dq.replicon_employee_hca_dq_error_details
+    sql:SELECT "HOLIDAY CALENDAR" as interface_name,"INBOUND" as interface_type,rule_column, severity, error_description,id_office,holiday_calendar as Holiday_Name,"Not available in interface" as ggid, ou_code,"Not available in interface" as Country_Name,"Not available in interface" as Country_of_Company, dc_created_timestamp  FROM gtm_dq.replicon_employee_hca_dq_error_details
 UNION ALL
-SELECT "HOLIDAY CALENDAR" as interface_name,"INBOUND" as interface_type,rule_column, severity, error_description,"Not available in interface" as id_office,Holiday_Name,"Not available in interface" as ggid,Country_Name,"Not available in interface" as ou_code,Country_of_Company,  FROM gtm_dq.replicon_holiday_calendar_dq_error_details
+SELECT "HOLIDAY CALENDAR" as interface_name,"INBOUND" as interface_type,rule_column, severity, error_description,"Not available in interface" as id_office,Holiday_Name,"Not available in interface" as ggid,Country_Name,"Not available in interface" as ou_code,Country_of_Company, dc_created_timestamp FROM gtm_dq.replicon_holiday_calendar_dq_error_details
 UNION ALL
-SELECT "HOLIDAYCALENDAR" as interface_name,"INBOUND" as interface_type,"" as rule_column, "" as severity, "DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as id_office,"" as Holiday_Name,"" as ggid, "" as ou_code," " as Country_Name," " as Country_of_Company
+SELECT "HOLIDAYCALENDAR" as interface_name,"INBOUND" as interface_type,"" as rule_column, "" as severity, "DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as id_office,"" as Holiday_Name,"" as ggid, "" as ou_code," " as Country_Name," " as Country_of_Company,timestamp("1900-01-01") as dc_created_timestamp
 UNION ALL
-SELECT "HOLIDAYCALENDAR" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description," " as id_office,"" as Holiday_Name," " as ggid,"" as Country_Name," "as ou_code,"" as Country_of_Company     ;;
+SELECT "HOLIDAYCALENDAR" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description," " as id_office,"" as Holiday_Name," " as ggid,"" as Country_Name," "as ou_code,"" as Country_of_Company,timestamp("1900-01-01") as dc_created_timestamp     ;;
   }
   dimension: interface_name {
     type: string
