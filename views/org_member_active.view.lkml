@@ -9,14 +9,17 @@ view: org_member_active {
 
       SELECT "PROFIT_CENTER_HIERARCHY" as interface_name,"INBOUND" as interface_type, error_description, HierarchyNode, HierarchyNodeLevel, ou_code, rule_column, severity, blocked_since  as dc_created_timestamp FROM finance_dq.s4_profit_center_hierarchy_active_dq_error_details
 
+       union all
+      SELECT "SEGMENT_HIERARCHY" as interface_name,"INBOUND" as interface_type, error_description, HierarchyNode, HierarchyNodeLevel, ou_code, rule_column, severity, blocked_since  as dc_created_timestamp FROM finance_dq.s4_segment_hierarchy_active_dq_error_details
       union all
-
       SELECT "COST_CENTER_HIERARCHY" as interface_name,"INBOUND" as interface_type, "DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as HierarchyNode, "" as HierarchyNodeLevel, "" as ou_code,"" as rule_column, "" as severity, timestamp("1900-01-01") as dc_created_timestamp
       union all
       SELECT "FUNCTIONAL_AREA_HIERARCHY" as interface_name,"INBOUND" as interface_type, "DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as HierarchyNode, "" as HierarchyNodeLevel, "" as ou_code, "" as rule_column,"" as severity,timestamp("1900-01-01") as dc_created_timestamp
       union all
 
       SELECT "PROFIT_CENTER_HIERARCHY" as interface_name,"INBOUND" as interface_type, "DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as HierarchyNode, "" as HierarchyNodeLevel, "" as ou_code, "" as rule_column, "" as severity, timestamp("1900-01-01") as dc_created_timestamp
+      union all
+      SELECT "SEGMENT_HIERARCHY" as interface_name,"INBOUND" as interface_type,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as HierarchyNode,"" as HierarchyNodeLevel,"" as ou_code,"" as rule_column,"" as severity, timestamp("1900-01-01")  as dc_created_timestamp
 
       ;;
   }
