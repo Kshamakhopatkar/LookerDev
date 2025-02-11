@@ -4,7 +4,7 @@ view: replicon_project_time_gfs_active_dq_error_details {
       UNION ALL
       SELECT "GFS" as interface_name,"OUTBOUND" as interface_type,rule_column,severity,error_description,"Not Available in the Interface" as ggid,reference as ProjectTime_ProjectTimeID, ou_code, "Not available in interface" as pernr_id, created_timestamp FROM datacloud_adm_dq.gtm_timecard_gfs_active_dq_error_details
             UNION ALL
-            SELECT "S4" as interface_name,"OUTBOUND" as interface_type,rule_column,severity,error_description,"Not available in interface"  as ggid,  "" as  ProjectTime_ProjectTimeID, ou_code, "Not available in interface"  as pernr_id, created_timestamp FROM datacloud_adm_dq.s4_project_time_balance_dq_active_error_details
+            SELECT "S4" as interface_name,"OUTBOUND" as interface_type,rule_column,severity,error_description,"Not available in interface"  as ggid,  "Not available in interface" as  ProjectTime_ProjectTimeID, ou_code, "Not available in interface"  as pernr_id, created_timestamp FROM datacloud_adm_dq.s4_project_time_balance_dq_active_error_details
 
       union all
       SELECT "REPLICON" as interface_name,"INBOUND" as interface_type," " as rule_column," " as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as ggid, " " as ou_code, " " as  ProjectTime_ProjectTimeID ," " as pernr_id,  timestamp('1900-01-01') as created_timestamp
