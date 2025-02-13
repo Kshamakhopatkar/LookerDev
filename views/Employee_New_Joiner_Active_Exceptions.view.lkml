@@ -10,6 +10,10 @@ view: employee_new_joiner_active_exceptions {
             UNION ALL
             SELECT UPPER(interface_name) as  interface_name, UPPER(interface_type) as interface_type,rule_column,error_description, "Not available in interface" as ggid,country_of_company, ou_code, "Not available in interface" as employee_status_code,"Not available in interface"pernr_id, created_timestamp FROM
        datacloud_adm_dq.servicecentral_newjoiner_dq_active_error_details
+      UNION ALL
+            SELECT "SERVICE CENTRAL_NEW JOINER_EMPLOYEE" as interface_name ,"OUTBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description," " as ggid,"" as pernr,"" as ou_code,"" as country_of_company,timestamp("1900-01-01") as created_timestamp
+            UNION ALL
+            SELECT "SFEC_NEW JOINER_EMPLOYEE" as interface_name ,"OUTBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as ggid, "" as pernr,"" as ou_code,"" as country_of_company, timestamp("1900-01-01") as dc_created_timestamp
       ;;
   }
   dimension: interface_name {
