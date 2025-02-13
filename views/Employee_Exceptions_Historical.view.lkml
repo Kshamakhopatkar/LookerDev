@@ -103,7 +103,7 @@
           UNION ALL
           SELECT "SFEC_Lov_Master" as interface_name, "INBOUND" asinterface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid, ou_code,"Not Available in Interface" as pernr_id, "Not Available in Interface" as country_of_company,dc_created_timestamp FROM hr_dq.sfec_lov_master_dq_error_details
           UNION ALL
-          SELECT "SFEC_Lov_Master" as interface_name, "INBOUND" asinterface_type,rule_column,severity,error_description,Global_Group_ID as ggid, ou_code,pernr_id,"Not Available in Interface" as country_of_company, dc_created_timestamp FROM hr_dq.sfec_pay_component_dq_error_details
+          SELECT "SFEC_pay_component" as interface_name, "INBOUND" asinterface_type,rule_column,severity,error_description,Global_Group_ID as ggid, ou_code,pernr_id,"Not Available in Interface" as country_of_company, dc_created_timestamp FROM hr_dq.sfec_pay_component_dq_error_details
           UNION ALL
           SELECT "SFEC_Voluntary" as interface_name, "INBOUND" asinterface_type,rule_column,severity,error_description,"Not Available in Interface" as ggid, ou_code, PERNR AS pernr_id,"Not Available in Interface" as country_of_company, dc_created_timestamp FROM hr_dq.sfec_voluntary_separation_dq_error_details
          UNION ALL
