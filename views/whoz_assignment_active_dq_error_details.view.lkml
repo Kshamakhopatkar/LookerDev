@@ -17,7 +17,7 @@ SELECT "SMS" as interface_name,"OUTBOUND" as interface_type ,"" as AllocationID,
 
 
 union all
-SELECT "WHOZ" as interface_name,"INBOUND" as interface_type,Allocationid,error_description,GGID as ggid,LocalEmployeeNumber,rule_column, project_ou ,timestamp(blocked_since) as blocked_since FROM
+SELECT "WHOZ" as interface_name,"INBOUND" as interface_type,Allocationid,error_description,GGID as ggid,LocalEmployeeNumber as local_employee_number,rule_column, project_ou ,timestamp(blocked_since) as blocked_since FROM
     gtd_dq.whoz_assignment_active_dq_error_details
 ;;
   }
@@ -59,7 +59,7 @@ SELECT "WHOZ" as interface_name,"INBOUND" as interface_type,Allocationid,error_d
   }
   dimension: localemployeenumber {
     type: string
-    sql: ${TABLE}.localemployeenumber ;;
+    sql: ${TABLE}.local_employee_number ;;
   }
   dimension: project_ou {
     type: string
