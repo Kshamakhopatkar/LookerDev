@@ -255,3 +255,6 @@ explore: replicon_cost_center_hierarchy_dq_error_details {
 explore: replicon_project {
   label: "replicon_project"
 }
+explore: corp_employee_dq_active_error_details {
+  label: "corp_employee_dq_active_error_details"
+}
