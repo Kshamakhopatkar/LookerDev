@@ -102,11 +102,6 @@ union all
             SELECT "REPLICON_EMPLOYEE" as interface_name ,"OUTBOUND" as interface_type,rule_column,severity,error_description, "Not available in interface" as ggid, ou_code,   pernr as pernr_id,country_of_company,"Not available in interface" as employee_status_code,created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.replicon_employee_active_dq_error_details
             UNION ALL
             SELECT "REPLICON_EMPLOYEE" as interface_name ,"OUTBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid,""as ou_code,   "" as pernr_id,"" as country_of_company," " as employee_status_code,timestamp("1900-01-01") as dc_created_timestamp
-
-
-
-
-
           ;;
   }
 
