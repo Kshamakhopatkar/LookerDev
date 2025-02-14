@@ -1,7 +1,6 @@
 view: whoz_assignment_active_dq_error_details {
-
   derived_table: {
-    sql:   SELECT "SMS" as interface_name,"OUTBOUND" as interface_type,allocationid,error_description,ggid,local_employee_number,rule_column,"Not Available in Interface" as project_ou,created_timestamp as blocked_since FROM datacloud_adm_dq.sms_allocations_active_dq_error_details
+  sql: SELECT "SMS" as interface_name,"OUTBOUND" as interface_type,allocationid,error_description,ggid,local_employee_number,rule_column,"Not Available in Interface" as project_ou,created_timestamp as blocked_since FROM datacloud_adm_dq.sms_allocations_active_dq_error_details
 UNION ALL
 SELECT "R2D2" as interface_name,"INBOUND" as interface_type,  AllocationID,error_description, GGID as ggid,"Not available in interface" as local_employee_number,rule_column, "Not available in interface" as project_ou , timestamp(blocked_since) as blocked_since  FROM gtd_dq.r2d2_assignment_active_dq_error_details
 UNION ALL
@@ -15,6 +14,8 @@ union all
 SELECT "R2D2" as interface_name,"INBOUND" as interface_type,"" as AllocationID,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as ggid,"" as local_employee_number,"" as rule_column,"" as project_ou,Timestamp("1900-01-01") as blocked_since
 union all
 SELECT "SMS" as interface_name,"OUTBOUND" as interface_type ,"" as AllocationID,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as ggid,"" as local_employee_number,"" as rule_column,"" as project_ou,Timestamp("1900-01-01") as blocked_since
+
+
 union all
 SELECT "WHOZ" as interface_name,"INBOUND" as interface_type,Allocationid,error_description,GGID as ggid,LocalEmployeeNumber,rule_column, project_ou ,timestamp(blocked_since) as blocked_since FROM
     gtd_dq.whoz_assignment_active_dq_error_details
