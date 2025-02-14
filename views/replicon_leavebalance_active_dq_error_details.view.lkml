@@ -1,10 +1,10 @@
 view: replicon_leavebalance_active_dq_error_details {
   derived_table: {
     sql:SELECT "LEAVEBALANCE" as interface_name,"INBOUND" as interface_type,rule_column,severity,error_description,
-      global_group_id,  local_id, company_code, blocked_since,absence_type_code, "Not Available in Interface" as Time_Off_Type,blocked_age_in_days  FROM
+      global_group_id,  local_id, company_code, blocked_since,absence_type_code, "Not Available in Interface" as Time_Off_Type FROM
          gtm_dq.replicon_leavebalance_active_dq_error_details
-        union all
-        SELECT "LEAVEBALANCE" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as global_group_id,""as  local_id, "" as company_code,timestamp("1900-01-01") as blocked_since,"" as absence_type_code, "" as Time_Off_Type,"" as blocked_age_in_days
+         UNION ALL
+         SELECT "LEAVEBALANCE" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as global_group_id, "" as local_id, "" as company_code,timestamp("1900-01-01") as blocked_since,"" as absence_type_code, "" as Time_Off_Type
       ;;
   }
   dimension: interface_name {
