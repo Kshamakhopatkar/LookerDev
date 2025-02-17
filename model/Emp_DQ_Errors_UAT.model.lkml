@@ -95,7 +95,7 @@ explore: dtx_employee_dq_error_details {
 }
 explore: Employee_Exceptions_Active {
 
-  sql_always_where: date(${created_timestamp_date}) > '2024-07-01' ;;
+  sql_always_where: date(${created_timestamp_date}) > '2024-12-31'  and ${employee_status_code} <>'T';;
   label: "Employee_Exceptions_Active"
 }
 explore: Consolidated_1F_UAT {
@@ -256,5 +256,7 @@ explore: replicon_project {
   label: "replicon_project"
 }
 explore: corp_employee_dq_active_error_details {
+
+  sql_always_where: date(${created_timestamp_date}) > '2024-12-31'  and ${employee_status_code} <>'T';;
   label: "corp_employee_dq_active_error_details"
 }
