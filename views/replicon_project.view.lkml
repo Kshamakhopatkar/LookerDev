@@ -1,17 +1,17 @@
 view: replicon_project {
   derived_table: {
     sql:
-    SELECT "PROJECTACTIVE" as  interface_name, "OUTBOUND" as interface_type, rule_column , severity, error_description,"Not available in interface" as ou_code,  "Not available in interface" as ProjectTaskCode, "Not available in interface" as CostTypeURI ,   Country_of_Company, timestamp(blocked_since) as blocked_since from datacloud_adm_dq.replicon_project_active_dq_error_details
+    SELECT "PROJECTACTIVE" as  interface_name, "OUTBOUND" as interface_type, rule_column , severity, error_description,"Not available in interface" as ou_code,  "Not available in interface" as ProjectTaskCode, "Not available in interface" as CostTypeURI ,   Country_of_Company, timestamp(created_timestamp) as created_timestamp from datacloud_adm_dq.replicon_project_dq_error_details
     UNION ALL
-    SELECT "PROJECTACTIVE" as  interface_name, "OUTBOUND" as interface_type, " " as rule_column ," " as  severity, "DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ou_code,  " " as ProjectTaskCode, " " as CostTypeURI ," " as  country_of_company,timestamp("1900-01-01") as blocked_since
+    SELECT "PROJECTACTIVE" as  interface_name, "OUTBOUND" as interface_type, " " as rule_column ," " as  severity, "DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ou_code,  " " as ProjectTaskCode, " " as CostTypeURI ," " as  country_of_company,timestamp("1900-01-01") as created_timestamp
 UNION ALL
-SELECT "PROJECTTASK" as  interface_name, "OUTBOUND" as interface_type," " as rule_column ," " as severity,"No DQ Rule" as error_description," " as ou_code, " " as project_task_code, " " as CostTypeURI ," " as country_of_company,timestamp("1900-01-01") as blocked_since
+SELECT "PROJECTTASK" as  interface_name, "OUTBOUND" as interface_type," " as rule_column ," " as severity,"No DQ Rule" as error_description," " as ou_code, " " as project_task_code, " " as CostTypeURI ," " as country_of_company,timestamp("1900-01-01") as created_timestamp
 UNION ALL
-SELECT "LOCATIONMASTER" as interface_name,"INBOUND" as interface_type,"" as rule_column," "as severity,"No DQ Rule" as error_description,  "" as  project_task_code,"" ou_code, ""  as CostTypeURI,  " " as country_of_company,timestamp("1900-01-01") as blocked_since
+SELECT "LOCATIONMASTER" as interface_name,"INBOUND" as interface_type,"" as rule_column," "as severity,"No DQ Rule" as error_description,  "" as  project_task_code,"" ou_code, ""  as CostTypeURI,  " " as country_of_company,timestamp("1900-01-01") as created_timestamp
 union all
-  SELECT "PROJECTMASTER" as interface_name,"INBOUND" as interface_type,"" as rule_column,""as severity,"No DQ Rule" as error_description,  "" as  project_task_code,"" ou_code, ""  as CostTypeURI, " " as country_of_company,timestamp("1900-01-01") as blocked_since
+  SELECT "PROJECTMASTER" as interface_name,"INBOUND" as interface_type,"" as rule_column,""as severity,"No DQ Rule" as error_description,  "" as  project_task_code,"" ou_code, ""  as CostTypeURI, " " as country_of_company,timestamp("1900-01-01") as created_timestamp
   union all
-  SELECT "ORGANIZATIONTAXONOMY" as interface_name,"INBOUND" as interface_type,"" as rule_column,""as severity,"No DQ Rule" as error_description,  "" as  project_task_code,"" ou_code, ""  as CostTypeURI,  " " as country_of_company,timestamp("1900-01-01") as blocked_since
+  SELECT "ORGANIZATIONTAXONOMY" as interface_name,"INBOUND" as interface_type,"" as rule_column,""as severity,"No DQ Rule" as error_description,  "" as  project_task_code,"" ou_code, ""  as CostTypeURI,  " " as country_of_company,timestamp("1900-01-01") as created_timestamp
 
      ;;
   }
@@ -34,11 +34,11 @@ union all
     sql: ${TABLE}. CostTypeURI ;;
   }
 
-  dimension_group: blocked_since {
+  dimension_group: created_timestamp {
     type: time
     description: "Timestamp for Batch Run"
     timeframes: [raw, time, date, week, month, quarter, year]
-    sql: ${TABLE}.blocked_since ;;
+    sql: ${TABLE}.created_timestamp ;;
   }
   dimension: ou_code {
     type: string

@@ -17,6 +17,8 @@ UNION ALL
 SELECT "SMS-EMPLOYEE" as interface_name,"OUTBOUND" as interface_type,"" as AllocationID,"No DQ Rule" as error_description, "" as ggid," No DQ Rule" as local_employee_number,"" as rule_column, " " as project_ou ,"" as ou_code,""as  severity,timestamp("1900-01-01") as dc_created_timestamp
 UNION ALL
 SELECT "SUPERVISOR MAPPING SYSTEM" as interface_name,"OUTBOUND" as interface_type,"" as AllocationID,"No DQ Rule" as error_description, "" as ggid," No DQ Rule" as local_employee_number,"" as rule_column, " " as project_ou ,"" as ou_code,""as  severity,timestamp("1900-01-01") as dc_created_timestamp
+UNION ALL
+SELECT "REPLICON" as interface_name,"INBOUND" as interface_type,"" as AllocationID,"NO DQ RULE defined for this Interface" as error_description, "" as ggid,"" as local_employee_number,"" as rule_column, " " as project_ou ,"" as ou_code,"" as  severity,timestamp("1900-01-01") as dc_created_timestamp
 
 ;;
     }
