@@ -1,15 +1,25 @@
 view: s4_GFS_org {
   derived_table: {
-    sql: SELECT "S4" as interface_name,"INBOUND" as interface_type, error_description, error_value,gfs_org_operating_unit_code as ou_code, gfs_production_unit_code as PU_Code, rule_column, rule_type, ics_code,severity,dc_created_timestamp FROM
+    sql: SELECT "S4" as interface_name,"INBOUND" as interface_type, error_description,gfs_org_operating_unit_code as ou_code, gfs_production_unit_code as PU_Code, rule_column, rule_type, ics_code,severity,dc_created_timestamp FROM
           finance_dq.s4_org_structure_dq_error_details
 
       UNION ALL
-      SELECT "GFS" as interface_name,"INBOUND" as interface_type, error_description, error_value,gfs_org_operating_unit_code as ou_code, gfs_production_unit_code as PU_Code, rule_column, rule_type, ics_code,severity,dc_created_timestamp FROM
+      SELECT "GFS" as interface_name,"INBOUND" as interface_type, error_description,gfs_org_operating_unit_code as ou_code, gfs_production_unit_code as PU_Code, rule_column, rule_type, ics_code,severity,dc_created_timestamp FROM
       finance_dq.gfs_org_structure_dq_error_details
       UNION ALL
-      SELECT "S4" as interface_name,"INBOUND" as interface_type, "DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as error_value,"" as ou_code, "" as PU_Code, "" as rule_column, "" as rule_type, "" as ics_code,"" as severity,timestamp(current_date) AS dc_created_timestamp
+      SELECT "S4" as interface_name,"INBOUND" as interface_type, "DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as ou_code, "" as PU_Code, "" as rule_column, "" as rule_type, "" as ics_code,"" as severity,timestamp(current_date) AS dc_created_timestamp
       UNION ALL
-      SELECT "GFS" as interface_name,"INBOUND" as interface_type, "DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as error_value,"" as ou_code,"" as PU_Code," " as rule_column,"" as rule_type,"" as ics_code,"" as severity,timestamp(current_date) AS dc_created_timestamp;;
+      SELECT "GFS" as interface_name,"INBOUND" as interface_type, "DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as ou_code,"" as PU_Code," " as rule_column,"" as rule_type,"" as ics_code,"" as severity,timestamp(current_date) AS dc_created_timestamp
+union all
+SELECT "ICS_LEGAL_ENTITY" as interface_name,"INBOUND" as interface_type, error_description, "Not Available in interface" as ou_code,"Not Available in interface" as  PU_Code, rule_column, rule_type,entity_code as ics_code,severity,dc_created_timestamp FROM
+          finance_dq.ics_legal_entity_dq_error_details
+ UNION ALL
+ SELECT "ICS_LEGAL_ENTITY" as interface_name,"INBOUND" as interface_type, "DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as ou_code, "" as PU_Code, "" as rule_column, "" as rule_type, "" as ics_code,"" as severity,timestamp("1900-01-01") AS dc_created_timestamp
+      union all
+          SELECT "ORG_ALTERNATIVE_HIERARCHY" as interface_name,"INBOUND" as interface_type,error_description,"Not Available in interface"  as ou_code,  Prod_Unit_code as PU_CODE, rule_column,"Not Available in interface" as rule_type,"Not Available in interface" as ics_code, severity,  dc_created_timestamp FROM
+    finance_dq.gfs_alternate_hierarchy_error_details
+    UNION ALL
+    SELECT "ORG_ALTERNATIVE_HIERARCHY" as interface_name,"INBOUND" as interface_type, "DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as ou_code, "" as PU_Code, "" as rule_column, "" as rule_type, "" as ics_code,"" as severity,timestamp("1900-01-01") AS dc_created_timestamp;;
   }
 
   dimension: interface_name {
@@ -62,10 +72,7 @@ view: s4_GFS_org {
     type: string
     sql: ${TABLE}.error_description ;;
   }
-  dimension: error_value {
-    type: string
-    sql: ${TABLE}.error_value ;;
-  }
+
   dimension: gfs_business_unit_code {
     type: string
     sql: ${TABLE}.gfs_business_unit_code ;;
