@@ -17,13 +17,14 @@ SELECT "REPLICON" as interface_name,"INBOUND" as interface_type,rule_column,seve
   }
   dimension: interface_name {
     type: string
-    sql: ${TABLE}.interface_name ;;
+    sql: ${TABLE}.interface_name;;
+    order_by_field: interface_type
   }
+
   dimension: interface_type {
     type: string
-    sql: ${TABLE}.interface_type
+    sql:${TABLE}.interface_type ;;
 
-    ;;
   }
   dimension: ProjectTime_LocalEmployeeNumber {
     type: string
