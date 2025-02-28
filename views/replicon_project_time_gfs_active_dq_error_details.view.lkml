@@ -1,6 +1,6 @@
 view: replicon_project_time_gfs_active_dq_error_details {
   derived_table: {
-    sql:SELECT "GFS" as interface_name,"OUTBOUND" as interface_type,rule_column,severity,error_description,"Not Available in the Interface" as ggid, "Not Available in the Interface" as ProjectTime_LocalEmployeeNumber,"Not Available in the Interface" as  Employee_People_Manager_GGID,"Not Available in the Interface" as  ProjectTime_Hours, "Not Available in the Interface" as ProjectTime_Entrydate,"reference" as ProjectTime_ProjectID,"Not Available in the Interface" as ProjectTime_ProjectName,"Not Available in the Interface" as MarketUnitName,"Not Available in the Interface" as Project_CostCenterIDPU,"Not Available in the Interface" as CostCenterName,"Not Available in the Interface" as  MarketUnitCode, ou_code, "Not available in interface" as pernr_id, created_timestamp FROM datacloud_adm_dq.gtm_timecard_gfs_active_dq_error_details
+    sql:SELECT "GFS" as interface_name,"OUTBOUND" as interface_type,rule_column,severity,error_description, ggid, "Not Available in the Interface" as ProjectTime_LocalEmployeeNumber,"Not Available in the Interface" as  Employee_People_Manager_GGID,"Not Available in the Interface" as  ProjectTime_Hours, "Not Available in the Interface" as ProjectTime_Entrydate,"Not Available in the Interface" as ProjectTime_ProjectID,"Not Available in the Interface" as  ProjectTime_ProjectName,"Not Available in the Interface" as MarketUnitName,"Not Available in the Interface" as Project_CostCenterIDPU,"Not Available in the Interface" as CostCenterName,"Not Available in the Interface" as  MarketUnitCode, ou_code, "Not available in interface" as pernr_id, created_timestamp FROM datacloud_adm_dq.gtm_timecard_gfs_active_dq_error_details
             UNION ALL
             SELECT "S4" as interface_name,"OUTBOUND" as interface_type,rule_column,severity,error_description,  personal_number  as ggid,"Not Available in the Interface" as ProjectTime_LocalEmployeeNumber,"Not Available in the Interface" as  Employee_People_Manager_GGID,"Not Available in the Interface" as  ProjectTime_Hours, "Not Available in the Interface" as ProjectTime_Entrydate,"Not Available in the Interface" as ProjectTime_ProjectID,"Not Available in the Interface" as  ProjectTime_ProjectName,"Not Available in the Interface" as MarketUnitName,"Not Available in the Interface" as Project_CostCenterIDPU,"Not Available in the Interface" as CostCenterName,"Not Available in the Interface" as  MarketUnitCode, ou_code, "Not available in interface"  as pernr_id, created_timestamp FROM datacloud_adm_dq.s4_project_time_balance_dq_active_error_details
       union all
@@ -9,10 +9,6 @@ view: replicon_project_time_gfs_active_dq_error_details {
       SELECT "GFS" as interface_name,"OUTBOUND" as interface_type," " as  rule_column," " as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description," " as ggid,"" as ProjectTime_LocalEmployeeNumber,"" as Employee_People_Manager_GGID,"" as  ProjectTime_Hours, "" as ProjectTime_Entrydate,"" as ProjectTime_ProjectID,"" as  ProjectTime_ProjectName,"" as MarketUnitName,"" as Project_CostCenterIDPU,"" as CostCenterName,"" as  MarketUnitCode," " as ou_code ," " as pernr_id,  timestamp('1900-01-01') as created_timestamp
       UNION ALL
       SELECT "S4" as interface_name,"OUTBOUND" as interface_type," " as rule_column," " as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description," "  as ggid, "" as ProjectTime_LocalEmployeeNumber,"" as Employee_People_Manager_GGID,"" as  ProjectTime_Hours, "" as ProjectTime_Entrydate,"" as ProjectTime_ProjectID,"" as  ProjectTime_ProjectName,"" as MarketUnitName,"" as Project_CostCenterIDPU,"" as CostCenterName,"" as  MarketUnitCode," " as ou_code ," " as pernr_id,  timestamp('1900-01-01') as created_timestamp
-      UNION ALL
-SELECT "GBI" as interface_name,"OUTBOUND" as interface_type," " as rule_column," " as severity,"NO DQ RULE" as error_description," "  as ggid, "" as ProjectTime_LocalEmployeeNumber,"" as  Employee_People_Manager_GGID,"" as  ProjectTime_Hours, "" as ProjectTime_Entrydate,"" as ProjectTime_ProjectID,"" as  ProjectTime_ProjectName,"" as MarketUnitName,"" as Project_CostCenterIDPU,"" as CostCenterName,"" as  MarketUnitCode," " as ou_code ," " as pernr_id,  timestamp('1900-01-01') as created_timestamp
-UNION ALL
-SELECT "SUBCONTRACTOR" as interface_name,"OUTBOUND" as interface_type," " as rule_column," " as severity,"NO DQ RULE" as error_description," "  as ggid,  "" as ProjectTime_LocalEmployeeNumber,"" as Employee_People_Manager_GGID,"" as  ProjectTime_Hours, "" as ProjectTime_Entrydate,"" as ProjectTime_ProjectID,"" as  ProjectTime_ProjectName,"" as MarketUnitName,"" as Project_CostCenterIDPU,"" as CostCenterName,"" as  MarketUnitCode," " as ou_code ," " as pernr_id,  timestamp('1900-01-01') as created_timestamp
 
 union all
 
@@ -25,7 +21,9 @@ SELECT "REPLICON" as interface_name,"INBOUND" as interface_type,rule_column,seve
   }
   dimension: interface_type {
     type: string
-    sql: ${TABLE}.interface_type ;;
+    sql: ${TABLE}.interface_type
+
+    ;;
   }
   dimension: ProjectTime_LocalEmployeeNumber {
     type: string
