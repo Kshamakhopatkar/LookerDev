@@ -30,6 +30,8 @@ SELECT "S4" as interface_name,"OUTBOUND" as interface_type," " as rule_column," 
     sql:${TABLE}.interface_type ;;
 
   }
+
+
   dimension: ProjectTime_LocalEmployeeNumber {
     type: string
     sql: ${TABLE}.ProjectTime_LocalEmployeeNumber ;;
