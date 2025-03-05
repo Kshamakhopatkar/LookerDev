@@ -49,8 +49,10 @@ SELECT "S4" as interface_name,"OUTBOUND" as interface_type," " as rule_column," 
     type: string
     sql: ${TABLE}.ProjectTime_ProjectID ;;
   }
-  dimension: ProjectTime_Entrydate {
-    type: date
+  dimension_group: ProjectTime_Entrydate {
+    type: time
+    datatype: date
+    timeframes: [raw, time, date, week, month, quarter, year]
     sql: ${TABLE}.ProjectTime_Entrydate ;;
   }
   dimension: ProjectTime_ProjectName {
