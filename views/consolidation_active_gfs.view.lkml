@@ -1,14 +1,7 @@
 view: consolidation_active_gfs {
   derived_table: {
-    sql:               SELECT "S4_WBS" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,"Not available in Interface" as project_number, date(blocked_since) as blocked_since FROM
-            finance_dq.s4_wbs_active_dq_error_details
-            UNION ALL
-            SELECT "S4_PROJECT" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code, ProjectDefinition_ID as project_number,date(blocked_since) as blocked_since  FROM
-            finance_dq.s4_project_definition_active_dq_error_details
-                 UNION ALL
-           SELECT "S4_IO" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,io_number as project_number,date(blocked_since) as blocked_since FROM finance_dq.s4_internal_order_active_dq_error_details
-                UNION ALL
-                SELECT "GFS_PROJECT" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,project_number,date(blocked_since) as blocked_since FROM finance_dq.gfs_project_active_dq_error_details
+    sql:
+        SELECT "GFS_PROJECT" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,project_number,date(blocked_since) as blocked_since FROM finance_dq.gfs_project_active_dq_error_details
 
   UNION ALL
       SELECT "GFS_PROJECT_CLASSIFICATION" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,project_number,date(blocked_since) as blocked_since FROM finance_dq.gfs_project_classification_active_dq_error_details
