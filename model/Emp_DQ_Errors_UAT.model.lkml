@@ -263,3 +263,6 @@ explore: corp_employee_dq_active_error_details {
 explore: consolidation_historical_s4 {
   label: "consolidation_historical_s4"
 }
+explore: consolidation_historical_gfs {
+  label: "consolidation_historical_gfs"
+}
