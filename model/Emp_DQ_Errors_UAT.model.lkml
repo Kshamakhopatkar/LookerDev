@@ -260,3 +260,6 @@ explore: corp_employee_dq_active_error_details {
   sql_always_where: date(${created_timestamp_date}) > '2024-07-08'  and ${employee_status_code} <>'T';;
   label: "corp_employee_dq_active_error_details"
 }
+explore: consolidation_historical_s4 {
+  label: "consolidation_historical_s4"
+}

@@ -1,19 +1,18 @@
 view: consolidation_active_s4 {
 derived_table: {
-  sql:  SELECT "S4_WBS_PARTNER" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,"Not available in Interface" as ProjectDefinition_ID, date(blocked_since) as blocked_since FROM
-            finance_dq.s4_wbs_partner_active_dq_error_details
-            UNION ALL
-            SELECT "S4_WBS" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,"Not available in Interface" as ProjectDefinition_ID,date(blocked_since) as blocked_since FROM
+  sql:  SELECT "S4_WBS" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,"Not available in Interface" as project_number,"Not available in Interface" as ProfitcenterID,"Not available in Interface" as FunctionalAreaID, date(blocked_since) as blocked_since FROM
             finance_dq.s4_wbs_active_dq_error_details
             UNION ALL
-            SELECT "S4_PROJECT" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code, ProjectDefinition_ID, date(blocked_since) as blocked_since FROM
+            SELECT "S4_PROJECT" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code, ProjectDefinition_ID as project_number,"Not available in Interface" as ProfitcenterID,"Not available in Interface" as FunctionalAreaID,date(blocked_since) as blocked_since  FROM
             finance_dq.s4_project_definition_active_dq_error_details
+                 UNION ALL
+           SELECT "S4_IO" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,io_number as project_number,"Not available in Interface" as ProfitcenterID,"Not available in Interface" as FunctionalAreaID,date(blocked_since) as blocked_since FROM finance_dq.s4_internal_order_active_dq_error_details
+          UNION ALL
+          SELECT "S4_WBS" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as ou_code,"" as project_number,"" as ProfitcenterID,"" as FunctionalAreaID, date("1900-01-01") as blocked_since
             UNION ALL
-            SELECT "S4_PARTNER" as interface_name,"INBOUND" as interface_type,rule_column,severity ,error_description,ou_code,"Not available in Interface" as ProjectDefinition_ID, date(blocked_since) as blocked_since FROM
-            finance_dq.s4_partner_io_active_dq_error_details
-            UNION ALL
-            SELECT "S4_INTERNAL" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,"Not available in Interface" as ProjectDefinition_ID, date(blocked_since) as blocked_since  FROM
-            finance_dq.s4_internal_order_active_dq_error_details
+            SELECT "S4_PROJECT" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as ou_code,"" as project_number,"" as ProfitcenterID,"" as FunctionalAreaID, date("1900-01-01") as blocked_since
+                 UNION ALL
+           SELECT "S4_IO" as interface_name,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as ou_code,"" as project_number,"" as ProfitcenterID,"" as FunctionalAreaID, date("1900-01-01") as blocked_since
             ;;
 }
 
@@ -45,10 +44,18 @@ dimension: ou_code {
   description: "The Organization unit to which this Employee Record Belongs"
   sql: ${TABLE}.ou_code ;;
 }
-dimension: ProjectDefinition_ID {
+dimension: project_number {
   type: string
-  sql: ${TABLE}.ProjectDefinition_ID;;
+  sql: ${TABLE}.project_number;;
 }
+dimension: ProfitcenterID {
+    type: string
+    sql: ${TABLE}.ProfitcenterID;;
+}
+  dimension: FunctionalAreaID {
+    type: string
+    sql: ${TABLE}.FunctionalAreaID;;
+  }
 measure: count {
   type: count
 }
