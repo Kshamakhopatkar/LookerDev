@@ -124,7 +124,24 @@
         SELECT "REPLICON_EMPLOYEE" as interface_name ,"OUTBOUND" as interface_type,rule_column,severity,error_description, "Not available in interface" as ggid, ou_code,   pernr as pernr_id,country_of_company,created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.replicon_employee_dq_error_details
         UNION ALL
             SELECT "REPLICON_EMPLOYEE" as interface_name ,"OUTBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid," "as ou_code,   "" as pernr_id,"" as country_of_company,timestamp("1900-01-01") as created_timestamp
-
+      UNION ALL
+      SELECT "CUBE_EMPLOYEE" as interface_name, "INBOUND" as interface_type,rule_column,severity,error_description, ggid, ou_code,"Not Available in Interface"  AS pernr_id,  country_of_company,dc_created_timestamp FROM hr_dq.cube_employee_master_dq_error_details
+      UNION ALL
+      SELECT "COSTARICA_EMPLOYEE" as interface_name, "INBOUND" as interface_type,rule_column,severity,error_description,GLOBAL_ID as ggid, ou_code,"Not Available in Interface"  AS pernr_id,  country_of_company,dc_created_timestamp FROM hr_dq.costarica_employee_master_dq_error_details
+      UNION ALL
+       SELECT "GREECE_EMPLOYEE" as interface_name, "INBOUND" as interface_type,rule_column,severity,error_description,GLOBAL_ID as ggid, ou_code,"Not Available in Interface"  AS pernr_id,  country_of_company,dc_created_timestamp FROM hr_dq.greece_employee_master_dq_error_details
+      UNION ALL
+      SELECT "RBI_BRAZIL_EMPLOYEE" as interface_name, "INBOUND" as interface_type,rule_column,severity,error_description,GLOBAL_ID as ggid, ou_code,"Not Available in Interface"  AS pernr_id,  country_of_company,dc_created_timestamp FROM hr_dq.rdi_brazil_employee_master_dq_error_details
+      UNION ALL
+      SELECT "RBI_HUNGARY_EMPLOYEE" as interface_name, "INBOUND" as interface_type,rule_column,severity,error_description,GLOBAL_ID as ggid, ou_code,"Not Available in Interface"  AS pernr_id,  country_of_company,dc_created_timestamp FROM hr_dq.rdi_hungary_employee_master_dq_error_details
+      UNION ALL
+       SELECT "COLOMBIA_EMPLOYEE" as interface_name, "INBOUND" as interface_type,rule_column,severity,error_description,GLOBAL_ID as ggid, ou_code,"Not Available in Interface"  AS pernr_id,  country_of_company,dc_created_timestamp FROM hr_dq.colombia_employee_master_dq_error_details
+      UNION ALL
+      SELECT "SOGETIUSA_EMPLOYEE" as interface_name, "INBOUND" as interface_type,rule_column,severity,error_description,GLOBAL_ID as ggid, ou_code,"Not Available in Interface"  AS pernr_id,  country_of_company,dc_created_timestamp FROM hr_dq.sogetiusa_employee_master_dq_error_details
+      UNION ALL
+      SELECT "ARGENTINA_EMPLOYEE" as interface_name, "INBOUND" as interface_type,rule_column,severity,error_description,GLOBAL_ID as ggid, ou_code,"Not Available in Interface"  AS pernr_id,  country_of_company,dc_created_timestamp FROM hr_dq.argentina_employee_master_dq_error_details
+      UNION ALL
+      SELECT interface_name, interface_type,rule_column,severity,error_description,global_group_id as ggid,"NOT AVAILABLE IN INTERFACE" AS pernr_id,ou_code,country_of_company, created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.spain_new_portal_employee_dq_error_details
 
 ;;
           }
