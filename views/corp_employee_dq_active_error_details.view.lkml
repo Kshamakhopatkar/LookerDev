@@ -97,7 +97,48 @@ view: corp_employee_dq_active_error_details {
       SELECT "REPLICON" as interface_name ,"OUTBOUND" as interface_type,rule_column,severity,error_description, "Not available in interface" as ggid, ou_code,   pernr as pernr_id,country_of_company,"Not available in interface" as employee_status_code,created_timestamp as dc_created_timestamp FROM datacloud_adm_dq.replicon_employee_active_dq_error_details where FORMAT_DATE('%Y-%m-%d', created_timestamp) not between '2024-07-01' and '2024-07-08'
       UNION ALL
       SELECT "REPLICON" as interface_name ,"OUTBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid,""as ou_code,   "" as pernr_id,"" as country_of_company," " as employee_status_code,timestamp("1900-01-01") as dc_created_timestamp
+      UNION ALL
 
+
+ SELECT "SERBIA" as interface_name ,"INBOUND" as interface_type,rule_column, severity, error_description, Global_ID as ggid,ou_code, "Not available in interface" as pernr_id, "Not available in interface" as country_of_company,EMPLOYEE_STATUS as employee_status_code, blocked_since as created_timestamp FROM
+             hr_dq.serbia_employee_master_active_dq_error_details
+            UNION ALL
+            SELECT "GREECE" as interface_name ,"INBOUND" as interface_type,rule_column, severity,error_description, Global_ID as ggid, ou_code, "Not available in interface" as pernr_id, "Not available in interface" as country_of_company,EMPLOYEE_STATUS as employee_status_code, blocked_since as created_timestamp FROM
+             hr_dq.greece_employee_master_active_dq_error_details
+             UNION ALL
+            SELECT "SERBIA" as interface_name ,"INBOUND" as interface_type,"" as rule_column, "" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as ggid,"" as ou_code, " " as pernr_id, " " as country_of_company, " " as employee_status_code,timestamp("1900-01-01")  as created_timestamp
+            UNION ALL
+            SELECT "GREECE" as interface_name ,"INBOUND" as interface_type,"" as rule_column, "" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as ggid,"" as ou_code, " " as pernr_id, " " as country_of_company, " " as employee_status_code,timestamp("1900-01-01") as created_timestamp
+             UNION ALL
+            SELECT "CAMBRIDGE" as interface_name ,"INBOUND" as interface_type,rule_column, severity,error_description, Global_ID as ggid, ou_code, "Not available in interface" as pernr_id, "Not available in interface" as country_of_company, EMPLOYEE_STATUS as employee_status_code, blocked_since as created_timestamp FROM
+             hr_dq.cambridge_employee_master_active_dq_error_details
+            UNION ALL
+             SELECT "CAMBRIDGE" as interface_name ,"INBOUND" as interface_type,"" as rule_column, "" as severity, "DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as ggid,"" as ou_code, " " as pernr_id, " " as country_of_company, " " as employee_status_code,timestamp("1900-01-01") as created_timestamp
+            UNION ALL
+            SELECT "SOGETIUSA" as interface_name ,"INBOUND" as interface_type,rule_column, severity, error_description, Global_ID as ggid,ou_code, "Not available in interface" as pernr_id, "Not available in interface" as country_of_company, EMPLOYEE_STATUS as employee_status_code, blocked_since as created_timestamp FROM
+             hr_dq.sogetiusa_employee_master_active_dq_error_details
+            UNION ALL
+             SELECT "ARGENTINA" as interface_name ,"INBOUND" as interface_type,rule_column, severity, Global_ID as ggid,error_description, ou_code, "Not available in interface" as pernr_id, "Not available in interface" as country_of_company, EMPLOYEE_STATUS as employee_status_code, blocked_since as created_timestamp FROM hr_dq.argentina_employee_master_active_dq_error_details
+            UNION ALL
+            SELECT "SOGETIUSA" as interface_name ,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as ggid, "" as ou_code, "" as pernr_id, "" as country_of_company, "" as employee_status_code, timestamp("1900-01-01")  as created_timestamp
+            UNION ALL
+             SELECT "ARGENTINA" as interface_name ,"INBOUND" as interface_type,"" as rule_column, "" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as ggid," "as ou_code, "" as pernr_id, " " as country_of_company, "" as employee_status_code,  timestamp("1900-01-01") as created_timestamp
+            UNION ALL
+            SELECT "COLOMBIA" as interface_name ,"INBOUND" as interface_type,rule_column, severity,error_description, Global_ID as ggid, ou_code, "Not available in interface" as pernr_id, "Not available in interface" as country_of_company, EMPLOYEE_STATUS as employee_status_code, blocked_since as created_timestamp FROM hr_dq.colombia_employee_master_active_dq_error_details
+            UNION ALL
+             SELECT "COLOMBIA" as interface_name ,"INBOUND" as interface_type,"" as rule_column, "" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as ggid,"" as ou_code, "" as pernr_id, " " as country_of_company, "" as employee_status_code,  timestamp("1900-01-01") as created_timestamp
+            UNION ALL
+            SELECT "RDI_BRAZIL" as interface_name ,"INBOUND" as interface_type,rule_column, severity, error_description,Global_ID as ggid, ou_code, "Not available in interface" as pernr_id, "Not available in interface" as country_of_company, EMPLOYEE_STATUS as employee_status_code, blocked_since as created_timestamp FROM hr_dq.rdi_brazil_employee_master_active_dq_error_details
+            UNION ALL
+            SELECT "RDI_HUNGARY" as interface_name ,"INBOUND" as interface_type,rule_column, severity,error_description, Global_ID as ggid, ou_code, "Not available in interface" as pernr_id, "Not available in interface" as country_of_company, EMPLOYEE_STATUS as employee_status_code, blocked_since as created_timestamp FROM hr_dq.rdi_hungary_employee_master_active_dq_error_details
+            UNION ALL
+            SELECT "RDI_BRAZIL" as interface_name ,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, "" as ggid, "" as ou_code, "" as pernr_id, "" as country_of_company, "" as employee_status_code, timestamp("1900-01-01")  as created_timestamp
+            UNION ALL
+             SELECT "RDI_HUNGARY" as interface_name ,"INBOUND" as interface_type,"" as rule_column, "" as severity, "" as ggid,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as ou_code, "" as pernr_id, " " as country_of_company, "" as employee_status_code,  timestamp("1900-01-01") as created_timestamp
+            UNION ALL
+              SELECT "CUBE" as interface_name ,"INBOUND" as interface_type,rule_column, "Not Available in Interface" as severity,error_description, GGID as ggid,"Not Available in Interface" as ou_code, "Not available in interface" as pernr_id, "Not available in interface" as country_of_company, employee_status_code, blocked_since as created_timestamp FROM hr_dq.cube_employee_master_active_dq_error_details
+              UNION ALL
+                SELECT "CUBE" as interface_name ,"INBOUND" as interface_type,"" as rule_column, "" as severity, "" as ggid,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as ou_code, "" as pernr_id, " " as country_of_company, "" as employee_status_code,  timestamp("1900-01-01") as created_timestamp
 
 
 
