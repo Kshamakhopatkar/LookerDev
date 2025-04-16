@@ -25,9 +25,7 @@ where rule_column<>'qualification'
            UNION ALL
            SELECT "HRDB" as interface_name ,"INBOUND" as interface_type,rule_column,"Not available in interface" as severity, global_group_GGID as ggid,error_description,"Not available in interface" as ou_code, "Not available in interface" as pernr_id,country_of_company, employee_status_code ,blocked_since as dc_created_timestamp FROM
              hr_dq.hrdb_employee_master_active_dq_error_details
-            UNION ALL
-            SELECT "MYC" as interface_name ,"INBOUND" as interface_type,rule_column,"Not available in interface" as severity, global_group_id as ggid,error_description,"Not available in interface" as ou_code, "Not available in interface" as pernr_id,country_of_company, employee_status_code, blocked_since as dc_created_timestamp FROM
-             hr_dq.myc_employee_master_active_dq_error_details
+
                          UNION ALL
             SELECT "OLDSF" as interface_name ,"INBOUND" as interface_type,rule_column,"Not available in interface" as severity, Global_ID as ggid,error_description,"Not available in interface" as ou_code, "Not available in interface" as pernr_id,country_of_company, employee_status_code, blocked_since as dc_created_timestamp FROM
              hr_dq.oldsf_employee_master_active_dq_error_details
