@@ -123,6 +123,8 @@
       SELECT "CAMBRIDGE" as interface_name, "INBOUND" as interface_type,rule_column,severity,error_description,GLOBAL_ID as ggid,"NOT AVAILABLE IN INTERFACE" AS pernr_id,ou_code,Country_of_Company,   EMPLOYEE_STATUS as employee_status_code,dc_created_timestamp as created_timestamp FROM hr_dq.cambridge_employee_master_dq_error_details NOLOCK
       UNION ALL
         SELECT "UKRAINE_CUBE" as interface_name ,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid,"" as pernr_id," "as ou_code,   "" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
+        UNION ALL
+        SELECT "COSTARICA" as interface_name, "INBOUND" as interface_type,rule_column,severity,error_description,GLOBAL_ID as ggid,"Not Available in Interface" as pernr_id,ou_code,Country_of_Company, "Not Available in Interface"  as employee_status_code,dc_created_timestamp as created_timestamp FROM hr_dq.costarica_employee_master_dq_error_details NOLOCK
       UNION ALL
         SELECT "COSTARICA" as interface_name ,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid, "" as pernr_id," "as ou_code,"" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
       UNION ALL

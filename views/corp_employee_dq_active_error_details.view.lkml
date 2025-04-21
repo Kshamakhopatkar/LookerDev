@@ -138,7 +138,8 @@ UNION ALL
 SELECT "RDI_BRAZIL" as interface_name ,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid," "as ou_code,"" as pernr_id,   "" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
 UNION ALL
 SELECT "RDI_HUNGARY" as interface_name ,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid," "as ou_code,"" as pernr_id, "" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
-
+UNION ALL
+SELECT "COSTARICA" as interface_name ,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid," "as ou_code,"" as pernr_id, "" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
 
 
       ;;
