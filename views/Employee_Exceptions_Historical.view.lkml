@@ -122,25 +122,25 @@
       UNION ALL
       SELECT "CAMBRIDGE" as interface_name, "INBOUND" as interface_type,rule_column,severity,error_description,GLOBAL_ID as ggid,"NOT AVAILABLE IN INTERFACE" AS pernr_id,ou_code,Country_of_Company,   EMPLOYEE_STATUS as employee_status_code,dc_created_timestamp as created_timestamp FROM hr_dq.cambridge_employee_master_dq_error_details NOLOCK
       UNION ALL
-        SELECT "UKRAINE_CUBE" as interface_name ,"OUTBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid,"" as pernr_id," "as ou_code,   "" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
+        SELECT "UKRAINE_CUBE" as interface_name ,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid,"" as pernr_id," "as ou_code,   "" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
       UNION ALL
-        SELECT "COSTARICA" as interface_name ,"OUTBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid, "" as pernr_id," "as ou_code,"" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
+        SELECT "COSTARICA" as interface_name ,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid, "" as pernr_id," "as ou_code,"" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
       UNION ALL
-        SELECT "GREECE" as interface_name ,"OUTBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid,"" as pernr_id," "as ou_code,"" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
+        SELECT "GREECE" as interface_name ,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid,"" as pernr_id," "as ou_code,"" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
       UNION ALL
-        SELECT "RDI_BRAZIL" as interface_name ,"OUTBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid,"" as pernr_id," "as ou_code,"" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
+        SELECT "RDI_BRAZIL" as interface_name ,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid,"" as pernr_id," "as ou_code,"" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
       UNION ALL
-        SELECT "RDI_HUNGARY" as interface_name ,"OUTBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid,"" as pernr_id," "as ou_code, "" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
+        SELECT "RDI_HUNGARY" as interface_name ,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid,"" as pernr_id," "as ou_code, "" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
       UNION ALL
-        SELECT "COLOMBIA" as interface_name ,"OUTBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid, "" as pernr_id," "as ou_code,"" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
+        SELECT "COLOMBIA" as interface_name ,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid, "" as pernr_id," "as ou_code,"" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
       UNION ALL
-        SELECT "SOGETIUSA" as interface_name ,"OUTBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid, "" as pernr_id," "as ou_code,"" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
+        SELECT "SOGETIUSA" as interface_name ,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid, "" as pernr_id," "as ou_code,"" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
       UNION ALL
-        SELECT "ARGENTINA" as interface_name ,"OUTBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid,"" as pernr_id," "as ou_code,"" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
+        SELECT "ARGENTINA" as interface_name ,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid,"" as pernr_id," "as ou_code,"" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
       UNION ALL
-        SELECT "CAMBRIDGE" as interface_name ,"OUTBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid, "" as pernr_id," "as ou_code, "" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
+        SELECT "CAMBRIDGE" as interface_name ,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid, "" as pernr_id," "as ou_code, "" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
       UNION ALL
-        SELECT "SPAIN_NEW_PORTAL" as interface_name ,"OUTBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid,"" as pernr_id," "as ou_code, "" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
+        SELECT "SPAIN_NEW_PORTAL" as interface_name ,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid,"" as pernr_id," "as ou_code, "" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
 
 
 
