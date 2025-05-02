@@ -1,13 +1,13 @@
 view: org_member_active {
   derived_table: {
-    sql: SELECT "COST_CENTER_HIERARCHY" as interface_name,"INBOUND" as interface_type, error_description, HierarchyNode, HierarchyNodeLevel, ou_code, rule_column, severity, blocked_since as dc_created_timestamp FROM finance_dq.s4_cost_center_hierarchy_active_dq_error_details
+    sql: SELECT "COST_CENTER_HIERARCHY" as interface_name,"INBOUND" as interface_type, error_description, HierarchyNode, HierarchyNodeLevel, ou_code, rule_column, severity, blocked_since as dc_created_timestamp FROM finance_dq.s4_cost_center_hierarchy_active_dq_error_details where error_description not in ('CostCenter should not be  DUMMY Cost Center','CostCenter should not be migration Cost Center','CostCenter is invalid as node level must be 8 for Cost Center')
       union all
 
       SELECT "FUNCTIONAL_AREA_HIERARCHY" as interface_name,"INBOUND" as interface_type, error_description, HierarchyNode, HierarchyNodeLevel, ou_code, rule_column, severity,blocked_since as dc_created_timestamp FROM finance_dq.s4_functional_area_hierarchy_active_dq_error_details
 
       union all
 
-      SELECT "PROFIT_CENTER_HIERARCHY" as interface_name,"INBOUND" as interface_type, error_description, HierarchyNode, HierarchyNodeLevel, ou_code, rule_column, severity, blocked_since  as dc_created_timestamp FROM finance_dq.s4_profit_center_hierarchy_active_dq_error_details
+      SELECT "PROFIT_CENTER_HIERARCHY" as interface_name,"INBOUND" as interface_type, error_description, HierarchyNode, HierarchyNodeLevel, ou_code, rule_column, severity, blocked_since  as dc_created_timestamp FROM finance_dq.s4_profit_center_hierarchy_active_dq_error_details where error_description not in ('ProfitCenter should not be  DUMMY profit center', 'ProfitCenter should not be migration profit center','ProfitCenter is invalid as node level must be 5 for profit center')
 
        union all
       SELECT "SEGMENT_HIERARCHY" as interface_name,"INBOUND" as interface_type, error_description, HierarchyNode, HierarchyNodeLevel, ou_code, rule_column, severity, blocked_since  as dc_created_timestamp FROM finance_dq.s4_segment_hierarchy_active_dq_error_details
