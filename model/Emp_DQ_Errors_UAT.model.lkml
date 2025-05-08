@@ -264,3 +264,12 @@ explore: consolidation_historical_s4 {
 explore: consolidation_historical_gfs {
   label: "consolidation_historical_gfs"
 }
+explore: max_date {
+  label: "max_date"
+}
+explore: corp_max_date {
+  label: "corp_max_date"
+}
+explore: gfs_max_date {
+  label: "gfs_max_date"
+}
