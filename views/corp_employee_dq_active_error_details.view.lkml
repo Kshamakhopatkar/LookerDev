@@ -142,6 +142,10 @@ UNION ALL
 SELECT "RDI_HUNGARY" as interface_name ,"INBOUND" as interface_type,"" as rule_column," " as ggid,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " "as ou_code,"" as pernr_id, "" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
 UNION ALL
 SELECT "COSTARICA" as interface_name ,"INBOUND" as interface_type,"" as rule_column,"" as severity," " as ggid,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " "as ou_code,"" as pernr_id, "" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
+UNION ALL
+SELECT "BGV" as interface_name ,"INBOUND" as interface_type,rule_column, severity,global_group_id as ggid,error_description,"Not available in interface" as ou_code, pernr as pernr_id, "Not available in interface" as Country_of_Company,employee_status_code, created_timestamp FROM datacloud_adm_dq.bgv_employee_active_dq_error_details
+UNION ALL
+SELECT "BGV" as interface_name ,"INBOUND" as interface_type,"" as rule_column,"" as severity," " as ggid,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " "as ou_code,"" as pernr_id,   "" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
 
 
       ;;
