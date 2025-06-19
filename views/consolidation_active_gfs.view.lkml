@@ -1,15 +1,25 @@
 view: consolidation_active_gfs {
   derived_table: {
     sql:
-      SELECT "GFS_PROJECT" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,project_number,date(blocked_since) as blocked_since FROM finance_dq.gfs_project_active_dq_error_details
+      SELECT "GFS_PROJECT" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,project_number, blocked_since FROM finance_dq.gfs_project_active_dq_error_details
     UNION ALL
-      SELECT "GFS_PROJECT_CLASSIFICATION" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,project_number,date(blocked_since) as blocked_since FROM finance_dq.gfs_project_classification_active_dq_error_details
+      SELECT "GFS_PROJECT_CLASSIFICATION" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,project_number,blocked_since FROM finance_dq.gfs_project_classification_active_dq_error_details
     UNION ALL
-      SELECT "GFS_PROJECT_MEMBER" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,project_number,date(blocked_since) as blocked_since FROM finance_dq.gfs_project_member_active_dq_error_details
+      SELECT "GFS_PROJECT_MEMBER" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,project_number,blocked_since FROM finance_dq.gfs_project_member_active_dq_error_details
     UNION ALL
-      SELECT "GFS_PROVIDER_OU" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,project_number,date(blocked_since) as blocked_since FROM finance_dq.gfs_provider_ou_active_dq_error_details
+      SELECT "GFS_PROVIDER_OU" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,project_number,blocked_since FROM finance_dq.gfs_provider_ou_active_dq_error_details
     UNION ALL
-    SELECT "GFS_ACTIVE" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,project_number,date(blocked_since) as blocked_since FROM finance_dq.gfs_task_active_dq_error_details
+    SELECT "REPLICON" as interface_name,"OUTBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,company_code as ou_code,project_code as project_number,blocked_since FROM datacloud_adm_dq.replicon_project_active_dq_error_details
+       UNION ALL
+    SELECT "GFS_PROJECT" as interface_name,"OUTBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as ou_code,"" as project_number,timestamp("1900-01-01") as blocked_since
+       UNION ALL
+    SELECT "GFS_PROJECT_CLASSIFICATION" as interface_name,"OUTBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as ou_code,"" as project_number,timestamp("1900-01-01") as blocked_since
+       UNION ALL
+    SELECT "GFS_PROJECT_MEMBER" as interface_name,"OUTBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as ou_code,"" as project_number,timestamp("1900-01-01") as blocked_since
+       UNION ALL
+    SELECT "GFS_PROVIDER_OU" as interface_name,"OUTBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as ou_code,"" as project_number,timestamp("1900-01-01") as blocked_since
+    UNION ALL
+    SELECT "REPLICON" as interface_name,"OUTBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description,"" as ou_code,"" as project_number,timestamp("1900-01-01") as blocked_since
             ;;
   }
 
