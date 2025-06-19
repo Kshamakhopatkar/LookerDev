@@ -205,4 +205,11 @@
       timeframes: [raw, time, date, week, month, quarter, year]
       sql: ${TABLE}.created_timestamp ;;
     }
+    measure: max_date{
+      type: date
+      label: "Max Date"
+      sql: select  created_timestamp from `premi0570223-dc4prd.datacloud_adm_dq.corp_employee_dq_active_error_details` order by
+        created_timestamp desc limit 1 ;;
+      value_format: "yyyy-dd-mm"
+    }
   }

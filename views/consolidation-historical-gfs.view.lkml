@@ -10,6 +10,8 @@ view: consolidation_historical_gfs {
       SELECT "GFS_Provider_OU" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,project_number,date(dc_created_timestamp) as dc_created_timestamp FROM finance_dq.gfs_provider_ou_dq_error_details
     UNION ALL
             SELECT "GFS_Active" as interface_name,"INBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,ou_code,project_number,date(dc_created_timestamp) as dc_created_timestamp FROM finance_dq.gfs_task_dq_error_details
+           UNION ALL
+            SELECT "Replicon_Project" as interface_name,"OUTBOUND" as interface_type,rule_column,SUBSTR(severity, 10) as severity,error_description,"Not Available in Interface"as ou_code,Project_code as project_number,blocked_since as dc_created_timestamp FROM datacloud_adm_dq.replicon_project_dq_error_details
             ;;
   }
 

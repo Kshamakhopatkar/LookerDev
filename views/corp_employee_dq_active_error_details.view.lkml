@@ -207,4 +207,5 @@ SELECT "COSTARICA" as interface_name ,"INBOUND" as interface_type,"" as rule_col
     type: count
   }
 
+
 }
