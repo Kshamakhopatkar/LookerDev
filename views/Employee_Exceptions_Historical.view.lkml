@@ -143,7 +143,10 @@
         SELECT "CAMBRIDGE" as interface_name ,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid, "" as pernr_id," "as ou_code, "" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
       UNION ALL
         SELECT "SPAIN_NEW_PORTAL" as interface_name ,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid,"" as pernr_id," "as ou_code, "" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
-
+      UNION ALL
+      SELECT "BGV" as interface_name, "INBOUND" as interface_type,rule_column,severity,error_description,global_group_id as ggid, pernr as pernr_id,"Not Available in Interface"  as ou_code,"Not Available in Interface"  as Country_of_Company, employee_status_code,created_timestamp FROM datacloud_adm_dq.bgv_employee_dq_error_details
+    UNION ALL
+    SELECT "BGV" as interface_name ,"INBOUND" as interface_type,"" as rule_column,"" as severity,"DUMMY Exception inserted to handle No Exception Scenario" as error_description, " " as ggid, "" as pernr_id," "as ou_code,"" as country_of_company," " employee_status_code,timestamp("1900-01-01") as created_timestamp
 
 
 ;;
